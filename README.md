@@ -19,3 +19,25 @@ reference/   independent Python reference matcher
 legacy/      immutable Phase II RC1 evidence
 ```
 
+The corpus identity a consumer pins is:
+
+```text
+version:          1.0.0-rc2
+canonical digest: 4804772d20fb36c7329b2c5f2f28e264d9bc00b11e407e76d9836fc38cd80470
+vectors:          184
+```
+
+That digest is derived from the authored vectors alone, so repository metadata
+never changes it.
+
+See [Changelog](CHANGELOG.md) and [Release notes](release-notes/1.0.0-rc2.md).
+
+## Licensing
+
+The authored semantic data — `vectors/`, `schemas/`, `registry/`, `spec/`,
+`docs/` — is dedicated to the public domain under CC0-1.0, so engine maintainers
+can vendor vectors into their own test suites without friction. The independent
+reference matcher in `reference/` and its tests are Apache-2.0. No blanket
+licence is asserted over `legacy/`, which mixes Occurframe-authored research with
+third-party-derived evidence. See [Licensing](LICENSING.md).
+
