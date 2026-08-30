@@ -1,10 +1,14 @@
 # Known Contradictions
 
-## Reserved CLI versus the no-engine product verdict
+## Reserved CLI versus the no-engine product verdict — RESOLVED
 
-Research II reserves exactly `occurframe test`, `occurframe explain`, `occurframe classify`, and `occurframe occurrences` (with an `oframe` executable alias). The final product verdict simultaneously prohibits a production recurrence engine. `explain`, `classify`, and especially `occurrences` appear to require evaluator behavior.
+**Resolved by [ERRATA-001](../spec/ERRATA.md#errata-001--oracle-only-cli-surface).**
 
-This milestone records but does not resolve that contradiction. It implements no public CLI and no evaluator. A later doctrine decision must define whether those commands consume external observations, operate only on corpus knowledge, delegate to declared engines, or reopen the engine gate.
+Research II reserved exactly `occurframe test`, `occurframe explain`, `occurframe classify`, and `occurframe occurrences` (with an `oframe` executable alias), while its own decision gate explicitly did not authorise a production recurrence engine in any language. `explain`, `classify` and especially `occurrences` each require Occurframe to compute occurrences rather than observe them, so three of the four commands could not be built without violating the verdict they were recorded beside.
+
+ERRATA-001 applies the precedence rule that a final verdict governs lower-level interface text derived from it. Occurframe v1 ships one semantic command, `test`, which is satisfied by measuring an external engine. The other three are deferred behind the unchanged engine gate, with their frozen semantics preserved verbatim in `spec/CLI.md` §6.7. They were not redefined into corpus or report commands to preserve their names, and no evaluator was built, embedded, delegated to or renamed.
+
+The specification API in `spec/CLI.md` §§1–5 is unchanged and remains specification-only: what a conforming implementation exposes, not a library Occurframe v1 ships.
 
 ## Historical RC1 error status
 

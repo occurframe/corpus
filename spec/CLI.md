@@ -1,9 +1,19 @@
 # Final Conceptual API and CLI
 
+> **Amended by [ERRATA-001](ERRATA.md#errata-001--oracle-only-cli-surface).**
+> §6 originally froze four shipped commands. Three of them —`explain`,
+> `classify`, `occurrences` — cannot be implemented without the production
+> recurrence engine that `RESEARCH-II.md` §5 explicitly does not authorise, so
+> the verdict governs and they are deferred behind the engine gate. Occurframe
+> v1 ships one semantic command, `test`. Their frozen semantics are preserved
+> unchanged in §6.7, and the original Research II text is preserved verbatim at
+> `legacy/phase2-rc1/research/17-conceptual-api-and-cli.md`. §§1–5 are
+> unaffected.
+
 Two surfaces are frozen here. Under the ORACLE ONLY verdict they have different standing, and the difference matters:
 
 - **The specification API** (§1–§5) is the operation set the behavioural specification defines and the corpus tests. It is what a conforming implementation exposes. Occurframe v1 does not ship it as a library; it publishes it as the thing conformance is measured against, and the reference matcher implements the subset needed to score the corpus.
-- **The CLI** (§6) is a shipped v1 artefact. It is the corpus runner and the differ, not a general-purpose scheduling tool.
+- **The CLI** (§6) is a shipped v1 artefact. It is the corpus runner, not a general-purpose scheduling tool. *As frozen this read "the corpus runner and the differ"; the differ is `classify`, deferred by ERRATA-001.*
 
 No production code appears here. Signatures and type shapes are in scope; implementations are not.
 
@@ -142,9 +152,31 @@ serialize(sched) / deserialize(bytes)
 
 ### 6.1 The decision
 
-**Ship a CLI. Ship four commands. Do not ship a general-purpose scheduling CLI.**
+**Ship a CLI. Ship one semantic command. Do not ship a general-purpose scheduling CLI.**
 
-The justification is narrow and specific: under ORACLE ONLY the corpus *is* the product, and a corpus that cannot be run from a shell is not a product — it is a directory. Three of the four commands exist to operate the corpus; the fourth exists because the measured prevalence data shows schedule owners cannot currently answer a question about their own schedules that a single command can answer.
+*As frozen by Research II, this read:* **"Ship a CLI. Ship four commands. Do not
+ship a general-purpose scheduling CLI."** Its justification was narrow and
+specific: under ORACLE ONLY the corpus *is* the product, and a corpus that cannot
+be run from a shell is not a product — it is a directory. Three of the four
+commands exist to operate the corpus; the fourth exists because the measured
+prevalence data shows schedule owners cannot currently answer a question about
+their own schedules that a single command can answer.
+
+[ERRATA-001](ERRATA.md#errata-001--oracle-only-cli-surface) corrects the count,
+not the reasoning. Of the four, only `test` (§6.3) is satisfiable by measuring an
+external engine. `explain`, `classify` and `occurrences` each require Occurframe
+to compute occurrences itself, which `RESEARCH-II.md` §5 does not authorise in
+v1. The corpus still needs a shell interface, and `test` is it.
+
+**The v1 shipped command surface is therefore:**
+
+```text
+occurframe test
+oframe test
+```
+
+`explain`, `classify` and `occurrences` are deferred behind the engine gate;
+their frozen semantics are preserved in §6.7 and are not part of the v1 contract.
 
 Commands considered and **rejected**: `occurframe validate` (folded into `explain`, which must validate to explain); `occurframe inspect` (an unfocused name for whatever `explain` does not cover); anything that runs, schedules, or waits.
 
@@ -163,16 +195,21 @@ Commands considered and **rejected**: `occurframe validate` (folded into `explai
 | tzdb | `--tzdb <version>` pins; the version used is echoed in every output. |
 | Colour | Never in JSON; `--no-color` honoured; respects `NO_COLOR`. |
 
-**Exit codes, frozen:**
+**Exit codes, frozen.** The numbering is unchanged by ERRATA-001; the final
+column records which codes the v1 shipped surface can actually produce, because
+`2` and `5` presuppose evaluating a caller's schedule.
 
-| Code | Meaning |
-|---|---|
-| 0 | Success; for `test`, full conformance |
-| 1 | Conformance failure, or a divergence was found by `classify` |
-| 2 | Rejection — the input is not a valid schedule |
-| 3 | Usage error — a required flag is missing or unknown |
-| 4 | Environment error — tzdb unavailable or its version undeterminable |
-| 5 | Truncation reached before the requested window completed |
+| Code | Meaning | v1 |
+|---|---|---|
+| 0 | Success; for `test`, full conformance | active |
+| 1 | Conformance failure, or a divergence was found by `classify` | active (conformance failure only) |
+| 2 | Rejection — the input is not a valid schedule | inactive; engine-gated |
+| 3 | Usage error — a required flag is missing or unknown | active |
+| 4 | Environment error — tzdb unavailable or its version undeterminable | active |
+| 5 | Truncation reached before the requested window completed | inactive; engine-gated |
+
+An inactive code is reserved, never reused and never renumbered: if the engine
+gate opens, the deferred commands take the codes they were frozen with.
 
 `[INFER]` Codes 1 and 2 are deliberately distinct: "your schedule is fine and the engines disagree about it" and "your schedule is not a schedule" are different facts, and a CI pipeline should be able to act on them differently.
 
@@ -190,7 +227,19 @@ occurframe test --engine <adapter> [--corpus <path>] [--family <f>...]
 - **`POLICY_DEPENDENT` and `AMBIGUOUS_STANDARD` vectors are asserted against admissible *sets*, never single answers.** A verdict of "outside the admissible set" is a failure; "a different admissible member than last time" is a recorded change, not a failure.
 - Exit 0 only on full conformance for the selected families.
 
-### 6.4 `occurframe explain`
+### 6.7 Deferred commands — engine-gated, not part of v1
+
+The three subsections below are preserved **verbatim as Research II froze them**.
+They are not implemented, not shipped, and not advertised in the CLI's default
+help. They are recorded so that the engine gate in `RESEARCH-II.md` §5 can be
+walked through without reopening research, exactly as that section intends.
+
+Each requires Occurframe to compute occurrences rather than observe them; see
+[ERRATA-001](ERRATA.md#errata-001--oracle-only-cli-surface) for the per-command
+reasoning. Nothing below may be read as describing shipped v1 behaviour, and none
+of these names may be reused for a different operation while deferred.
+
+#### 6.7.1 `occurframe explain`
 
 ```
 occurframe explain <schedule> --zone Z [--dialect D] [--policy...] [--from T --limit N]
@@ -200,7 +249,7 @@ Emits the structured explanation: what the schedule denotes, which policy axes a
 
 This is the command that answers requirement 9 from the UX analysis: *why did this occurrence move or get skipped during DST?* The answer is a field in the resolution record, not a support ticket.
 
-### 6.5 `occurframe classify`
+#### 6.7.2 `occurframe classify`
 
 ```
 occurframe classify <text|-> [--dialects D1,D2,...] [--window T0..T1] [--zone Z]
@@ -212,7 +261,7 @@ Reading stdin line-by-line makes the practical case work: `cat crontab | occurfr
 
 `[MEASURED]` This is the command the prevalence corpus argues for. Kubernetes `spec.timeZone` was set in 6 of 279 measured CronJobs and resolved to a real zone in **zero** of them; 13 schedules used a fixed-offset `EST` where a DST zone was meant, one in a live production calendar feed. Those are findable by a lint and are not currently findable at all.
 
-### 6.6 `occurframe occurrences`
+#### 6.7.3 `occurframe occurrences`
 
 ```
 occurframe occurrences <schedule> --zone Z --from T0 (--to T1 | --limit N) [--dialect D] [--policy...]
@@ -240,9 +289,9 @@ For a future implementation, the frozen mapping notes:
 
 ## Contradictions and unresolved conflicts
 
-1. **A frozen API for a library that v1 does not ship** is an odd artefact. Its justification is that the corpus tests operations, so the operations must be named — and that the gate in `RESEARCH-II.md` §5 should be walkable without reopening design. A reader may reasonably call it premature.
+1. **A frozen API for a library that v1 does not ship** is an odd artefact. Its justification is that the corpus tests operations, so the operations must be named — and that the gate in `RESEARCH-II.md` §5 should be walkable without reopening design. A reader may reasonably call it premature. **Partly resolved by [ERRATA-001](ERRATA.md#errata-001--oracle-only-cli-surface):** the oddity became a contradiction where §6 declared three of those unshipped operations to be shipped commands, and the verdict governs. The API itself remains specification-only and unchanged; the three commands are deferred.
 2. **`next(Occurrence)` with no `Instant` overload is stricter than any incumbent** and will read as hostile to anyone porting existing code. `first_after` covers the bootstrap, but a caller who has stored only a timestamp — which is most of them — must reconstruct an occurrence to continue a series. That is the correct behaviour and it is a real migration cost.
-3. **`occurframe classify` and `occurframe explain` overlap** at their edges; `explain` on a `Pattern` will want to say something about dialect sensitivity, which is `classify`'s job. The boundary drawn here (one schedule versus one string across many dialects) is defensible but not self-evident.
+3. **`occurframe classify` and `occurframe explain` overlap** at their edges; `explain` on a `Pattern` will want to say something about dialect sensitivity, which is `classify`'s job. The boundary drawn here (one schedule versus one string across many dialects) is defensible but not self-evident. *Both commands are deferred by ERRATA-001; the overlap is unresolved and inherited by whoever walks the engine gate.*
 4. **`admission_key` is exposed in the API and is not a value to display.** Exposing something whose documentation says "do not show this to anyone" invites misuse.
 
 ## What this section does not establish

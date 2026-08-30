@@ -55,7 +55,27 @@ vectors:          184
   rather than description, so a `per_policy` or `per_dialect` expectation is
   selected by what an engine declares about itself.
 
-### Publication metadata (this change only)
+### Specification errata
+
+- `spec/ERRATA.md` with **ERRATA-001 — ORACLE ONLY CLI surface**, resolving the
+  contradiction between Research II's four-command CLI freeze and its own
+  decision gate, which does not authorise a production recurrence engine in any
+  language. `explain`, `classify` and `occurrences` each require Occurframe to
+  compute occurrences rather than observe them; `test` does not. The verdict
+  governs, so v1 ships `test` alone and the other three are deferred behind the
+  unchanged engine gate with their frozen semantics preserved verbatim.
+- `spec/CLI.md` amended accordingly: §6.1 states the resolved one-command
+  surface, the exit-code table records which codes v1 can produce, and the three
+  deferred commands move to a clearly labelled §6.7 with their text unchanged.
+  §§1–5, the specification API, are untouched and remain specification-only.
+- `spec/specification.json`, the machine-readable identity of the behavioural
+  specification, introducing **specification version `1.0.0-rc1`**. The
+  specification versions independently of the tooling, the corpus and the runner
+  protocol.
+- Research II sources under `legacy/phase2-rc1/research/` are unchanged. No
+  history was rewritten.
+
+### Publication metadata
 
 - `LICENSE-CC0`, `LICENSE-APACHE` and `LICENSING.md`, recording the licence split
   the repository already intended: CC0-1.0 for the authored semantic data and

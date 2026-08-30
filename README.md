@@ -30,6 +30,14 @@ vectors:          184
 That digest is derived from the authored vectors alone, so repository metadata
 never changes it.
 
+The behavioural specification versions independently of the corpus. It is
+currently **`1.0.0-rc1`**, declared in [`spec/specification.json`](spec/specification.json),
+and its corrections are recorded in [Errata](spec/ERRATA.md). Under
+[ERRATA-001](spec/ERRATA.md#errata-001--oracle-only-cli-surface), Occurframe v1
+ships one semantic command, `occurframe test`; `explain`, `classify` and
+`occurrences` are deferred behind the engine gate because each requires a
+recurrence evaluator that the ORACLE ONLY verdict does not authorise.
+
 See [Changelog](CHANGELOG.md) and [Release notes](release-notes/1.0.0-rc2.md).
 
 ## Licensing

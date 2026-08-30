@@ -1,0 +1,58 @@
+{
+  "_comment": [
+    "Machine-readable identity of the Occurframe behavioural specification.",
+    "The specification versions independently of the tooling, the corpus and the",
+    "runner protocol: it is the semantics an implementation is measured against,",
+    "not the artefact that measures. This file is the single authoring-side",
+    "declaration of that version; the tooling pins the same value once in",
+    "release/evidence-lock.json and release packaging fails if the two disagree.",
+    "Adding this file changes no vector, no expectation and no canonical digest."
+  ],
+  "schema_version": "1.0.0",
+  "specification_version": "1.0.0-rc1",
+  "status": "release_candidate",
+  "documents": [
+    "spec/BEHAVIOR.md",
+    "spec/CIVIL-TIME.md",
+    "spec/CLI.md",
+    "spec/COMPATIBILITY.md",
+    "spec/IDENTITY.md",
+    "spec/ERRATA.md"
+  ],
+  "command_doctrine": {
+    "verdict": "GO — ORACLE ONLY",
+    "resolved_by": "ERRATA-001",
+    "shipped_v1_commands": [
+      "test"
+    ],
+    "deferred_engine_gated_commands": [
+      "classify",
+      "explain",
+      "occurrences"
+    ],
+    "engine_gate": "A named maintainer of a named project commits, in writing and in public, to adopt an Occurframe engine at a specified integration seam.",
+    "engine_gate_state": "closed",
+    "specification_api_status": "specification_only_not_shipped_as_a_library_in_v1"
+  },
+  "exit_codes": {
+    "active_in_v1": [
+      0,
+      1,
+      3,
+      4
+    ],
+    "reserved_inactive": [
+      2,
+      5
+    ]
+  },
+  "errata": [
+    {
+      "id": "ERRATA-001",
+      "title": "ORACLE ONLY CLI surface",
+      "status": "resolved",
+      "document": "spec/ERRATA.md",
+      "amends": "spec/CLI.md#6"
+    }
+  ]
+}
