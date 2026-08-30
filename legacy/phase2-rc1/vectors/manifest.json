@@ -1,0 +1,176 @@
+{
+  "corpus": "occurframe-conformance-oracle",
+  "corpus_version": "1.0.0-rc1",
+  "generated_utc": "2026-08-30T04:04:29+00:00",
+  "vector_count": 184,
+  "files": {
+    "cron-anchoring.jsonl": 4,
+    "cron-day-fields.jsonl": 10,
+    "cron-dow-numbering.jsonl": 8,
+    "cron-dst.jsonl": 20,
+    "cron-extensions.jsonl": 14,
+    "cron-field-count.jsonl": 13,
+    "cron-invalid.jsonl": 12,
+    "cron-names.jsonl": 5,
+    "cron-steps.jsonl": 12,
+    "rrule-by.jsonl": 32,
+    "rrule-core.jsonl": 18,
+    "rrule-dst.jsonl": 12,
+    "rrule-sets.jsonl": 14,
+    "tzdb-provenance.jsonl": 10
+  },
+  "classification_counts": {
+    "DIALECT_DEPENDENT": 37,
+    "KNOWN_DIVERGENCE": 4,
+    "NORMATIVE": 65,
+    "INVALID": 24,
+    "AMBIGUOUS_STANDARD": 21,
+    "POLICY_DEPENDENT": 33
+  },
+  "family_counts": {
+    "cron.day-fields": 10,
+    "cron.dow-numbering": 8,
+    "cron.names": 5,
+    "cron.field-count": 13,
+    "cron.steps": 12,
+    "cron.extensions": 14,
+    "cron.invalid": 12,
+    "cron.anchoring": 4,
+    "cron.dst": 20,
+    "rrule.core": 18,
+    "rrule.by": 32,
+    "rrule.dst": 12,
+    "rrule.sets": 14,
+    "tzdb.provenance": 10
+  },
+  "sources": {
+    "rfc5545-3.3.10": {
+      "title": "RFC 5545 \u00a73.3.10 (RECUR value type)",
+      "url": "https://www.rfc-editor.org/rfc/rfc5545#section-3.3.10"
+    },
+    "rfc5545-3.8.5.3": {
+      "title": "RFC 5545 \u00a73.8.5.3 (Recurrence Rule)",
+      "url": "https://www.rfc-editor.org/rfc/rfc5545#section-3.8.5.3"
+    },
+    "rfc5545-3.8.5.1": {
+      "title": "RFC 5545 \u00a73.8.5.1 (Exception Date-Times)",
+      "url": "https://www.rfc-editor.org/rfc/rfc5545#section-3.8.5.1"
+    },
+    "rfc5545-3.8.5.2": {
+      "title": "RFC 5545 \u00a73.8.5.2 (Recurrence Date-Times)",
+      "url": "https://www.rfc-editor.org/rfc/rfc5545#section-3.8.5.2"
+    },
+    "rfc5545-3.3.5": {
+      "title": "RFC 5545 \u00a73.3.5 (DATE-TIME)",
+      "url": "https://www.rfc-editor.org/rfc/rfc5545#section-3.3.5"
+    },
+    "eid1913": {
+      "title": "RFC 5545 erratum 1913 (Verified, Technical, \u00a73.3.10)",
+      "url": "https://www.rfc-editor.org/errata/eid1913"
+    },
+    "eid3747": {
+      "title": "RFC 5545 erratum 3747 (Verified, Editorial, \u00a73.3.10 Note 2)",
+      "url": "https://www.rfc-editor.org/errata/eid3747"
+    },
+    "eid3779": {
+      "title": "RFC 5545 erratum 3779 (Verified, Technical, \u00a73.3.10)",
+      "url": "https://www.rfc-editor.org/errata/eid3779"
+    },
+    "eid3883": {
+      "title": "RFC 5545 erratum 3883 (Verified, Technical, \u00a73.8.5.3 UNTIL example)",
+      "url": "https://www.rfc-editor.org/errata/eid3883"
+    },
+    "eid4271": {
+      "title": "RFC 5545 erratum 4271 (Verified, Technical, \u00a73.3.10 nonexistent local times)",
+      "url": "https://www.rfc-editor.org/errata/eid4271"
+    },
+    "eid5920": {
+      "title": "RFC 5545 erratum 5920 (REJECTED, \u00a73.8.5.3 Friday-the-13th example)",
+      "url": "https://www.rfc-editor.org/errata/eid5920"
+    },
+    "eid6316": {
+      "title": "RFC 5545 erratum 6316 (REPORTED since 2020-10-22, \u00a73.8.5.1 EXDATE value type)",
+      "url": "https://www.rfc-editor.org/errata/eid6316"
+    },
+    "rfc7529": {
+      "title": "RFC 7529 (Non-Gregorian Recurrence Rules, RSCALE/SKIP)",
+      "url": "https://www.rfc-editor.org/rfc/rfc7529"
+    },
+    "rfc8984-4.3.3": {
+      "title": "RFC 8984 \u00a74.3.3 (JSCalendar RecurrenceRule)",
+      "url": "https://www.rfc-editor.org/rfc/rfc8984#section-4.3.3"
+    },
+    "posix-crontab": {
+      "title": "POSIX.1-2017 crontab",
+      "url": "https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html"
+    },
+    "crontab5": {
+      "title": "crontab(5), Vixie/cronie lineage",
+      "url": "https://man7.org/linux/man-pages/man5/crontab.5.html"
+    },
+    "vixie-cron.c": {
+      "title": "vixie/cron cron.c find_jobs() dom/dow predicate",
+      "url": "https://github.com/vixie/cron/blob/master/cron.c"
+    },
+    "vixie-entry.c": {
+      "title": "vixie/cron entry.c DOM_STAR/DOW_STAR first-character flagging",
+      "url": "https://github.com/vixie/cron/blob/master/entry.c"
+    },
+    "crontab-guru-bug": {
+      "title": "crontab.guru, 'the cron bug'",
+      "url": "https://crontab.guru/cron-bug.html"
+    },
+    "fcron5": {
+      "title": "fcrontab(5), dayand option",
+      "url": "https://man.archlinux.org/man/fcrontab.5.en"
+    },
+    "dcron": {
+      "title": "dcron crontab.markdown (Nth-weekday day-field semantics)",
+      "url": "https://github.com/dubiousjim/dcron/blob/master/crontab.markdown"
+    },
+    "micron": {
+      "title": "GNU micron manual, Cronjob Definition (strict/vixie/dillon)",
+      "url": "https://www.gnu.org.ua/software/micron/manual/Cronjob-Definition.html"
+    },
+    "quartz": {
+      "title": "Quartz CronExpression (1=SUN..7=SAT, '?' requirement, L/W/#)",
+      "url": "https://www.quartz-scheduler.org/api/2.3.0/org/quartz/CronExpression.html"
+    },
+    "aws-eventbridge": {
+      "title": "AWS EventBridge schedule expressions (6 fields, '?' required)",
+      "url": "https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-cron-expressions.html"
+    },
+    "healthchecks-funky": {
+      "title": "healthchecks.io, 'Schedule a cron job the funky way' (*/100,1-7 idiom)",
+      "url": "https://blog.healthchecks.io/2022/09/schedule-cron-job-the-funky-way/"
+    },
+    "tzdb-news": {
+      "title": "IANA tz database NEWS",
+      "url": "https://data.iana.org/time-zones/tzdb/NEWS"
+    },
+    "tzdb-2026b": {
+      "title": "tzdb 2026b (2026-04-22): British Columbia permanent -07",
+      "url": "https://www.iana.org/time-zones/releases/2026b"
+    },
+    "tzdb-2026c": {
+      "title": "tzdb 2026c (2026-07-08): Alberta permanent -06; Morocco permanent UTC 2026-09-20",
+      "url": "https://www.iana.org/time-zones/releases/2026c"
+    },
+    "tz-theory": {
+      "title": "IANA tz theory.html (zone naming and stability guarantees)",
+      "url": "https://data.iana.org/time-zones/theory.html"
+    },
+    "libical-recur-test": {
+      "title": "libical src/test/icalrecur_test.txt (format precedent)",
+      "url": "https://github.com/libical/libical/blob/master/src/test/icalrecur_test.txt"
+    },
+    "dateutil-docs": {
+      "title": "python-dateutil rrule documentation (until+count deprecation)",
+      "url": "https://dateutil.readthedocs.io/en/stable/rrule.html"
+    },
+    "iso8601-2": {
+      "title": "ISO 8601-2:2019 clause 5 repeat rules (EDTF working draft)",
+      "url": "https://www.loc.gov/standards/datetime/"
+    }
+  }
+}

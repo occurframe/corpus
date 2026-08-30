@@ -1,0 +1,71 @@
+# Conformance report — `rrule.js@tzle2026a`
+
+- engine: **rrule.js** 2.8.0 (git jkbrzt/rrule @9f2061f 2023-11-10)
+- runtime: bun 1.3.13
+- tzdb: **le2026a** (from runtime ICU (fingerprint le2026a))
+- runner: run_js.ts
+- corpus: 1.0.0-rc1
+
+**Scored 72 of 184 vectors; 57 pass (79.2%).** The remainder are operations this engine does not implement, or vectors the corpus records without scoring.
+
+## Policies and dialects this engine implements
+
+| axis value observed | vectors |
+|---|--:|
+| `empty` | 4 |
+| `reject` | 2 |
+| `degenerate` | 1 |
+| `expand` | 1 |
+| `rule-only` | 1 |
+| `lazy-iterator` | 1 |
+| `open` | 1 |
+| `exclude-midnight-only` | 1 |
+| `silent` | 1 |
+| `wall-time-match` | 1 |
+| `rfc2445` | 1 |
+| `include` | 1 |
+| `tzdb<=2026a` | 1 |
+
+## FAIL (6)
+
+- `RRULE-CORE-006` UNTIL one second before an instance excludes it
+  - engine gave: `1997-09-02T09:00:00-04:00|1997-09-02T13:00:00Z, 1997-09-03T09:00:00-04:00|1997-09-03T13:00:00Z, 1997-09-04T09:00:00-04:00|1997-09-04T13:00:00Z`
+  - corpus expects: `1997-09-02T09:00:00-04:00|1997-09-02T13:00:00Z, 1997-09-03T09:00:00-04:00|1997-09-03T13:00:00Z`
+- `RRULE-CORE-007` UNTIL must be UTC when DTSTART carries a TZID (erratum 3883's example, corrected)
+  - engine gave: `1997-09-02T09:00:00-04:00|1997-09-02T13:00:00Z, 1997-09-02T12:00:00-04:00|1997-09-02T16:00:00Z, 1997-09-02T15:00:00-04:00|1997-09-02T19:00:00Z, 1997-09-02T18:00:00-04:00|1997-09-02T22:00:00Z`
+  - corpus expects: `1997-09-02T09:00:00-04:00|1997-09-02T13:00:00Z, 1997-09-02T12:00:00-04:00|1997-09-02T16:00:00Z, 1997-09-02T15:00:00-04:00|1997-09-02T19:00:00Z`
+- `RRULE-CORE-008` The uncorrected erratum-3883 example (UNTIL=...T170000Z)
+  - engine gave: `1997-09-02T09:00:00-04:00|1997-09-02T13:00:00Z, 1997-09-02T12:00:00-04:00|1997-09-02T16:00:00Z, 1997-09-02T15:00:00-04:00|1997-09-02T19:00:00Z`
+  - corpus expects: `1997-09-02T09:00:00-04:00|1997-09-02T13:00:00Z, 1997-09-02T12:00:00-04:00|1997-09-02T16:00:00Z`
+- `RRULE-SET-002` RDATE adds an instance outside the RRULE
+  - engine gave: `2026-01-07T14:00:00-05:00|2026-01-07T19:00:00Z, 2026-01-05T09:00:00-05:00|2026-01-05T14:00:00Z, 2026-01-12T09:00:00-05:00|2026-01-12T14:00:00Z, 2026-01-19T09:00:00-05:00|2026-01-19T14:00:00Z`
+  - corpus expects: `2026-01-05T09:00:00-05:00|2026-01-05T14:00:00Z, 2026-01-07T14:00:00-05:00|2026-01-07T19:00:00Z, 2026-01-12T09:00:00-05:00|2026-01-12T14:00:00Z, 2026-01-19T09:00:00-05:00|2026-01-19T14:00:00Z`
+- `RRULE-SET-007` Duplicate instants from RRULE and RDATE are coalesced
+  - engine gave: `2026-01-06T09:00:00-05:00|2026-01-06T14:00:00Z, 2026-01-05T09:00:00-05:00|2026-01-05T14:00:00Z, 2026-01-07T09:00:00-05:00|2026-01-07T14:00:00Z`
+  - corpus expects: `2026-01-05T09:00:00-05:00|2026-01-05T14:00:00Z, 2026-01-06T09:00:00-05:00|2026-01-06T14:00:00Z, 2026-01-07T09:00:00-05:00|2026-01-07T14:00:00Z`
+- `RRULE-SET-014` RDATE and RRULE producing instants one second apart
+  - engine gave: `2026-01-06T09:00:01-05:00|2026-01-06T14:00:01Z, 2026-01-05T09:00:00-05:00|2026-01-05T14:00:00Z, 2026-01-06T09:00:00-05:00|2026-01-06T14:00:00Z, 2026-01-07T09:00:00-05:00|2026-01-07T14:00:00Z`
+  - corpus expects: `2026-01-05T09:00:00-05:00|2026-01-05T14:00:00Z, 2026-01-06T09:00:00-05:00|2026-01-06T14:00:00Z, 2026-01-06T09:00:01-05:00|2026-01-06T14:00:01Z, 2026-01-07T09:00:00-05:00|2026-01-07T14:00:00Z`
+
+## REJECT-BAD (7)
+
+- `RRULE-BY-024` BYWEEKNO with FREQ=MONTHLY (forbidden)
+  - engine gave: `2026-01-01T09:00:00, 2026-01-02T09:00:00, 2026-01-03T09:00:00`
+- `RRULE-BY-025` Numeric BYDAY with FREQ=WEEKLY (forbidden)
+  - engine gave: `2026-01-05T09:00:00, 2026-01-12T09:00:00, 2026-01-19T09:00:00`
+- `RRULE-BY-032` BYMONTHDAY=32
+- `RRULE-CORE-010` UNTIL value type mismatched with DTSTART (Z on a floating start)
+  - engine gave: `1997-09-02T09:00:00, 1997-09-03T09:00:00, 1997-09-04T09:00:00`
+- `RRULE-CORE-011` COUNT and UNTIL in the same RRULE (forbidden)
+  - engine gave: `1997-09-02T09:00:00-04:00|1997-09-02T13:00:00Z, 1997-09-03T09:00:00-04:00|1997-09-03T13:00:00Z, 1997-09-04T09:00:00-04:00|1997-09-04T13:00:00Z`
+- `RRULE-CORE-015` FREQ missing
+  - engine gave: `1997-09-02T09:00:00, 1998-09-02T09:00:00, 1999-09-02T09:00:00, 2000-09-02T09:00:00`
+- `RRULE-CORE-016` INTERVAL=0
+
+## NOVEL (2)
+
+- `RRULE-DST-001` Daily 02:30 across the US spring-forward gap
+  - engine gave: `2026-03-06T02:30:00-05:00|2026-03-06T07:30:00Z, 2026-03-07T02:30:00-05:00|2026-03-07T07:30:00Z, 2026-03-08T03:30:00-04:00|2026-03-08T07:30:00Z, 2026-03-09T02:30:00-04:00|2026-03-09T06:30:00Z`
+- `RRULE-SET-008` Two RRULEs in one component
+  - engine gave: `2026-01-05T09:00:00-05:00|2026-01-05T14:00:00Z, 2026-01-12T09:00:00-05:00|2026-01-12T14:00:00Z, 2026-01-07T09:00:00-05:00|2026-01-07T14:00:00Z, 2026-01-14T09:00:00-05:00|2026-01-14T14:00:00Z`
+
