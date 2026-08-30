@@ -1,0 +1,46 @@
+name: Corpus authority CI
+
+on:
+  pull_request:
+  push:
+    branches: [dev, main]
+
+jobs:
+  correctness:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout corpus
+        uses: actions/checkout@v4
+      - name: Checkout pinned Occurframe tooling
+        uses: actions/checkout@v4
+        with:
+          repository: occurframe/occurframe
+          ref: b4c0097425034e72f592f25b91bfed3e239facf5
+          path: .tooling
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Schema, corpus, stable-ID, and registry validation
+        run: cargo run --manifest-path .tooling/Cargo.toml -p xtask -- validate --corpus .
+      - name: RC1 to RC2 semantic migration verification
+        run: cargo run --manifest-path .tooling/Cargo.toml -p xtask -- verify-migration --legacy-vectors legacy/phase2-rc1/vectors --corpus .
+      - name: Deterministic pack verification
+        run: cargo run --manifest-path .tooling/Cargo.toml -p xtask -- verify-deterministic --corpus .
+      - name: Generate release candidate pack
+        run: cargo run --manifest-path .tooling/Cargo.toml -p xtask -- pack --corpus . --output dist/occurframe-corpus-1.0.0-rc2
+      - name: Manifest digest verification
+        run: cargo run --manifest-path .tooling/Cargo.toml -p xtask -- verify-manifest --output dist/occurframe-corpus-1.0.0-rc2
+      - name: Independent Python reference cases
+        run: python -m unittest discover -s tests/reference -v
+
+  legacy-checksums:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify immutable RC1 evidence
+        working-directory: legacy/phase2-rc1
+        run: sha256sum --check SHA256SUMS
+
+# Fast correctness CI is intentionally not full differential certification.
+# External engines are not executed in ordinary pull requests.
