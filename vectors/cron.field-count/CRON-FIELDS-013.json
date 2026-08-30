@@ -1,0 +1,63 @@
+{
+  "classification": "AMBIGUOUS_STANDARD",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "reject",
+        "note": "A recurrence library has no startup event and should reject.",
+        "occurrences": null,
+        "when": {}
+      },
+      {
+        "label": "empty",
+        "note": "Parse successfully and yield no occurrences.",
+        "occurrences": [],
+        "when": {}
+      },
+      {
+        "label": "error-at-iteration",
+        "note": "Parse successfully, raise on first iteration.",
+        "occurrences": null,
+        "when": {}
+      }
+    ],
+    "mode": "admissible",
+    "note": "crontab(5) defines @reboot only in terms of the daemon's lifecycle, so a pure recurrence engine has no correct answer."
+  },
+  "family": "cron.field-count",
+  "id": "CRON-FIELDS-013",
+  "input": {
+    "count": 1,
+    "expr": "@reboot",
+    "fields": 5,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-01-01T00:00:00",
+    "zone": null
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "@reboot : Run once, at startup.",
+      "source_id": "crontab5"
+    }
+  ],
+  "operation": "cron.parse",
+  "rationale": "@reboot is the clearest case in the corpus where the expression language names something outside the recurrence model. Recording three admissible answers is more useful than legislating one.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "macros",
+    "execution-boundary"
+  ],
+  "title": "@reboot (an event, not a recurrence)"
+}

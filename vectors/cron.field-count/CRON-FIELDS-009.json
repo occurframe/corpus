@@ -1,0 +1,48 @@
+{
+  "classification": "NORMATIVE",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "single",
+    "note": "Documented as exactly equivalent to '0 0 1 1 *'.",
+    "occurrences": [
+      "2027-01-01T00:00:00",
+      "2028-01-01T00:00:00",
+      "2029-01-01T00:00:00",
+      "2030-01-01T00:00:00"
+    ]
+  },
+  "family": "cron.field-count",
+  "id": "CRON-FIELDS-009",
+  "input": {
+    "count": 4,
+    "expr": "@yearly",
+    "fields": 5,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-01-01T00:00:00",
+    "zone": null
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "@yearly\tRun once a ... (equivalent to \"0 0 1 1 *\")",
+      "source_id": "crontab5"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "crontab(5) gives the exact five-field expansion, so the answer is normative and every engine that accepts the macro can be scored against it.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "macros"
+  ],
+  "title": "Macro @yearly"
+}

@@ -1,0 +1,45 @@
+{
+  "classification": "NORMATIVE",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "single",
+    "note": "The control for the DST family: a UTC anchor has no gap and no fold, and the local wall time in New York drifts by an hour instead.",
+    "occurrences": [
+      "2026-03-06T07:30:00+00:00|2026-03-06T07:30:00Z",
+      "2026-03-07T07:30:00+00:00|2026-03-07T07:30:00Z",
+      "2026-03-08T07:30:00+00:00|2026-03-08T07:30:00Z",
+      "2026-03-09T07:30:00+00:00|2026-03-09T07:30:00Z"
+    ]
+  },
+  "family": "rrule.dst",
+  "id": "RRULE-DST-007",
+  "input": {
+    "count": 5,
+    "ics": "DTSTART:20260306T073000Z\nRRULE:FREQ=DAILY;COUNT=4",
+    "kind": "rrule",
+    "zone": "UTC"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "source_id": "rfc5545-3.3.5"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "Every hosted scheduler's documented workaround ('use UTC') is this vector. It is correct and it is also the vector that shows what the workaround costs: the wall time moves.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "utc",
+    "control"
+  ],
+  "title": "UTC DTSTART is immune to DST by construction"
+}

@@ -1,0 +1,41 @@
+{
+  "classification": "NORMATIVE",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "single",
+    "occurrences": [
+      "1997-09-02T09:00:00-04:00|1997-09-02T13:00:00Z",
+      "1997-09-03T09:00:00-04:00|1997-09-03T13:00:00Z"
+    ]
+  },
+  "family": "rrule.core",
+  "id": "RRULE-CORE-006",
+  "input": {
+    "count": 6,
+    "ics": "DTSTART;TZID=America/New_York:19970902T090000\nRRULE:FREQ=DAILY;UNTIL=19970904T125959Z",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "source_id": "rfc5545-3.3.10"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "The exclusive half of the UNTIL boundary; the pair pins the comparison operator exactly.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "until"
+  ],
+  "title": "UNTIL one second before an instance excludes it"
+}

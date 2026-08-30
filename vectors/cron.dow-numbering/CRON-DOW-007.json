@@ -1,0 +1,73 @@
+{
+  "classification": "NORMATIVE",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "reject-reversed",
+        "note": "reversed range 6-0",
+        "occurrences": null,
+        "when": {
+          "cron.range_wrap": "reject"
+        }
+      },
+      {
+        "label": "wrap-modulo",
+        "note": "Dialects that wrap a reversed range around the field bounds (croner, some Quartz ports, cron_descriptor).",
+        "occurrences": [
+          "2026-01-03T12:00:00",
+          "2026-01-04T12:00:00",
+          "2026-01-10T12:00:00",
+          "2026-01-11T12:00:00",
+          "2026-01-17T12:00:00",
+          "2026-01-18T12:00:00"
+        ],
+        "when": {
+          "cron.range_wrap": "wrap"
+        }
+      }
+    ],
+    "mode": "per_dialect"
+  },
+  "family": "cron.dow-numbering",
+  "id": "CRON-DOW-007",
+  "input": {
+    "count": 6,
+    "expr": "0 12 * * SAT-SUN",
+    "fields": 5,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-01-01T00:00:00",
+    "zone": null
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "Ranges of numbers are allowed. ... two numbers separated with a hyphen",
+      "source_id": "posix-crontab"
+    },
+    {
+      "source_id": "crontab5"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "Neither POSIX nor crontab(5) says what a reversed range means. Vixie's parser rejects it; several dialects wrap modulo the field. 'Friday through Monday' is a phrase users write; the corpus must record that it is not portable.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "cron.dialect",
+    "cron.range_wrap"
+  ],
+  "tags": [
+    "dow",
+    "range-wrap"
+  ],
+  "title": "Non-wrapping named day range SAT-SUN"
+}

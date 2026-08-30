@@ -1,0 +1,65 @@
+{
+  "classification": "DIALECT_DEPENDENT",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "start-at",
+        "note": "Equivalent to '*' in the seconds field.",
+        "occurrences": [
+          "2026-01-01T00:01:00",
+          "2026-01-01T00:02:00",
+          "2026-01-01T00:03:00"
+        ],
+        "when": {
+          "cron.bare_start_step": "start_at"
+        }
+      },
+      {
+        "label": "reject",
+        "occurrences": null,
+        "when": {
+          "cron.bare_start_step": "reject"
+        }
+      }
+    ],
+    "mode": "per_dialect"
+  },
+  "family": "cron.steps",
+  "id": "CRON-STEP-003",
+  "input": {
+    "count": 3,
+    "expr": "0/1 * * * * *",
+    "fields": 6,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-01-01T00:00:00",
+    "zone": null
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "source_id": "quartz"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "The idiom is ubiquitous in copied Quartz expressions and is a hard parse error in strict engines.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "cron.bare_start_step",
+    "cron.dialect"
+  ],
+  "tags": [
+    "steps",
+    "start-at"
+  ],
+  "title": "0/1 vs * — Quartz idiom in the seconds field"
+}

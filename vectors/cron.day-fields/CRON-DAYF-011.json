@@ -1,0 +1,122 @@
+{
+  "classification": "KNOWN_DIVERGENCE",
+  "context": {
+    "dialect": "cron.vixie@1",
+    "policy": {
+      "cron.dom_dow": "vixie"
+    },
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "vixie-artefact",
+        "note": "Reference matcher reproducing the first-character flagging.",
+        "occurrences": [
+          "2026-01-01T12:00:00",
+          "2026-01-02T12:00:00",
+          "2026-01-03T12:00:00",
+          "2026-01-04T12:00:00",
+          "2026-01-05T12:00:00",
+          "2026-01-06T12:00:00"
+        ],
+        "when": {
+          "cron.dom_dow": "vixie"
+        }
+      },
+      {
+        "label": "or-set-semantics",
+        "note": "Engines that decide OR/AND from the parsed value set rather than the literal text.",
+        "occurrences": [
+          "2026-01-06T12:00:00",
+          "2026-01-13T12:00:00",
+          "2026-01-20T12:00:00",
+          "2026-01-27T12:00:00",
+          "2026-02-03T12:00:00",
+          "2026-02-10T12:00:00"
+        ],
+        "when": {
+          "cron.dom_dow": "or"
+        }
+      },
+      {
+        "label": "or-any-nonstar",
+        "note": "Engines that OR whenever neither field is the literal '*'.",
+        "occurrences": [
+          "2026-01-01T12:00:00",
+          "2026-01-02T12:00:00",
+          "2026-01-03T12:00:00",
+          "2026-01-04T12:00:00",
+          "2026-01-05T12:00:00",
+          "2026-01-06T12:00:00"
+        ],
+        "when": {
+          "cron.dom_dow": "or_text"
+        }
+      },
+      {
+        "label": "and+monday-zero",
+        "note": "APScheduler: AND, with numeric day-of-week 0=Monday.",
+        "occurrences": [
+          "2026-01-07T12:00:00",
+          "2026-01-14T12:00:00",
+          "2026-01-21T12:00:00",
+          "2026-01-28T12:00:00",
+          "2026-02-04T12:00:00",
+          "2026-02-11T12:00:00"
+        ],
+        "when": {
+          "cron.dom_dow": "and+monday-zero"
+        }
+      },
+      {
+        "label": "reject",
+        "note": "Engines that reject a step or list form appearing here.",
+        "occurrences": null,
+        "when": {
+          "cron.dom_dow": "reject"
+        }
+      }
+    ],
+    "mode": "admissible",
+    "note": "The same set written in the other order does NOT set DOM_STAR, so the predicate is OR. Two spellings of one set, two answers."
+  },
+  "family": "cron.day-fields",
+  "id": "CRON-DAYF-011",
+  "input": {
+    "count": 6,
+    "expr": "0 12 10,* * 2",
+    "fields": 5,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-01-01T00:00:00",
+    "zone": null
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "if (ch == '*') e->flags |= DOM_STAR;",
+      "source_id": "vixie-entry.c"
+    },
+    {
+      "quote": "cron inspects the very first character of the day fields",
+      "source_id": "crontab-guru-bug"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "The rule that governs a quarter of all cron expressions is an artefact of reading one character before parsing. No specification describes it; crontab(5) and POSIX both describe the set-semantics reading. Classified KNOWN_DIVERGENCE: the reference implementation and the reference documentation disagree and neither arbitrates.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "cron.dialect",
+    "cron.dom_dow"
+  ],
+  "tags": [
+    "dom_dow",
+    "parser-artefact"
+  ],
+  "title": "DOM_STAR first-character artefact: 0 12 10,* * 2"
+}

@@ -1,0 +1,83 @@
+{
+  "classification": "AMBIGUOUS_STANDARD",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "empty",
+        "note": "Return no occurrences.",
+        "occurrences": [],
+        "when": {
+          "cron.empty_set": "empty"
+        }
+      },
+      {
+        "label": "error-at-parse",
+        "note": "Reject at parse time as unsatisfiable.",
+        "occurrences": null,
+        "when": {
+          "cron.empty_set": "reject"
+        }
+      },
+      {
+        "label": "error-at-iteration",
+        "note": "Parse, then raise on iteration (croniter raises CroniterBadDateError after exhausting its search window).",
+        "occurrences": null,
+        "when": {
+          "cron.empty_set": "raise"
+        }
+      },
+      {
+        "label": "hang",
+        "note": "Search forever. Observed; a denial-of-service class bug.",
+        "occurrences": null,
+        "when": {
+          "cron.empty_set": "unbounded"
+        }
+      }
+    ],
+    "mode": "admissible",
+    "note": "The empty recurrence set is the single most under-specified state in both grammars."
+  },
+  "family": "cron.invalid",
+  "id": "CRON-INV-007",
+  "input": {
+    "count": 1,
+    "expr": "0 0 30 2 *",
+    "fields": 5,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-01-01T00:00:00",
+    "zone": null
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "note": "no statement about unsatisfiable field combinations",
+      "source_id": "crontab5"
+    },
+    {
+      "source_id": "posix-crontab"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "'0 0 30 2 *' parses under every dialect's field rules and denotes nothing. No cron document says what an engine must do, and all four behaviours ship, including the unbounded search.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "cron.empty_set"
+  ],
+  "tags": [
+    "invalid",
+    "empty-set",
+    "headline"
+  ],
+  "title": "30 February — syntactically valid, semantically empty"
+}

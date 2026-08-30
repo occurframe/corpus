@@ -1,0 +1,87 @@
+{
+  "classification": "DIALECT_DEPENDENT",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "seconds-leading",
+        "note": "Quartz, croner, cron-parser (6-field), robfig with WithSeconds(): the leading field is seconds.",
+        "occurrences": [
+          "2026-01-01T10:15:00",
+          "2026-01-02T10:15:00",
+          "2026-01-03T10:15:00",
+          "2026-01-04T10:15:00"
+        ],
+        "when": {
+          "cron.sixth_field": "seconds"
+        }
+      },
+      {
+        "label": "year-trailing",
+        "note": "AWS EventBridge, Spring: the trailing field is the year. Here the trailing token is '*', so the year is unrestricted and the expression means 10:15 daily.",
+        "occurrences": [
+          "2026-01-10T15:00:00",
+          "2026-02-10T15:00:00",
+          "2026-03-10T15:00:00",
+          "2026-04-10T15:00:00"
+        ],
+        "when": {
+          "cron.sixth_field": "year"
+        }
+      },
+      {
+        "label": "reject",
+        "note": "Strict five-field engines (POSIX crontab, cronsim default).",
+        "occurrences": null,
+        "when": {
+          "cron.sixth_field": "reject"
+        }
+      }
+    ],
+    "mode": "per_dialect",
+    "note": "The same six tokens denote 10:15:00 daily under one reading and 10:15 daily under another; both are silently accepted."
+  },
+  "family": "cron.field-count",
+  "id": "CRON-FIELDS-002",
+  "input": {
+    "count": 4,
+    "expr": "0 15 10 * * *",
+    "fields": 6,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-01-01T00:00:00",
+    "zone": null
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "note": "Quartz's six-field form is sec min hour dom month dow",
+      "source_id": "quartz"
+    },
+    {
+      "note": "EventBridge's six-field form is min hour dom month dow year",
+      "source_id": "aws-eventbridge"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "The six-field form is the worst kind of ambiguity: both readings parse, both produce plausible schedules, and the difference is only visible in the seconds field of the output. No document arbitrates between Quartz's and EventBridge's placement of the extra field.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "cron.dialect",
+    "cron.sixth_field"
+  ],
+  "tags": [
+    "fields",
+    "headline",
+    "silent-mistranslation"
+  ],
+  "title": "Six-field form: is the extra field seconds or year?"
+}

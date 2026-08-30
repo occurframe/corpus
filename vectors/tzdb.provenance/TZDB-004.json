@@ -1,0 +1,67 @@
+{
+  "classification": "POLICY_DEPENDENT",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": "per-case"
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "tzdb<=2026a",
+        "occurrences": [
+          "2026-10-18T12:00:00-07:00|2026-10-18T19:00:00Z",
+          "2026-10-25T12:00:00-07:00|2026-10-25T19:00:00Z",
+          "2026-11-01T12:00:00-08:00|2026-11-01T20:00:00Z",
+          "2026-11-08T12:00:00-08:00|2026-11-08T20:00:00Z"
+        ],
+        "when": {
+          "tz.tzdb_version": "2026a"
+        }
+      },
+      {
+        "label": "tzdb>=2026b",
+        "occurrences": [
+          "2026-10-18T12:00:00-07:00|2026-10-18T19:00:00Z",
+          "2026-10-25T12:00:00-07:00|2026-10-25T19:00:00Z",
+          "2026-11-01T12:00:00-07:00|2026-11-01T19:00:00Z",
+          "2026-11-08T12:00:00-07:00|2026-11-08T19:00:00Z"
+        ],
+        "when": {
+          "tz.tzdb_version": "2026b"
+        }
+      }
+    ],
+    "mode": "per_policy"
+  },
+  "family": "tzdb.provenance",
+  "id": "TZDB-004",
+  "input": {
+    "count": 5,
+    "ics": "DTSTART;TZID=America/Vancouver:20261018T120000\nRRULE:FREQ=WEEKLY;COUNT=4",
+    "kind": "rrule",
+    "zone": "America/Vancouver"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "source_id": "tzdb-2026b"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "Shows the provenance dependency is a property of the zone data, not of the expression grammar: the RRULE and cron vectors diverge identically.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "tz.tzdb_version"
+  ],
+  "tags": [
+    "tzdb",
+    "provenance",
+    "cross-grammar"
+  ],
+  "title": "RRULE weekly at 12:00 in America/Vancouver across the same boundary"
+}

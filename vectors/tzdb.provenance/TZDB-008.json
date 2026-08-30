@@ -1,0 +1,50 @@
+{
+  "classification": "INVALID",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "reject",
+        "note": "Raise a zone-not-found error. Required.",
+        "occurrences": null,
+        "when": {}
+      }
+    ],
+    "mode": "admissible",
+    "note": "Engines that silently fall back to UTC or to the process's local zone produce a schedule that is off by the local offset and gives no diagnostic. That is the failure this vector detects."
+  },
+  "family": "tzdb.provenance",
+  "id": "TZDB-008",
+  "input": {
+    "count": 1,
+    "expr": "0 12 * * *",
+    "fields": 5,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-01-01T00:00:00",
+    "zone": "America/Not_A_Real_Zone"
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "source_id": "tz-theory"
+    }
+  ],
+  "operation": "cron.parse",
+  "rationale": "A silent UTC fallback is the single easiest way to ship a scheduler that is wrong by hours in production and correct in CI, because CI runs in UTC.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "tzdb",
+    "invalid"
+  ],
+  "title": "Unknown zone identifier"
+}

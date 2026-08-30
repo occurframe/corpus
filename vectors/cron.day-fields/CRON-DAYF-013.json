@@ -1,0 +1,75 @@
+{
+  "classification": "KNOWN_DIVERGENCE",
+  "context": {
+    "dialect": "cron.vixie@1",
+    "policy": {
+      "cron.dom_dow": "vixie"
+    },
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "vixie-artefact",
+        "note": "Leading '*' sets DOM_STAR, forcing AND; '*/100' contributes only day 1; '1-7' bounds the window to the first week.",
+        "occurrences": [
+          "2026-01-05T00:00:00",
+          "2026-02-02T00:00:00",
+          "2026-03-02T00:00:00",
+          "2026-04-06T00:00:00",
+          "2026-05-04T00:00:00",
+          "2026-06-01T00:00:00"
+        ],
+        "when": {
+          "cron.dom_dow": "vixie"
+        }
+      },
+      {
+        "label": "reject-step",
+        "note": "Dialects that reject a step larger than the field range.",
+        "occurrences": null,
+        "when": {
+          "cron.step_gt_field": "reject"
+        }
+      }
+    ],
+    "mode": "admissible",
+    "note": "The community's canonical workaround depends on a parser bug in the rule's own reference implementation."
+  },
+  "family": "cron.day-fields",
+  "id": "CRON-DAYF-013",
+  "input": {
+    "count": 6,
+    "expr": "0 0 */100,1-7 * MON",
+    "fields": 5,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-01-01T00:00:00",
+    "zone": null
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "0 0 */100,1-7 * MON yields 'first Monday of the month'",
+      "source_id": "healthchecks-funky"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "Strongest single piece of evidence that cron's day semantics are an implementation artefact rather than a rule: the idiom is only correct if the bug is present.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "cron.dialect",
+    "cron.dom_dow",
+    "cron.step_gt_field"
+  ],
+  "tags": [
+    "dom_dow",
+    "parser-artefact",
+    "headline"
+  ],
+  "title": "The '*/100,1-7 * MON' first-Monday idiom weaponising the artefact"
+}

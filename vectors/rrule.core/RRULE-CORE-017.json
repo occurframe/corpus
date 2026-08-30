@@ -1,0 +1,70 @@
+{
+  "classification": "AMBIGUOUS_STANDARD",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "empty",
+        "note": "Zero occurrences — the literal reading.",
+        "occurrences": [],
+        "when": {
+          "rrule.count_zero": "empty"
+        }
+      },
+      {
+        "label": "reject",
+        "note": "Treat 0 as out of range.",
+        "occurrences": null,
+        "when": {
+          "rrule.count_zero": "reject"
+        }
+      },
+      {
+        "label": "dtstart-only",
+        "note": "Engines that always emit DTSTART first and then apply COUNT.",
+        "occurrences": [
+          "1997-09-02T09:00:00"
+        ],
+        "when": {
+          "rrule.count_zero": "dtstart"
+        }
+      }
+    ],
+    "mode": "admissible"
+  },
+  "family": "rrule.core",
+  "id": "RRULE-CORE-017",
+  "input": {
+    "count": 3,
+    "ics": "DTSTART:19970902T090000\nRRULE:FREQ=DAILY;COUNT=0",
+    "kind": "rrule",
+    "zone": null
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "note": "the ABNF is 1*DIGIT, which admits 0; the prose does not say whether 0 is legal",
+      "quote": "COUNT ... defines the number of occurrences at which to range-bound the recurrence",
+      "source_id": "rfc5545-3.3.10"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "The ABNF admits a value the prose never contemplates; three behaviours ship.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "rrule.count_zero"
+  ],
+  "tags": [
+    "count",
+    "empty-set"
+  ],
+  "title": "COUNT=0"
+}

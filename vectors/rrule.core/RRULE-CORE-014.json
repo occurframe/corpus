@@ -1,0 +1,82 @@
+{
+  "classification": "POLICY_DEPENDENT",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "closed",
+        "note": "dateutil rruleset.between(inc=True); Luxon Interval containses.",
+        "occurrences": [
+          "1997-09-04T09:00:00-04:00|1997-09-04T13:00:00Z",
+          "1997-09-05T09:00:00-04:00|1997-09-05T13:00:00Z",
+          "1997-09-06T09:00:00-04:00|1997-09-06T13:00:00Z"
+        ],
+        "when": {
+          "rrule.range_inclusivity": "[a,b]"
+        }
+      },
+      {
+        "label": "half-open",
+        "note": "The convention most range APIs use elsewhere in the same codebases.",
+        "occurrences": [
+          "1997-09-04T09:00:00-04:00|1997-09-04T13:00:00Z",
+          "1997-09-05T09:00:00-04:00|1997-09-05T13:00:00Z"
+        ],
+        "when": {
+          "rrule.range_inclusivity": "[a,b)"
+        }
+      },
+      {
+        "label": "open",
+        "note": "dateutil rruleset.between(inc=False), the default.",
+        "occurrences": [
+          "1997-09-05T09:00:00-04:00|1997-09-05T13:00:00Z"
+        ],
+        "when": {
+          "rrule.range_inclusivity": "(a,b)"
+        }
+      }
+    ],
+    "mode": "per_policy",
+    "note": "Three inclusivity conventions ship, and one library (dateutil) defaults to the rarest of them."
+  },
+  "family": "rrule.core",
+  "id": "RRULE-CORE-014",
+  "input": {
+    "between": [
+      "1997-09-04T09:00:00",
+      "1997-09-06T09:00:00"
+    ],
+    "count": 10,
+    "ics": "DTSTART;TZID=America/New_York:19970902T090000\nRRULE:FREQ=DAILY",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "note": "the RFC defines a recurrence *set*; it defines no range query, so endpoint inclusivity is entirely a library invention",
+      "source_id": "rfc5545-3.3.10"
+    }
+  ],
+  "operation": "rrule.between",
+  "rationale": "Range queries are how every scheduler actually consumes a recurrence, and the endpoints are exactly where double-firing and missed-firing bugs live. The RFC is silent, so this is POLICY_DEPENDENT by construction.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "rrule.range_inclusivity"
+  ],
+  "tags": [
+    "range",
+    "policy",
+    "headline"
+  ],
+  "title": "Bounded-range query over an infinite rule (between semantics)"
+}

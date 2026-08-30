@@ -1,0 +1,130 @@
+{
+  "classification": "POLICY_DEPENDENT",
+  "context": {
+    "dialect": null,
+    "policy": {
+      "cron.dst_fold": "declared",
+      "cron.dst_gap": "declared"
+    },
+    "requires": [
+      "tz.zoneinfo"
+    ],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "skip",
+        "note": "crontab(5): jobs in the missing hour never run; jobs in the repeated hour run twice — but the second half of that sentence is a *daemon* behaviour, so a library that returns a set must still choose.",
+        "occurrences": [
+          "2022-10-27T00:30:00+03:00|2022-10-26T21:30:00Z",
+          "2022-10-28T00:30:00+03:00|2022-10-27T21:30:00Z",
+          "2022-10-29T00:30:00+03:00|2022-10-28T21:30:00Z",
+          "2022-10-30T00:30:00+03:00|2022-10-29T21:30:00Z"
+        ],
+        "when": {
+          "cron.dst_fold": "first",
+          "cron.dst_gap": "skip"
+        }
+      },
+      {
+        "label": "next_valid",
+        "note": "Fire at the first valid wall time at or after the nominal one (croniter's default; APScheduler; most cloud schedulers).",
+        "occurrences": [
+          "2022-10-27T00:30:00+03:00|2022-10-26T21:30:00Z",
+          "2022-10-28T00:30:00+03:00|2022-10-27T21:30:00Z",
+          "2022-10-29T00:30:00+03:00|2022-10-28T21:30:00Z",
+          "2022-10-30T00:30:00+03:00|2022-10-29T21:30:00Z"
+        ],
+        "when": {
+          "cron.dst_fold": "first",
+          "cron.dst_gap": "next_valid"
+        }
+      },
+      {
+        "label": "fire_at_gap_start",
+        "note": "Fire at the instant the gap opens (i.e. the pre-gap offset applied to the wall time) — RFC 5545 §3.3.5 as routed by erratum 4271.",
+        "occurrences": [
+          "2022-10-27T00:30:00+03:00|2022-10-26T21:30:00Z",
+          "2022-10-28T00:30:00+03:00|2022-10-27T21:30:00Z",
+          "2022-10-29T00:30:00+03:00|2022-10-28T21:30:00Z",
+          "2022-10-30T00:30:00+03:00|2022-10-29T21:30:00Z"
+        ],
+        "when": {
+          "cron.dst_fold": "first",
+          "cron.dst_gap": "fire_at_gap_start"
+        }
+      },
+      {
+        "label": "fold_both",
+        "note": "Emit both instants of an ambiguous wall time (Vixie daemon behaviour for repeated hours, and cronsim's option).",
+        "occurrences": [
+          "2022-10-27T00:30:00+03:00|2022-10-26T21:30:00Z",
+          "2022-10-28T00:30:00+03:00|2022-10-27T21:30:00Z",
+          "2022-10-29T00:30:00+03:00|2022-10-28T21:30:00Z",
+          "2022-10-30T00:30:00+03:00|2022-10-29T21:30:00Z"
+        ],
+        "when": {
+          "cron.dst_fold": "both",
+          "cron.dst_gap": "next_valid"
+        }
+      },
+      {
+        "label": "fold_second",
+        "note": "Emit only the second (post-transition) instant.",
+        "occurrences": [
+          "2022-10-27T00:30:00+03:00|2022-10-26T21:30:00Z",
+          "2022-10-28T00:30:00+03:00|2022-10-27T21:30:00Z",
+          "2022-10-29T00:30:00+03:00|2022-10-28T21:30:00Z",
+          "2022-10-30T00:30:00+03:00|2022-10-29T21:30:00Z"
+        ],
+        "when": {
+          "cron.dst_fold": "second",
+          "cron.dst_gap": "next_valid"
+        }
+      }
+    ],
+    "mode": "per_policy",
+    "note": "Five policies, five different occurrence sets. No source arbitrates for a *library*; crontab(5) speaks only about a daemon."
+  },
+  "family": "cron.dst",
+  "id": "CRON-DST-009",
+  "input": {
+    "count": 4,
+    "expr": "30 0 * * *",
+    "fields": 5,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2022-10-27T00:00:00",
+    "zone": "Asia/Damascus"
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "Jobs ... which are scheduled during the 'missing times' will never be run. ... times which occur more than once ... will cause matching jobs to be run twice.",
+      "source_id": "crontab5"
+    },
+    {
+      "quote": "If the local time described occurs more than once ... the DATE-TIME value refers to the first occurrence ... If the local time ... does not occur ... the DATE-TIME value is interpreted using the UTC offset before the gap.",
+      "source_id": "rfc5545-3.3.5"
+    },
+    {
+      "source_id": "eid4271"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "Syria made +03 permanent in the same season; paired with Amman it isolates the isdst-vs-offset bug from any single zone's data.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "cron.dst_fold",
+    "cron.dst_gap"
+  ],
+  "tags": [
+    "zero-offset",
+    "dst"
+  ],
+  "title": "Zero-offset-change transition (Asia/Damascus, October 2022)"
+}

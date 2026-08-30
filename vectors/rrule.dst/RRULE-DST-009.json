@@ -1,0 +1,49 @@
+{
+  "classification": "NORMATIVE",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "single",
+    "note": "01:00 appears twice with different offsets. This is the only construct in RFC 5545 that produces two instances with the same wall time, and it is the reason occurrence identity cannot be a wall-clock string.",
+    "occurrences": [
+      "2026-11-01T00:00:00-04:00|2026-11-01T04:00:00Z",
+      "2026-11-01T01:00:00-04:00|2026-11-01T05:00:00Z",
+      "2026-11-01T01:00:00-05:00|2026-11-01T06:00:00Z",
+      "2026-11-01T02:00:00-05:00|2026-11-01T07:00:00Z",
+      "2026-11-01T03:00:00-05:00|2026-11-01T08:00:00Z"
+    ]
+  },
+  "family": "rrule.dst",
+  "id": "RRULE-DST-009",
+  "input": {
+    "count": 6,
+    "ics": "DTSTART;TZID=America/New_York:20261101T000000\nRRULE:FREQ=HOURLY;COUNT=5",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "note": "FREQ=HOURLY advances by absolute hours, so the repeated wall hour is traversed once in each offset",
+      "source_id": "rfc5545-3.3.10"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "Decisive for occurrence identity: any product that keys occurrences by local date-time collapses these two rows and silently drops a run. Paired with CRON-DST-016, which asks the same question of an hourly cron.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "fold",
+    "hourly",
+    "identity",
+    "headline"
+  ],
+  "title": "Hourly recurrence across the fold: 25-hour day"
+}

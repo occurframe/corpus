@@ -1,0 +1,51 @@
+{
+  "classification": "AMBIGUOUS_STANDARD",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "open",
+    "note": "Recorded, not scored. Under erratum 1913 the numeric prefix is invalid here (BYWEEKNO is present); under erratum 3779 it is valid and means the second Monday of the year. Both errata are Verified. There is no consolidated text of RFC 5545 §3.3.10."
+  },
+  "family": "rrule.by",
+  "id": "RRULE-BY-026",
+  "input": {
+    "count": 4,
+    "ics": "DTSTART;TZID=America/New_York:20260101T090000\nRRULE:FREQ=YEARLY;BYWEEKNO=20;BYDAY=2MO;COUNT=3",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "note": "Verified/Technical: corrects the sentence to read 'when the BYWEEKNO or BYMONTH rule parts are not present'",
+      "source_id": "eid1913"
+    },
+    {
+      "note": "Verified/Technical: edits the SAME sentence to 'when the BYMONTH rule part is not present'. The two corrected texts are not nested and cannot both be applied.",
+      "source_id": "eid3779"
+    },
+    {
+      "source_id": "rfc5545-3.3.10"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "The strongest single argument in the corpus that 'RFC 5545 compliant' is unfalsifiable without a corpus: two Verified errata edit one sentence into two incompatible sentences, and an engine can conform to either.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "rrule.byday_ordinal_scope"
+  ],
+  "tags": [
+    "byday",
+    "errata",
+    "open",
+    "headline"
+  ],
+  "title": "Numeric BYDAY with FREQ=YEARLY and BYWEEKNO present (errata 1913 vs 3779)"
+}

@@ -1,0 +1,47 @@
+{
+  "classification": "NORMATIVE",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "single",
+    "occurrences": [
+      "2007-01-15T09:00:00-05:00|2007-01-15T14:00:00Z",
+      "2007-01-30T09:00:00-05:00|2007-01-30T14:00:00Z",
+      "2007-02-15T09:00:00-05:00|2007-02-15T14:00:00Z",
+      "2007-03-15T09:00:00-04:00|2007-03-15T13:00:00Z",
+      "2007-03-30T09:00:00-04:00|2007-03-30T13:00:00Z"
+    ]
+  },
+  "family": "rrule.by",
+  "id": "RRULE-BY-031",
+  "input": {
+    "count": 6,
+    "ics": "DTSTART;TZID=America/New_York:20070115T090000\nRRULE:FREQ=MONTHLY;BYMONTHDAY=15,30;COUNT=5",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "An example where an invalid date (i.e., February 30) is ignored. ==> (2007 EST) January 15,30 (2007 EST) February 15 (2007 EDT) March 15,30",
+      "source_id": "rfc5545-3.8.5.3"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "The RFC's own demonstration that COUNT counts emitted instances, not attempted ones.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "bymonthday",
+    "count",
+    "invalid-date"
+  ],
+  "title": "Invalid dates are ignored, not clamped (RFC example)"
+}

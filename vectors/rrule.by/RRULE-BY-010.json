@@ -1,0 +1,51 @@
+{
+  "classification": "NORMATIVE",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "single",
+    "note": "Four-year gaps. A 'yearly' event that fires every four years is correct RFC 5545 and almost never what the author meant.",
+    "occurrences": [
+      "2024-02-29T09:00:00-05:00|2024-02-29T14:00:00Z",
+      "2028-02-29T09:00:00-05:00|2028-02-29T14:00:00Z",
+      "2032-02-29T09:00:00-05:00|2032-02-29T14:00:00Z"
+    ]
+  },
+  "family": "rrule.by",
+  "id": "RRULE-BY-010",
+  "input": {
+    "count": 4,
+    "ics": "DTSTART;TZID=America/New_York:20240229T090000\nRRULE:FREQ=YEARLY;BYMONTH=2;BYMONTHDAY=29;COUNT=3",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "Recurrence instances falling on invalid dates ... are ignored",
+      "source_id": "rfc5545-3.3.10"
+    },
+    {
+      "note": "RFC 7529 adds SKIP=OMIT|BACKWARD|FORWARD precisely because RFC 5545 offers only OMIT; eleven years on, the flagship JS RRULE library's documentation does not mention RSCALE at all",
+      "source_id": "rfc7529"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "The canonical leap-day vector, and the entry point to RFC 7529: SKIP=BACKWARD would give 28 Feb and SKIP=FORWARD 1 Mar, but neither is available without RSCALE.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "leap-year",
+    "yearly",
+    "rfc7529",
+    "headline"
+  ],
+  "title": "Yearly on 29 February"
+}

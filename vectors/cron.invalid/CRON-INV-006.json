@@ -1,0 +1,44 @@
+{
+  "classification": "INVALID",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "error_class": "field_value_out_of_range",
+    "mode": "reject"
+  },
+  "family": "cron.invalid",
+  "id": "CRON-INV-006",
+  "input": {
+    "count": 1,
+    "expr": "0 0 * 0 *",
+    "fields": 5,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-01-01T00:00:00",
+    "zone": null
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "source_id": "posix-crontab"
+    },
+    {
+      "source_id": "crontab5"
+    }
+  ],
+  "operation": "cron.parse",
+  "rationale": "Field-range and grammar enforcement; the cheapest conformance signal an engine emits.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "invalid"
+  ],
+  "title": "Month 0"
+}

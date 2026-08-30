@@ -1,0 +1,47 @@
+{
+  "classification": "NORMATIVE",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "single",
+    "note": "BYDAY and BYMONTHDAY INTERSECT in RRULE. In cron the same two fields are UNIONed under the Vixie rule — the single clearest semantic incompatibility between the grammars.",
+    "occurrences": [
+      "1996-11-05T09:00:00-05:00|1996-11-05T14:00:00Z",
+      "2000-11-07T09:00:00-05:00|2000-11-07T14:00:00Z",
+      "2004-11-02T09:00:00-05:00|2004-11-02T14:00:00Z"
+    ]
+  },
+  "family": "rrule.by",
+  "id": "RRULE-BY-030",
+  "input": {
+    "count": 4,
+    "ics": "DTSTART;TZID=America/New_York:19961105T090000\nRRULE:FREQ=YEARLY;INTERVAL=4;BYMONTH=11;BYDAY=TU;BYMONTHDAY=2,3,4,5,6,7,8;COUNT=3",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "Every 4 years, the first Tuesday after a Monday in November, forever (U.S. Presidential Election day): ==> (1996 9:00 AM EST) November 5;(2000 9:00 AM EST) November 7;(2004 9:00 AM EST) November 2",
+      "source_id": "rfc5545-3.8.5.3"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "The definitive cross-grammar vector: '0 9 2-8 11 2' in cron means the 2nd-8th OR every Tuesday; the same intent in RRULE requires an intersection. A translator that maps fields positionally is wrong by construction.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "byday",
+    "bymonthday",
+    "cross-grammar",
+    "headline"
+  ],
+  "title": "US presidential election day (RFC example: BYDAY+BYMONTHDAY intersection)"
+}

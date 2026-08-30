@@ -1,0 +1,74 @@
+{
+  "classification": "AMBIGUOUS_STANDARD",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "union",
+        "note": "Set union, each rule bounded by its own COUNT.",
+        "occurrences": [
+          "2026-01-05T09:00:00-05:00|2026-01-05T14:00:00Z",
+          "2026-01-07T09:00:00-05:00|2026-01-07T14:00:00Z",
+          "2026-01-12T09:00:00-05:00|2026-01-12T14:00:00Z",
+          "2026-01-14T09:00:00-05:00|2026-01-14T14:00:00Z"
+        ],
+        "when": {
+          "rrule.multiple_rrule": "union"
+        }
+      },
+      {
+        "label": "first-only",
+        "note": "Engines that keep only the first RRULE — the most common behaviour, and a silent data loss.",
+        "occurrences": [
+          "2026-01-05T09:00:00-05:00|2026-01-05T14:00:00Z",
+          "2026-01-12T09:00:00-05:00|2026-01-12T14:00:00Z"
+        ],
+        "when": {
+          "rrule.multiple_rrule": "first"
+        }
+      },
+      {
+        "label": "reject",
+        "occurrences": null,
+        "when": {
+          "rrule.multiple_rrule": "reject"
+        }
+      }
+    ],
+    "mode": "admissible"
+  },
+  "family": "rrule.sets",
+  "id": "RRULE-SET-008",
+  "input": {
+    "count": 6,
+    "ics": "DTSTART;TZID=America/New_York:20260105T090000\nRRULE:FREQ=WEEKLY;BYDAY=MO;COUNT=2\nRRULE:FREQ=WEEKLY;BYDAY=WE;COUNT=2",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "note": "the property may appear more than once per the component grammar, but the specification deprecates it without forbidding it and does not define the combination",
+      "source_id": "rfc5545-3.8.5.3"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "Multiple RRULEs are legal syntax, deprecated prose, and undefined semantics. Silently dropping the second rule is the modal behaviour and is invisible to the author.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "rrule.multiple_rrule"
+  ],
+  "tags": [
+    "multiple-rrule",
+    "silent-drop"
+  ],
+  "title": "Two RRULEs in one component"
+}

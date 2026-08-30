@@ -1,0 +1,35 @@
+{
+  "$id": "https://occurframe.dev/schemas/1/semantic-axis-registry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "axes": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "axis_id": { "pattern": "^[a-z][a-z0-9_]*(?:[.][a-zA-Z0-9_]+)+$", "type": "string" },
+          "axis_kind": { "enum": ["policy", "dialect"] },
+          "description": { "minLength": 1, "type": "string" },
+          "values": {
+            "items": {
+              "oneOf": [
+                { "type": "string" },
+                { "type": "integer" },
+                { "type": "boolean" }
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        },
+        "required": ["axis_id", "axis_kind", "description", "values"],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "schema_version": { "const": "1.0.0" }
+  },
+  "required": ["schema_version", "axes"],
+  "title": "Occurframe semantic axis registry",
+  "type": "object"
+}

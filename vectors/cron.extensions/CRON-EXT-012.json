@@ -1,0 +1,62 @@
+{
+  "classification": "DIALECT_DEPENDENT",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "reject",
+        "occurrences": null,
+        "when": {
+          "cron.random": "unsupported"
+        }
+      },
+      {
+        "label": "nondeterministic",
+        "note": "cronie: the occurrence set is drawn at parse time and is not reproducible. Out of scope for conformance scoring.",
+        "occurrences": null,
+        "when": {
+          "cron.random": "supported"
+        }
+      }
+    ],
+    "mode": "per_dialect"
+  },
+  "family": "cron.extensions",
+  "id": "CRON-EXT-012",
+  "input": {
+    "count": 1,
+    "expr": "~ * * * *",
+    "fields": 5,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-01-01T00:00:00",
+    "zone": null
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "note": "cronie adds a '~' random operator",
+      "source_id": "crontab5"
+    }
+  ],
+  "operation": "cron.parse",
+  "rationale": "Second scope-boundary marker: non-determinism, like Jenkins 'H', removes the expression from the oracle's domain.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "cron.dialect",
+    "cron.random"
+  ],
+  "tags": [
+    "extensions",
+    "scope-boundary"
+  ],
+  "title": "cronie's '~' random operator"
+}

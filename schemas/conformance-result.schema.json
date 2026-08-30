@@ -1,0 +1,32 @@
+{
+  "$id": "https://occurframe.dev/schemas/1/conformance-result.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "diagnostic": {
+      "additionalProperties": false,
+      "properties": {
+        "code": { "type": "string" },
+        "details": { "type": "string" },
+        "message": { "type": "string" }
+      },
+      "required": ["code", "message"],
+      "type": "object"
+    },
+    "matched_case": { "type": "string" },
+    "status": {
+      "enum": [
+        "conformant",
+        "conformant_admissible",
+        "non_conformant",
+        "unsupported",
+        "timeout",
+        "infrastructure_failure",
+        "recorded_unscored"
+      ]
+    }
+  },
+  "required": ["status"],
+  "title": "Occurframe conformance verdict",
+  "type": "object"
+}

@@ -1,0 +1,47 @@
+{
+  "classification": "NORMATIVE",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "single",
+    "note": "Etc/GMT+5 is UTC-05:00. An engine that maps the identifier to +05:00 is ten hours wrong.",
+    "occurrences": [
+      "2026-01-14T12:00:00-05:00|2026-01-14T17:00:00Z",
+      "2026-01-15T12:00:00-05:00|2026-01-15T17:00:00Z"
+    ]
+  },
+  "family": "tzdb.provenance",
+  "id": "TZDB-010",
+  "input": {
+    "count": 2,
+    "expr": "0 12 * * *",
+    "fields": 5,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-01-14T00:00:00",
+    "zone": "Etc/GMT+5"
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "note": "the Etc/GMT[+-]N zones follow the POSIX TZ sign convention, which is the opposite of ISO 8601",
+      "source_id": "tz-theory"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "A documented, normative sign inversion that is nonetheless one of the most common zone-handling defects.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "tzdb",
+    "sign-convention"
+  ],
+  "title": "Etc/GMT+5 has a NEGATIVE offset (POSIX sign inversion)"
+}

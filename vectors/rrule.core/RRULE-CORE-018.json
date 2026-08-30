@@ -1,0 +1,70 @@
+{
+  "classification": "AMBIGUOUS_STANDARD",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "empty",
+        "note": "The set is empty; the caller sees no occurrences.",
+        "occurrences": [],
+        "when": {
+          "rrule.empty_set": "empty"
+        }
+      },
+      {
+        "label": "dtstart-only",
+        "note": "Engines that emit DTSTART unconditionally before applying UNTIL.",
+        "occurrences": [
+          "1997-09-02T09:00:00-04:00|1997-09-02T13:00:00Z"
+        ],
+        "when": {
+          "rrule.empty_set": "dtstart"
+        }
+      },
+      {
+        "label": "reject",
+        "note": "Reject at parse time.",
+        "occurrences": null,
+        "when": {
+          "rrule.empty_set": "reject"
+        }
+      }
+    ],
+    "mode": "admissible",
+    "note": "The empty recurrence set is under-specified identically in both grammars; compare CRON-INV-007."
+  },
+  "family": "rrule.core",
+  "id": "RRULE-CORE-018",
+  "input": {
+    "count": 3,
+    "ics": "DTSTART;TZID=America/New_York:19970902T090000\nRRULE:FREQ=DAILY;UNTIL=19970901T130000Z",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "note": "no statement about an UNTIL that precedes DTSTART",
+      "source_id": "rfc5545-3.3.10"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "Paired deliberately with the cron empty-set vectors. A product that promises 'never silently empty' has to answer this in both grammars with the same policy.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "rrule.empty_set"
+  ],
+  "tags": [
+    "empty-set",
+    "until"
+  ],
+  "title": "UNTIL earlier than DTSTART (empty recurrence set)"
+}

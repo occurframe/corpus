@@ -1,0 +1,47 @@
+{
+  "classification": "NORMATIVE",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "single",
+    "occurrences": [
+      "2026-01-05T12:00:00",
+      "2026-01-12T12:00:00",
+      "2026-01-19T12:00:00",
+      "2026-01-26T12:00:00"
+    ]
+  },
+  "family": "cron.names",
+  "id": "CRON-DOW-009",
+  "input": {
+    "count": 4,
+    "expr": "0 12 * jan,dec mon",
+    "fields": 5,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-01-01T00:00:00",
+    "zone": null
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "Use the first three letters of the particular day or month (case does not matter).",
+      "source_id": "crontab5"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "Case-insensitive three-letter names are explicitly normative in crontab(5) and unambiguous.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "names"
+  ],
+  "title": "Lowercase month and day names"
+}

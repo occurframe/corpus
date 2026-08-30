@@ -1,0 +1,80 @@
+{
+  "classification": "POLICY_DEPENDENT",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "lazy-iterator",
+        "note": "The engine returns a lazy sequence and the caller takes 5. The only behaviour that composes with a scheduler.",
+        "occurrences": [
+          "1997-09-02T09:00:00-04:00|1997-09-02T13:00:00Z",
+          "1997-09-03T09:00:00-04:00|1997-09-03T13:00:00Z",
+          "1997-09-04T09:00:00-04:00|1997-09-04T13:00:00Z",
+          "1997-09-05T09:00:00-04:00|1997-09-05T13:00:00Z",
+          "1997-09-06T09:00:00-04:00|1997-09-06T13:00:00Z"
+        ],
+        "when": {
+          "rrule.truncation": "lazy"
+        }
+      },
+      {
+        "label": "caller-bounded",
+        "note": "The engine requires an explicit window and returns the same prefix.",
+        "occurrences": [
+          "1997-09-02T09:00:00-04:00|1997-09-02T13:00:00Z",
+          "1997-09-03T09:00:00-04:00|1997-09-03T13:00:00Z",
+          "1997-09-04T09:00:00-04:00|1997-09-04T13:00:00Z",
+          "1997-09-05T09:00:00-04:00|1997-09-05T13:00:00Z",
+          "1997-09-06T09:00:00-04:00|1997-09-06T13:00:00Z"
+        ],
+        "when": {
+          "rrule.truncation": "caller_window"
+        }
+      },
+      {
+        "label": "materialise",
+        "note": "Engines whose only API materialises the whole set hang or exhaust memory. Recorded as a result, not excused.",
+        "occurrences": null,
+        "when": {
+          "rrule.truncation": "materialise"
+        }
+      }
+    ],
+    "mode": "per_policy",
+    "note": "'Repeats forever' is normative; what an API does with it is not."
+  },
+  "family": "rrule.core",
+  "id": "RRULE-CORE-013",
+  "input": {
+    "count": 5,
+    "ics": "DTSTART;TZID=America/New_York:19970902T090000\nRRULE:FREQ=DAILY",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "If neither the COUNT nor UNTIL rule parts are present, the recurrence rule is considered to repeat forever.",
+      "source_id": "rfc5545-3.3.10"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "RFC 5545 places no bound on expansion cost. Every practical engine must therefore add a policy the standard does not define, and the corpus records which one.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "rrule.truncation"
+  ],
+  "tags": [
+    "truncation",
+    "policy"
+  ],
+  "title": "Infinite recurrence with no COUNT and no UNTIL"
+}

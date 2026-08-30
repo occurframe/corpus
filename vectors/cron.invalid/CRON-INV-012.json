@@ -1,0 +1,47 @@
+{
+  "classification": "NORMATIVE",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "single",
+    "occurrences": [
+      "2026-01-01T12:00:00",
+      "2026-01-02T12:00:00",
+      "2026-01-03T12:00:00"
+    ]
+  },
+  "family": "cron.invalid",
+  "id": "CRON-INV-012",
+  "input": {
+    "count": 3,
+    "expr": "0\t12  *   *  *",
+    "fields": 5,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-01-01T00:00:00",
+    "zone": null
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "fields ... separated by blanks or tabs",
+      "source_id": "crontab5"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "Explicitly normative in crontab(5) and frequently broken by engines that split on a single space.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "invalid",
+    "lexical"
+  ],
+  "title": "Whitespace-tolerant parsing (tabs and multiple spaces)"
+}

@@ -1,0 +1,48 @@
+{
+  "classification": "NORMATIVE",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "single",
+    "note": "Two boundary effects in one set. (a) The candidate for year 2026 is 2025-12-29 — ISO week 1 of 2026 starts in calendar 2025 — and is dropped because it precedes DTSTART, so the first emitted instance is for 2027. (b) The candidate for year 2030 is 2029-12-31, which lies in calendar year 2029. An engine that filters candidates by calendar year loses the second.",
+    "occurrences": [
+      "2027-01-04T09:00:00-05:00|2027-01-04T14:00:00Z",
+      "2028-01-03T09:00:00-05:00|2028-01-03T14:00:00Z",
+      "2029-01-01T09:00:00-05:00|2029-01-01T14:00:00Z",
+      "2029-12-31T09:00:00-05:00|2029-12-31T14:00:00Z"
+    ]
+  },
+  "family": "rrule.by",
+  "id": "RRULE-BY-021",
+  "input": {
+    "count": 5,
+    "ics": "DTSTART;TZID=America/New_York:20260101T090000\nRRULE:FREQ=YEARLY;BYWEEKNO=1;BYDAY=MO;COUNT=4",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "This rule part MUST NOT be used when the FREQ rule part is set to anything other than YEARLY. ... a week is defined as a seven day period, starting on the weekday defined by the WKST rule part. Week number one of the calendar year is the first week that contains at least four (4) days in that calendar year.",
+      "source_id": "rfc5545-3.3.10"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "The year-boundary case is the whole reason BYWEEKNO is hard: the instance generated 'for' a year can lie in the adjacent calendar year, and the RFC's four-day rule is the only thing that decides it.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "byweekno",
+    "iso-week",
+    "year-boundary",
+    "headline"
+  ],
+  "title": "BYWEEKNO=1 across a year boundary (ISO 8601 week 1)"
+}

@@ -1,0 +1,55 @@
+{
+  "classification": "NORMATIVE",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "single",
+    "note": "Must equal the result of '0 12 * * SUN' in the same engine. An engine whose numeric and named day-of-week fields use different bases fails this vector while passing every named-day vector.",
+    "occurrences": [
+      "2026-01-04T12:00:00",
+      "2026-01-11T12:00:00",
+      "2026-01-18T12:00:00"
+    ]
+  },
+  "family": "cron.dow-numbering",
+  "id": "CRON-DOW-013",
+  "input": {
+    "count": 3,
+    "expr": "0 12 * * 0",
+    "fields": 5,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-01-01T00:00:00",
+    "zone": null
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "day of the week (0 - 6 with 0=Sunday)",
+      "source_id": "posix-crontab"
+    },
+    {
+      "note": "crontab(5) presents names as an alternative spelling of the numbers, not a second numbering",
+      "quote": "Names can also be used for the 'month' and 'day of week' fields.",
+      "source_id": "crontab5"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "Measured, not hypothetical: APScheduler 3.11.3's from_crontab() maps numeric 0 to Monday while mapping the name SUN to Sunday, so the two spellings of 'Sunday' in one engine denote different days. Because the corpus scores numeric and named vectors separately, this vector is what makes the inconsistency visible as a single failure.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "dow",
+    "silent-mistranslation",
+    "discriminator",
+    "headline"
+  ],
+  "title": "Numeric and named spellings of the same weekday must agree (0 vs SUN)"
+}

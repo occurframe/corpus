@@ -1,0 +1,41 @@
+{
+  "classification": "INVALID",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "error_class": "until_value_type_mismatch",
+    "mode": "reject",
+    "note": "MUST-level requirement. Engines that coerce silently produce a set the author did not write."
+  },
+  "family": "rrule.core",
+  "id": "RRULE-CORE-010",
+  "input": {
+    "count": 6,
+    "ics": "DTSTART:19970902T090000\nRRULE:FREQ=DAILY;UNTIL=19970904T130000Z",
+    "kind": "rrule",
+    "zone": null
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "The value of the UNTIL rule part MUST have the same value type as the 'DTSTART' property.",
+      "source_id": "rfc5545-3.3.10"
+    }
+  ],
+  "operation": "rrule.parse",
+  "rationale": "A MUST that the ABNF cannot enforce, so it is hand-checked or not checked at all.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "until",
+    "invalid"
+  ],
+  "title": "UNTIL value type mismatched with DTSTART (Z on a floating start)"
+}

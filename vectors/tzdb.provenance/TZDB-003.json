@@ -1,0 +1,74 @@
+{
+  "classification": "POLICY_DEPENDENT",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": "per-case"
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "tzdb<=2026b",
+        "note": "Morocco's pre-2026c model keeps +01 outside Ramadan.",
+        "occurrences": [
+          "2026-09-18T12:00:00+01:00|2026-09-18T11:00:00Z",
+          "2026-09-19T12:00:00+01:00|2026-09-19T11:00:00Z",
+          "2026-09-20T12:00:00+01:00|2026-09-20T11:00:00Z",
+          "2026-09-21T12:00:00+01:00|2026-09-21T11:00:00Z"
+        ],
+        "when": {
+          "tz.tzdb_version": "2026b"
+        }
+      },
+      {
+        "label": "tzdb>=2026c",
+        "note": "Permanent UTC from 2026-09-20 02:00.",
+        "occurrences": [
+          "2026-09-18T12:00:00+01:00|2026-09-18T11:00:00Z",
+          "2026-09-19T12:00:00+01:00|2026-09-19T11:00:00Z",
+          "2026-09-20T12:00:00+00:00|2026-09-20T12:00:00Z",
+          "2026-09-21T12:00:00+00:00|2026-09-21T12:00:00Z"
+        ],
+        "when": {
+          "tz.tzdb_version": "2026c"
+        }
+      }
+    ],
+    "mode": "per_policy",
+    "note": "A third province of the same problem, on a different continent and in a zone whose rules are also Ramadan-dependent."
+  },
+  "family": "tzdb.provenance",
+  "id": "TZDB-003",
+  "input": {
+    "count": 4,
+    "expr": "0 12 * * *",
+    "fields": 5,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-09-18T00:00:00",
+    "zone": "Africa/Casablanca"
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "Morocco plans to move back to permanent UTC, without daylight saving time transitions, on 2026-09-20 at 02:00.",
+      "source_id": "tzdb-2026c"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "Chosen because Morocco's rule is *predictive*: the tzdb entry encodes a plan, not a fait accompli. A schedule computed today for 2027 can change meaning when the plan does, which is the strongest argument that occurrence materialisation must record its tzdb.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "tz.tzdb_version"
+  ],
+  "tags": [
+    "tzdb",
+    "provenance",
+    "predictive"
+  ],
+  "title": "Africa/Casablanca: Morocco moves to permanent UTC on 2026-09-20"
+}

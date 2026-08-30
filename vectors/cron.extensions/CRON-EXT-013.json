@@ -1,0 +1,76 @@
+{
+  "classification": "AMBIGUOUS_STANDARD",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "saturday",
+        "note": "Quartz: bare 'L' in the DOW field means Saturday (day 7).",
+        "occurrences": [
+          "2026-01-31T09:00:00",
+          "2026-02-28T09:00:00",
+          "2026-03-28T09:00:00",
+          "2026-04-25T09:00:00"
+        ],
+        "when": {
+          "cron.L": "quartz"
+        }
+      },
+      {
+        "label": "last-day-of-week-of-month",
+        "note": "Engines that read it as 'the last <something> of the month'.",
+        "occurrences": null,
+        "when": {
+          "cron.L": "last"
+        }
+      },
+      {
+        "label": "reject",
+        "occurrences": null,
+        "when": {
+          "cron.L": "unsupported"
+        }
+      }
+    ],
+    "mode": "admissible",
+    "note": "Quartz's definition is surprising enough that ports have reimplemented it differently."
+  },
+  "family": "cron.extensions",
+  "id": "CRON-EXT-013",
+  "input": {
+    "count": 4,
+    "expr": "0 0 9 ? * L *",
+    "fields": 7,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-01-01T00:00:00",
+    "zone": null
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "'L' ... in the day-of-week field ... simply means \"7\" or \"SAT\"",
+      "source_id": "quartz"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "A one-character expression with three shipped meanings.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "cron.L",
+    "cron.dialect"
+  ],
+  "tags": [
+    "extensions",
+    "L"
+  ],
+  "title": "L in the day-of-week field with no preceding number"
+}

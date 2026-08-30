@@ -1,0 +1,45 @@
+{
+  "classification": "NORMATIVE",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "single",
+    "note": "The explicitly added instance is explicitly removed; EXDATE wins.",
+    "occurrences": [
+      "2026-01-05T09:00:00-05:00|2026-01-05T14:00:00Z",
+      "2026-01-12T09:00:00-05:00|2026-01-12T14:00:00Z"
+    ]
+  },
+  "family": "rrule.sets",
+  "id": "RRULE-SET-003",
+  "input": {
+    "count": 4,
+    "ics": "DTSTART;TZID=America/New_York:20260105T090000\nRRULE:FREQ=WEEKLY;COUNT=2\nRDATE;TZID=America/New_York:20260107T140000\nEXDATE;TZID=America/New_York:20260107T140000",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "the 'EXDATE' property ... take precedence over those specified by inclusion properties (i.e., RDATE and RRULE)",
+      "source_id": "rfc5545-3.8.5.3"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "The precedence rule is normative and unambiguous, which makes it a useful control against the genuinely ambiguous precedence vector SET-004.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "exdate",
+    "rdate",
+    "precedence"
+  ],
+  "title": "EXDATE takes precedence over RDATE for the same instant"
+}

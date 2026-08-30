@@ -1,0 +1,84 @@
+{
+  "classification": "DIALECT_DEPENDENT",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "rfc2445",
+        "note": "Engines retaining RFC 2445 support (dateutil's rruleset has exrule) exclude the weekend days.",
+        "occurrences": [
+          "2026-01-05T09:00:00-05:00|2026-01-05T14:00:00Z",
+          "2026-01-06T09:00:00-05:00|2026-01-06T14:00:00Z",
+          "2026-01-07T09:00:00-05:00|2026-01-07T14:00:00Z",
+          "2026-01-08T09:00:00-05:00|2026-01-08T14:00:00Z",
+          "2026-01-09T09:00:00-05:00|2026-01-09T14:00:00Z",
+          "2026-01-12T09:00:00-05:00|2026-01-12T14:00:00Z",
+          "2026-01-13T09:00:00-05:00|2026-01-13T14:00:00Z",
+          "2026-01-14T09:00:00-05:00|2026-01-14T14:00:00Z"
+        ],
+        "when": {
+          "rrule.exrule": "supported"
+        }
+      },
+      {
+        "label": "ignore",
+        "note": "Engines that ignore unknown properties emit the full daily set — including the weekend the author excluded.",
+        "occurrences": [
+          "2026-01-05T09:00:00-05:00|2026-01-05T14:00:00Z",
+          "2026-01-06T09:00:00-05:00|2026-01-06T14:00:00Z",
+          "2026-01-07T09:00:00-05:00|2026-01-07T14:00:00Z",
+          "2026-01-08T09:00:00-05:00|2026-01-08T14:00:00Z",
+          "2026-01-09T09:00:00-05:00|2026-01-09T14:00:00Z",
+          "2026-01-10T09:00:00-05:00|2026-01-10T14:00:00Z"
+        ],
+        "when": {
+          "rrule.exrule": "ignore"
+        }
+      },
+      {
+        "label": "reject",
+        "occurrences": null,
+        "when": {
+          "rrule.exrule": "reject"
+        }
+      }
+    ],
+    "mode": "per_dialect"
+  },
+  "family": "rrule.sets",
+  "id": "RRULE-SET-010",
+  "input": {
+    "count": 11,
+    "ics": "DTSTART;TZID=America/New_York:20260105T090000\nRRULE:FREQ=DAILY;COUNT=10\nEXRULE:FREQ=WEEKLY;BYDAY=SA,SU",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "note": "RFC 5545 removed EXRULE, which RFC 2445 defined; the property is therefore legal iCalendar under one standard and unknown under its successor",
+      "source_id": "rfc5545-3.8.5.3"
+    }
+  ],
+  "operation": "rrule.parse",
+  "rationale": "A property whose removal from a standard silently changes the meaning of existing data. The 'ignore' outcome runs jobs on days that were explicitly excluded, which is the same failure class as SET-004.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "rrule.exrule",
+    "rrule.profile"
+  ],
+  "tags": [
+    "exrule",
+    "legacy",
+    "silent-drop"
+  ],
+  "title": "EXRULE (removed from RFC 5545, present in RFC 2445)"
+}

@@ -1,0 +1,53 @@
+{
+  "classification": "NORMATIVE",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "single",
+    "note": "Seven months a year, not twelve. Contrast Stripe's billing anchor, which bills the last day of the month instead, and relativedelta/Temporal 'constrain', which clamp to the 28th/30th.",
+    "occurrences": [
+      "2026-01-31T09:00:00-05:00|2026-01-31T14:00:00Z",
+      "2026-03-31T09:00:00-04:00|2026-03-31T13:00:00Z",
+      "2026-05-31T09:00:00-04:00|2026-05-31T13:00:00Z",
+      "2026-07-31T09:00:00-04:00|2026-07-31T13:00:00Z",
+      "2026-08-31T09:00:00-04:00|2026-08-31T13:00:00Z",
+      "2026-10-31T09:00:00-04:00|2026-10-31T13:00:00Z"
+    ]
+  },
+  "family": "rrule.by",
+  "id": "RRULE-BY-005",
+  "input": {
+    "count": 8,
+    "ics": "DTSTART;TZID=America/New_York:20260131T090000\nRRULE:FREQ=MONTHLY;BYMONTHDAY=31;COUNT=6",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "Recurrence instances falling on invalid dates and times are ignored and not counted as part of the recurrence set.",
+      "source_id": "rfc5545-3.3.10"
+    },
+    {
+      "note": "splits that sentence: invalid *dates* keep the MUST-ignore treatment; nonexistent *local times* are routed to §3.3.5 instead",
+      "source_id": "eid4271"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "The single most consequential month-end divergence in the corpus, because three defensible semantics exist — omit (RFC), clamp (Temporal constrain, relativedelta, Stripe), drift (naive iterated addition) — and only the first is RFC-conformant.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "bymonthday",
+    "month-end",
+    "headline"
+  ],
+  "title": "BYMONTHDAY=31: months without a 31st are omitted"
+}

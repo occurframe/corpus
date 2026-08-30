@@ -1,0 +1,64 @@
+{
+  "classification": "AMBIGUOUS_STANDARD",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "reject",
+        "note": "The MUST reading.",
+        "occurrences": null,
+        "when": {
+          "rrule.bysetpos_alone": "reject"
+        }
+      },
+      {
+        "label": "degenerate",
+        "note": "Engines that treat the single implicit candidate (the DTSTART day) as the set, making BYSETPOS=1 a no-op.",
+        "occurrences": [
+          "1997-09-04T09:00:00",
+          "1997-10-04T09:00:00",
+          "1997-11-04T09:00:00"
+        ],
+        "when": {
+          "rrule.bysetpos_alone": "degenerate"
+        }
+      }
+    ],
+    "mode": "admissible",
+    "note": "A MUST that the ABNF cannot express; both behaviours ship."
+  },
+  "family": "rrule.by",
+  "id": "RRULE-BY-016",
+  "input": {
+    "count": 4,
+    "ics": "DTSTART:19970904T090000\nRRULE:FREQ=MONTHLY;BYSETPOS=1;COUNT=3",
+    "kind": "rrule",
+    "zone": null
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "BYSETPOS ... MUST only be used in conjunction with another BYxxx rule part.",
+      "source_id": "rfc5545-3.3.10"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "Second example of a prose constraint outside the grammar's reach, in a different rule part from CORE-011.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "rrule.bysetpos_alone"
+  ],
+  "tags": [
+    "bysetpos",
+    "invalid"
+  ],
+  "title": "BYSETPOS without any other BY* rule part"
+}

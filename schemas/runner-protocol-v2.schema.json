@@ -1,0 +1,84 @@
+{
+  "$id": "https://occurframe.dev/schemas/1/runner-protocol-v2.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "oneOf": [
+    {
+      "additionalProperties": true,
+      "properties": {
+        "capabilities": { "type": "array" },
+        "dialect_ids": { "type": "array" },
+        "engine": { "type": "object" },
+        "message": { "const": "hello" },
+        "protocol_version": { "const": "2.0" },
+        "runner": { "type": "object" },
+        "runtime": { "type": "object" },
+        "semantic_profile_claims": { "type": "object" },
+        "tzdb_provenance": { "type": "object" }
+      },
+      "required": ["message", "protocol_version", "runner", "engine", "runtime", "capabilities", "dialect_ids", "semantic_profile_claims", "tzdb_provenance"],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "budget_ms": { "minimum": 1, "type": "integer" },
+        "message": { "const": "case" },
+        "protocol_version": { "const": "2.0" },
+        "request_id": { "type": "string" },
+        "vector": { "type": "object" }
+      },
+      "required": ["message", "protocol_version", "request_id", "vector", "budget_ms"],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "message": { "const": "started" },
+        "protocol_version": { "const": "2.0" },
+        "request_id": { "type": "string" }
+      },
+      "required": ["message", "protocol_version", "request_id"],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "message": { "const": "result" },
+        "outcome": {
+          "oneOf": [
+            {
+              "additionalProperties": false,
+              "properties": {
+                "occurrences": { "items": { "type": "string" }, "type": "array" },
+                "type": { "const": "occurrences" }
+              },
+              "required": ["type", "occurrences"],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": { "type": { "const": "accepted" } },
+              "required": ["type"],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "diagnostic": { "type": "object" },
+                "type": { "enum": ["rejection", "unsupported", "engine_error"] }
+              },
+              "required": ["type", "diagnostic"],
+              "type": "object"
+            }
+          ]
+        },
+        "protocol_version": { "const": "2.0" },
+        "request_id": { "type": "string" },
+        "warnings": { "items": { "type": "object" }, "type": "array" }
+      },
+      "required": ["message", "protocol_version", "request_id", "outcome", "warnings"],
+      "type": "object"
+    }
+  ],
+  "title": "Occurframe runner protocol v2 NDJSON message"
+}

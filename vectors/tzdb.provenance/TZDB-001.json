@@ -1,0 +1,80 @@
+{
+  "classification": "POLICY_DEPENDENT",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [
+      "tz.zoneinfo"
+    ],
+    "tzdb_min": null,
+    "tzdb_pin": "per-case"
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "tzdb<=2026a",
+        "note": "Ordinary PDT->PST fall back on 2026-11-01.",
+        "occurrences": [
+          "2026-10-30T12:00:00-07:00|2026-10-30T19:00:00Z",
+          "2026-10-31T12:00:00-07:00|2026-10-31T19:00:00Z",
+          "2026-11-01T12:00:00-08:00|2026-11-01T20:00:00Z",
+          "2026-11-02T12:00:00-08:00|2026-11-02T20:00:00Z"
+        ],
+        "when": {
+          "tz.tzdb_version": "2026a"
+        }
+      },
+      {
+        "label": "tzdb>=2026b",
+        "note": "Permanent -07; the abbreviation becomes MST and the clock never goes back.",
+        "occurrences": [
+          "2026-10-30T12:00:00-07:00|2026-10-30T19:00:00Z",
+          "2026-10-31T12:00:00-07:00|2026-10-31T19:00:00Z",
+          "2026-11-01T12:00:00-07:00|2026-11-01T19:00:00Z",
+          "2026-11-02T12:00:00-07:00|2026-11-02T19:00:00Z"
+        ],
+        "when": {
+          "tz.tzdb_version": "2026b"
+        }
+      }
+    ],
+    "mode": "per_policy",
+    "note": "A one-hour difference in the absolute firing time of a daily job, caused entirely by which tzdb the process loaded."
+  },
+  "family": "tzdb.provenance",
+  "id": "TZDB-001",
+  "input": {
+    "count": 4,
+    "expr": "0 12 * * *",
+    "fields": 5,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-10-30T00:00:00",
+    "zone": "America/Vancouver"
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "note": "tzdb models the change at 2026-11-01 02:00 to work around a CLDR limitation, although it legally took place on 2026-03-09",
+      "quote": "British Columbia's 2026-03-08 spring forward was its last foreseeable clock change, as it moved to permanent -07 thereafter.",
+      "source_id": "tzdb-2026b"
+    },
+    {
+      "source_id": "tzdb-news"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "The corpus's proof that engine version is not sufficient provenance. Two runs of the identical library on the identical expression differ by an hour because one process read /usr/share/zoneinfo and the other read a bundled copy. Any conformance claim that does not name a tzdb release is unfalsifiable.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "tz.tzdb_version"
+  ],
+  "tags": [
+    "tzdb",
+    "provenance",
+    "headline"
+  ],
+  "title": "America/Vancouver noon daily across 2026-11-01 (BC abolished DST in tzdb 2026b)"
+}

@@ -1,0 +1,44 @@
+{
+  "classification": "NORMATIVE",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2022e",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "single",
+    "occurrences": [
+      "2022-10-27T00:30:00+03:00|2022-10-26T21:30:00Z",
+      "2022-10-28T00:30:00+03:00|2022-10-27T21:30:00Z",
+      "2022-10-29T00:30:00+03:00|2022-10-28T21:30:00Z",
+      "2022-10-30T00:30:00+03:00|2022-10-29T21:30:00Z"
+    ]
+  },
+  "family": "rrule.dst",
+  "id": "RRULE-DST-012",
+  "input": {
+    "count": 5,
+    "ics": "DTSTART;TZID=Asia/Damascus:20221027T003000\nRRULE:FREQ=DAILY;COUNT=4",
+    "kind": "rrule",
+    "zone": "Asia/Damascus"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "source_id": "tzdb-news"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "Paired with DST-011 so a single zone's data cannot explain a failure.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "zero-offset",
+    "discriminator"
+  ],
+  "title": "Zero-offset transition: Asia/Damascus abolishes DST (2022)"
+}

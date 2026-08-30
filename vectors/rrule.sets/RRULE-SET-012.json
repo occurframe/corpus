@@ -1,0 +1,74 @@
+{
+  "classification": "AMBIGUOUS_STANDARD",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "include",
+        "note": "The recurrence set now starts before its own DTSTART.",
+        "occurrences": [
+          "2025-12-29T09:00:00-05:00|2025-12-29T14:00:00Z",
+          "2026-01-05T09:00:00-05:00|2026-01-05T14:00:00Z",
+          "2026-01-12T09:00:00-05:00|2026-01-12T14:00:00Z"
+        ],
+        "when": {
+          "rrule.rdate_before_dtstart": "include"
+        }
+      },
+      {
+        "label": "drop",
+        "note": "Engines that clamp the set to [DTSTART, ...).",
+        "occurrences": [
+          "2026-01-05T09:00:00-05:00|2026-01-05T14:00:00Z",
+          "2026-01-12T09:00:00-05:00|2026-01-12T14:00:00Z"
+        ],
+        "when": {
+          "rrule.rdate_before_dtstart": "drop"
+        }
+      },
+      {
+        "label": "reject",
+        "occurrences": null,
+        "when": {
+          "rrule.rdate_before_dtstart": "reject"
+        }
+      }
+    ],
+    "mode": "admissible"
+  },
+  "family": "rrule.sets",
+  "id": "RRULE-SET-012",
+  "input": {
+    "count": 4,
+    "ics": "DTSTART;TZID=America/New_York:20260105T090000\nRRULE:FREQ=WEEKLY;COUNT=2\nRDATE;TZID=America/New_York:20251229T090000",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "note": "no statement that RDATE values must be at or after DTSTART",
+      "source_id": "rfc5545-3.8.5.2"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "Breaks the widely assumed invariant 'DTSTART is the minimum of the recurrence set'. Any product that uses DTSTART as a query lower bound is wrong under the 'include' reading.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "rrule.rdate_before_dtstart"
+  ],
+  "tags": [
+    "rdate",
+    "dtstart",
+    "invariant"
+  ],
+  "title": "RDATE before DTSTART"
+}

@@ -1,0 +1,45 @@
+{
+  "classification": "NORMATIVE",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "single",
+    "occurrences": [
+      "2026-01-01T09:00:00-05:00|2026-01-01T14:00:00Z",
+      "2026-01-01T17:00:00-05:00|2026-01-01T22:00:00Z",
+      "2026-01-02T09:00:00-05:00|2026-01-02T14:00:00Z",
+      "2026-01-02T17:00:00-05:00|2026-01-02T22:00:00Z"
+    ]
+  },
+  "family": "rrule.by",
+  "id": "RRULE-BY-029",
+  "input": {
+    "count": 5,
+    "ics": "DTSTART;TZID=America/New_York:20260101T090000\nRRULE:FREQ=DAILY;BYHOUR=9,17;COUNT=4",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "note": "expand/limit table: BYHOUR expands under DAILY",
+      "source_id": "rfc5545-3.3.10"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "Time-of-day expansion is the half of the table that DST interacts with; a prerequisite for the rrule.dst family.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "byhour",
+    "expand-limit"
+  ],
+  "title": "BYHOUR expands under FREQ=DAILY"
+}

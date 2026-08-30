@@ -1,0 +1,50 @@
+{
+  "classification": "NORMATIVE",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "single",
+    "note": "Months without a fifth Sunday are skipped. Silent clamping to the last Sunday is a conformance failure and is observed.",
+    "occurrences": [
+      "2026-03-29T09:00:00-04:00|2026-03-29T13:00:00Z",
+      "2026-05-31T09:00:00-04:00|2026-05-31T13:00:00Z",
+      "2026-08-30T09:00:00-04:00|2026-08-30T13:00:00Z",
+      "2026-11-29T09:00:00-05:00|2026-11-29T14:00:00Z",
+      "2027-01-31T09:00:00-05:00|2027-01-31T14:00:00Z"
+    ]
+  },
+  "family": "rrule.by",
+  "id": "RRULE-BY-003",
+  "input": {
+    "count": 6,
+    "ics": "DTSTART;TZID=America/New_York:20260101T090000\nRRULE:FREQ=MONTHLY;BYDAY=5SU;COUNT=5",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "note": "a month without a 5th Sunday simply contributes no instance; the RFC never clamps",
+      "quote": "If the BYDAY rule part is specified with a numeric value ... it MUST only be used in conjunction with either the MONTHLY or YEARLY 'FREQ'",
+      "source_id": "rfc5545-3.3.10"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "Directly paired with CRON-EXT-007 (SUN#5). Both grammars specify skip; both have implementations that clamp; a user who wanted 'last Sunday' gets a schedule that fires 5 times a year in one engine and 12 in another.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "byday",
+    "nth-weekday",
+    "cross-grammar",
+    "headline"
+  ],
+  "title": "BYDAY=5SU in months that have only four Sundays"
+}

@@ -1,0 +1,44 @@
+{
+  "classification": "NORMATIVE",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "single",
+    "occurrences": [
+      "1997-05-12T09:00:00-04:00|1997-05-12T13:00:00Z",
+      "1998-05-11T09:00:00-04:00|1998-05-11T13:00:00Z",
+      "1999-05-17T09:00:00-04:00|1999-05-17T13:00:00Z"
+    ]
+  },
+  "family": "rrule.by",
+  "id": "RRULE-BY-020",
+  "input": {
+    "count": 4,
+    "ics": "DTSTART;TZID=America/New_York:19970512T090000\nRRULE:FREQ=YEARLY;BYWEEKNO=20;BYDAY=MO;COUNT=3",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "Monday of week number 20 (where the default start of the week is Monday), forever: ==> (1997 9:00 AM EDT) May 12;(1998 9:00 AM EDT) May 11;(1999 9:00 AM EDT) May 17",
+      "source_id": "rfc5545-3.8.5.3"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "The RFC prints three years of results, which is enough to detect an off-by-one in the ISO week algorithm.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "byweekno",
+    "iso-week"
+  ],
+  "title": "BYWEEKNO=20 with BYDAY=MO (RFC example)"
+}

@@ -1,0 +1,42 @@
+{
+  "classification": "INVALID",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "error_class": "step_negative",
+    "mode": "reject"
+  },
+  "family": "cron.steps",
+  "id": "CRON-STEP-011",
+  "input": {
+    "count": 1,
+    "expr": "*/-5 * * * *",
+    "fields": 5,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-01-01T00:00:00",
+    "zone": null
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "source_id": "crontab5"
+    }
+  ],
+  "operation": "cron.parse",
+  "rationale": "Boundary of the step grammar.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "steps",
+    "invalid"
+  ],
+  "title": "Negative step"
+}

@@ -1,0 +1,64 @@
+{
+  "classification": "AMBIGUOUS_STANDARD",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "empty",
+        "note": "DTSTART is an instance and the EXDATE removes it: an event that exists and never occurs.",
+        "occurrences": [],
+        "when": {
+          "rrule.dtstart_emission": "always"
+        }
+      },
+      {
+        "label": "dtstart-survives",
+        "note": "Engines where DTSTART is a seed outside the set and therefore not excludable.",
+        "occurrences": [
+          "2026-01-05T09:00:00-05:00|2026-01-05T14:00:00Z"
+        ],
+        "when": {
+          "rrule.dtstart_emission": "seed_only"
+        }
+      }
+    ],
+    "mode": "admissible"
+  },
+  "family": "rrule.sets",
+  "id": "RRULE-SET-013",
+  "input": {
+    "count": 3,
+    "ics": "DTSTART;TZID=America/New_York:20260105T090000\nEXDATE;TZID=America/New_York:20260105T090000",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "source_id": "rfc5545-3.8.5.3"
+    },
+    {
+      "source_id": "eid5920"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "The minimal probe of DTSTART's membership in the set; one line of input distinguishes the two models.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "rrule.dtstart_emission"
+  ],
+  "tags": [
+    "dtstart",
+    "exdate",
+    "discriminator"
+  ],
+  "title": "EXDATE alone with no RRULE"
+}

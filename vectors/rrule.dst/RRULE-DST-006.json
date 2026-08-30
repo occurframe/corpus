@@ -1,0 +1,49 @@
+{
+  "classification": "AMBIGUOUS_STANDARD",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "open",
+    "note": "Recorded, not scored. 2011-12-30 did not exist in Samoa: the zone jumped from 2011-12-29T23:59:59-10:00 to 2011-12-31T00:00:00+14:00. The 'interpret using the offset before the gap' rule of §3.3.5 yields 2011-12-30T12:00:00-10:00 = 2011-12-30T22:00:00Z, which lands on 2011-12-31T12:00 local — a full calendar day later in local terms."
+  },
+  "family": "rrule.dst",
+  "id": "RRULE-DST-006",
+  "input": {
+    "count": 5,
+    "ics": "DTSTART;TZID=Pacific/Apia:20111030T120000\nRRULE:FREQ=MONTHLY;BYMONTHDAY=30;COUNT=4",
+    "kind": "rrule",
+    "zone": "Pacific/Apia"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "source_id": "eid4271"
+    },
+    {
+      "source_id": "rfc5545-3.3.5"
+    },
+    {
+      "source_id": "tz-theory"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "The pathological case for every gap policy: the 'gap' is 24 hours wide and the pre-gap-offset rule produces a wall time on a different date. Any product claiming a DST policy must state what it does here.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "rrule.gap"
+  ],
+  "tags": [
+    "gap",
+    "skipped-day",
+    "open",
+    "headline"
+  ],
+  "title": "A monthly recurrence across the Apia date-line jump"
+}

@@ -1,0 +1,45 @@
+{
+  "classification": "NORMATIVE",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "single",
+    "occurrences": [
+      "1997-08-05T09:00:00-04:00|1997-08-05T13:00:00Z",
+      "1997-08-10T09:00:00-04:00|1997-08-10T13:00:00Z",
+      "1997-08-19T09:00:00-04:00|1997-08-19T13:00:00Z",
+      "1997-08-24T09:00:00-04:00|1997-08-24T13:00:00Z"
+    ]
+  },
+  "family": "rrule.by",
+  "id": "RRULE-BY-017",
+  "input": {
+    "count": 5,
+    "ics": "DTSTART;TZID=America/New_York:19970805T090000\nRRULE:FREQ=WEEKLY;INTERVAL=2;COUNT=4;BYDAY=TU,SU;WKST=MO",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "An example where the days generated makes a difference because of WKST: ... WKST=MO ==> (1997 EDT) August 5,10,19,24",
+      "source_id": "rfc5545-3.8.5.3"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "Half of the RFC's own demonstration that WKST changes the occurrence set.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "wkst",
+    "interval"
+  ],
+  "title": "WKST=MO with INTERVAL=2 (RFC's own WKST example)"
+}

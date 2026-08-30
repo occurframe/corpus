@@ -1,0 +1,44 @@
+{
+  "classification": "NORMATIVE",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "single",
+    "occurrences": [
+      "1997-09-02T09:00:00",
+      "1997-09-03T09:00:00",
+      "1997-09-04T09:00:00"
+    ]
+  },
+  "family": "rrule.core",
+  "id": "RRULE-CORE-009",
+  "input": {
+    "count": 6,
+    "ics": "DTSTART:19970902T090000\nRRULE:FREQ=DAILY;UNTIL=19970904T090000",
+    "kind": "rrule",
+    "zone": null
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "if the 'DTSTART' property is specified as a date with local time, then the UNTIL rule part MUST also be specified as a date with local time",
+      "source_id": "rfc5545-3.3.10"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "The floating branch of the UNTIL value-type coupling; engines that normalise everything to UTC internally get this wrong.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "until",
+    "floating"
+  ],
+  "title": "UNTIL with a floating DTSTART must be floating"
+}

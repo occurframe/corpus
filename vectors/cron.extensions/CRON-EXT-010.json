@@ -1,0 +1,68 @@
+{
+  "classification": "AMBIGUOUS_STANDARD",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "accept-as-star",
+        "note": "Both treated as '*': fires daily.",
+        "occurrences": [
+          "2026-01-01T12:00:00",
+          "2026-01-02T12:00:00",
+          "2026-01-03T12:00:00"
+        ],
+        "when": {
+          "cron.qmark": "supported"
+        }
+      },
+      {
+        "label": "reject",
+        "note": "Engines enforcing 'exactly one ?'.",
+        "occurrences": null,
+        "when": {
+          "cron.qmark": "one_only"
+        }
+      }
+    ],
+    "mode": "admissible",
+    "note": "Quartz's own documentation does not say what two '?' means; both behaviours ship."
+  },
+  "family": "cron.extensions",
+  "id": "CRON-EXT-010",
+  "input": {
+    "count": 3,
+    "expr": "0 0 12 ? * ? *",
+    "fields": 7,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-01-01T00:00:00",
+    "zone": null
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "note": "the documentation states '?' is allowed in one of the two fields but does not define both",
+      "source_id": "quartz"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "A genuine gap in the second-most-copied cron dialect's documentation.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "cron.dialect",
+    "cron.qmark"
+  ],
+  "tags": [
+    "extensions",
+    "qmark"
+  ],
+  "title": "'?' in both day fields"
+}

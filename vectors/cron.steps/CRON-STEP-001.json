@@ -1,0 +1,51 @@
+{
+  "classification": "NORMATIVE",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "single",
+    "note": "Fires at :00 and :35 of every hour — NOT every 35 minutes.",
+    "occurrences": [
+      "2026-01-01T00:35:00",
+      "2026-01-01T01:00:00",
+      "2026-01-01T01:35:00",
+      "2026-01-01T02:00:00",
+      "2026-01-01T02:35:00",
+      "2026-01-01T03:00:00"
+    ]
+  },
+  "family": "cron.steps",
+  "id": "CRON-STEP-001",
+  "input": {
+    "count": 6,
+    "expr": "*/35 * * * *",
+    "fields": 5,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-01-01T00:00:00",
+    "zone": null
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "steps are evaluated just within the field they are applied to",
+      "source_id": "crontab5"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "The most-reported cron misunderstanding, and one the man page actually settles. It is NORMATIVE, and it is also the vector that proves cron cannot express 'every N minutes' for N not dividing 60.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "steps",
+    "headline"
+  ],
+  "title": "*/35 in the minute field: step does not mean interval"
+}

@@ -1,0 +1,71 @@
+{
+  "classification": "DIALECT_DEPENDENT",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "supported",
+        "occurrences": [
+          "2026-01-15T09:00:00",
+          "2026-02-16T09:00:00",
+          "2026-03-16T09:00:00",
+          "2026-04-15T09:00:00",
+          "2026-05-15T09:00:00",
+          "2026-06-15T09:00:00",
+          "2026-07-15T09:00:00",
+          "2026-08-14T09:00:00"
+        ],
+        "when": {
+          "cron.W": "supported"
+        }
+      },
+      {
+        "label": "reject",
+        "occurrences": null,
+        "when": {
+          "cron.W": "unsupported"
+        }
+      }
+    ],
+    "mode": "per_dialect"
+  },
+  "family": "cron.extensions",
+  "id": "CRON-EXT-003",
+  "input": {
+    "count": 8,
+    "expr": "0 9 15W * *",
+    "fields": 5,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-01-01T00:00:00",
+    "zone": null
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "the 'nearest' weekday to the 15th of the month ... the 'W' character ... will not 'jump' over the boundary of a month's days",
+      "source_id": "quartz"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "'W' is exactly the finance industry's Modified Following roll convention over a weekends-only calendar; it is the one business-day construct that reached the cron grammar.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "cron.W",
+    "cron.dialect"
+  ],
+  "tags": [
+    "extensions",
+    "W",
+    "business-day"
+  ],
+  "title": "15W: nearest weekday to the 15th"
+}

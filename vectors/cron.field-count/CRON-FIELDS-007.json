@@ -1,0 +1,66 @@
+{
+  "classification": "DIALECT_DEPENDENT",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "year-trailing",
+        "note": "Reads 2027 as a year; the schedule is finite and has exactly one occurrence.",
+        "occurrences": [
+          "2027-01-01T12:00:00"
+        ],
+        "when": {
+          "cron.sixth_field": "year"
+        }
+      },
+      {
+        "label": "seconds-leading",
+        "note": "Reads the leading '0' as seconds and then finds '2027' in the day-of-week field: out of range, so a parse error.",
+        "occurrences": null,
+        "when": {
+          "cron.sixth_field": "seconds"
+        }
+      }
+    ],
+    "mode": "per_dialect",
+    "note": "This vector disambiguates the two six-field readings by construction: one accepts, the other must reject."
+  },
+  "family": "cron.field-count",
+  "id": "CRON-FIELDS-007",
+  "input": {
+    "count": 3,
+    "expr": "0 12 1 1 * 2027",
+    "fields": 6,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-01-01T00:00:00",
+    "zone": null
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "source_id": "aws-eventbridge"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "A discriminating vector — it identifies which six-field dialect an engine implements without needing its docs.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "cron.dialect",
+    "cron.sixth_field"
+  ],
+  "tags": [
+    "fields",
+    "year",
+    "discriminator"
+  ],
+  "title": "Six-field form with an unambiguous year token (2027)"
+}

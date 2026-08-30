@@ -1,0 +1,76 @@
+{
+  "classification": "AMBIGUOUS_STANDARD",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "limit",
+        "note": "Post-errata reading: BYMONTHDAY limits, so only the month of DTSTART survives.",
+        "occurrences": [
+          "2026-03-15T09:00:00-04:00|2026-03-15T13:00:00Z",
+          "2027-03-15T09:00:00-04:00|2027-03-15T13:00:00Z",
+          "2028-03-15T09:00:00-04:00|2028-03-15T13:00:00Z",
+          "2029-03-15T09:00:00-04:00|2029-03-15T13:00:00Z"
+        ],
+        "when": {
+          "rrule.note2": "post_errata"
+        }
+      },
+      {
+        "label": "expand",
+        "note": "Pre-errata reading: BYMONTHDAY expands across all twelve months. python-dateutil implements the pre-errata text.",
+        "occurrences": [
+          "2026-03-15T09:00:00-04:00|2026-03-15T13:00:00Z",
+          "2026-04-15T09:00:00-04:00|2026-04-15T13:00:00Z",
+          "2026-05-15T09:00:00-04:00|2026-05-15T13:00:00Z",
+          "2026-06-15T09:00:00-04:00|2026-06-15T13:00:00Z"
+        ],
+        "when": {
+          "rrule.note2": "pre_errata"
+        }
+      }
+    ],
+    "mode": "admissible",
+    "note": "A Verified erratum against the canonical expansion table describes behaviour the most widely deployed reference implementation does not exhibit."
+  },
+  "family": "rrule.by",
+  "id": "RRULE-BY-027",
+  "input": {
+    "count": 5,
+    "ics": "DTSTART;TZID=America/New_York:20260315T090000\nRRULE:FREQ=YEARLY;BYMONTHDAY=15;COUNT=4",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "note": "Verified, classified Editorial, but it changes expansion semantics",
+      "quote": "Note 2: Limit if BYYEARDAY or BYMONTHDAY is present; otherwise, special expand for YEARLY.",
+      "source_id": "eid3747"
+    },
+    {
+      "note": "the published Note 2 differs",
+      "source_id": "rfc5545-3.3.10"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "'Conform to RFC 5545 plus verified errata' and 'match the ecosystem' are mutually exclusive goals, and this vector is where that becomes measurable. The most-linked HTML mirror of §3.3.10 still serves the pre-errata text, so implementers reading the ordinary web copy never see the correction.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "rrule.note2"
+  ],
+  "tags": [
+    "errata",
+    "expand-limit",
+    "headline"
+  ],
+  "title": "FREQ=YEARLY with BYMONTHDAY only (erratum 3747's Note 2)"
+}

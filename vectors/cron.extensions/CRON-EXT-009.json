@@ -1,0 +1,73 @@
+{
+  "classification": "DIALECT_DEPENDENT",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "supported",
+        "note": "'?' is equivalent to '*' for matching purposes but suppresses the both-restricted error.",
+        "occurrences": [
+          "2026-01-05T12:00:00",
+          "2026-01-12T12:00:00",
+          "2026-01-19T12:00:00",
+          "2026-01-26T12:00:00"
+        ],
+        "when": {
+          "cron.qmark": "supported"
+        }
+      },
+      {
+        "label": "reject",
+        "note": "Vixie lineage: '?' is not in the grammar.",
+        "occurrences": null,
+        "when": {
+          "cron.qmark": "unsupported"
+        }
+      }
+    ],
+    "mode": "per_dialect"
+  },
+  "family": "cron.extensions",
+  "id": "CRON-EXT-009",
+  "input": {
+    "count": 4,
+    "expr": "0 0 12 ? * MON *",
+    "fields": 7,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-01-01T00:00:00",
+    "zone": null
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "'?' ... means 'no specific value'",
+      "source_id": "quartz"
+    },
+    {
+      "note": "EventBridge requires '?' in one of the two day fields",
+      "source_id": "aws-eventbridge"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "'?' is the only construct in any cron dialect whose purpose is to disambiguate the DOM/DOW rule; it belongs beside the five-way family.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "cron.dialect",
+    "cron.qmark"
+  ],
+  "tags": [
+    "extensions",
+    "qmark",
+    "dom_dow"
+  ],
+  "title": "'?' in the day-of-month field with a restricted day-of-week"
+}

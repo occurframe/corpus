@@ -1,0 +1,4104 @@
+{
+  "ambiguous_legacy_observation_count": 814,
+  "canonical_rc2_digest": "4804772d20fb36c7329b2c5f2f28e264d9bc00b11e407e76d9836fc38cd80470",
+  "classification_counts": {
+    "AMBIGUOUS_STANDARD": 21,
+    "DIALECT_DEPENDENT": 37,
+    "INVALID": 24,
+    "KNOWN_DIVERGENCE": 4,
+    "NORMATIVE": 65,
+    "POLICY_DEPENDENT": 33
+  },
+  "family_counts": {
+    "cron": 98,
+    "rrule": 76,
+    "tzdb_provenance": 10
+  },
+  "id_equality": true,
+  "legacy_observations_that_cannot_safely_map_to_protocol_v2": [
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-ANCH-001"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-ANCH-001"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-ANCH-002"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-ANCH-002"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-ANCH-003"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-ANCH-003"
+    },
+    {
+      "engine_build": "php-cron-expression@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-ANCH-003"
+    },
+    {
+      "engine_build": "robfig-cron@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-ANCH-003"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-ANCH-004"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-ANCH-004"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DAYF-001"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DAYF-001"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DAYF-002"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DAYF-002"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DAYF-003"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DAYF-003"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DAYF-004"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DAYF-004"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DAYF-005"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DAYF-005"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DAYF-006"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DAYF-006"
+    },
+    {
+      "engine_build": "cron-parser@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DAYF-010"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DAYF-010"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DAYF-010"
+    },
+    {
+      "engine_build": "cron-parser@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DAYF-011"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DAYF-011"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DAYF-011"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DAYF-012"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DAYF-012"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DAYF-013"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-DAYF-013"
+    },
+    {
+      "engine_build": "cron-parser@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DAYF-013"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DAYF-013"
+    },
+    {
+      "engine_build": "croner@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DAYF-013"
+    },
+    {
+      "engine_build": "croner[legacyMode=false]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DAYF-013"
+    },
+    {
+      "engine_build": "fugit@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DAYF-013"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DAYF-013"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-001"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-001"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-002"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-002"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-002"
+    },
+    {
+      "engine_build": "robfig-cron@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-002"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-002"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-003"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-003"
+    },
+    {
+      "engine_build": "cron-parser@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-003"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-003"
+    },
+    {
+      "engine_build": "robfig-cron@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-003"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-003"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-004"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-004"
+    },
+    {
+      "engine_build": "cron-parser@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-004"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-004"
+    },
+    {
+      "engine_build": "croner@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-004"
+    },
+    {
+      "engine_build": "croner[legacyMode=false]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-004"
+    },
+    {
+      "engine_build": "croniter@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-004"
+    },
+    {
+      "engine_build": "croniter@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-004"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-004"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-004"
+    },
+    {
+      "engine_build": "cronsim@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-004"
+    },
+    {
+      "engine_build": "cronsim@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-004"
+    },
+    {
+      "engine_build": "cronstrue@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-004"
+    },
+    {
+      "engine_build": "fugit@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-004"
+    },
+    {
+      "engine_build": "php-cron-expression@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-004"
+    },
+    {
+      "engine_build": "robfig-cron@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-004"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-004"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-005"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-005"
+    },
+    {
+      "engine_build": "cron-parser@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-005"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-005"
+    },
+    {
+      "engine_build": "croner@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-005"
+    },
+    {
+      "engine_build": "croner[legacyMode=false]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-005"
+    },
+    {
+      "engine_build": "cronsim@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-005"
+    },
+    {
+      "engine_build": "cronsim@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-005"
+    },
+    {
+      "engine_build": "php-cron-expression@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-005"
+    },
+    {
+      "engine_build": "robfig-cron@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-005"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-005"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-006"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-006"
+    },
+    {
+      "engine_build": "cron-parser@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-006"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-006"
+    },
+    {
+      "engine_build": "croner@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-006"
+    },
+    {
+      "engine_build": "croner[legacyMode=false]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-006"
+    },
+    {
+      "engine_build": "cronsim@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-006"
+    },
+    {
+      "engine_build": "cronsim@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-006"
+    },
+    {
+      "engine_build": "php-cron-expression@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-006"
+    },
+    {
+      "engine_build": "robfig-cron@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-006"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-006"
+    },
+    {
+      "engine_build": "cron-parser@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-007"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-007"
+    },
+    {
+      "engine_build": "cronsim@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-007"
+    },
+    {
+      "engine_build": "cronsim@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-007"
+    },
+    {
+      "engine_build": "robfig-cron@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-007"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-007"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-008"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-008"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-009"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-009"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-010"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-010"
+    },
+    {
+      "engine_build": "cron-parser@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-010"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-010"
+    },
+    {
+      "engine_build": "croner@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-010"
+    },
+    {
+      "engine_build": "croner[legacyMode=false]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-010"
+    },
+    {
+      "engine_build": "croniter@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-010"
+    },
+    {
+      "engine_build": "croniter@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-010"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-010"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-010"
+    },
+    {
+      "engine_build": "cronsim@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-010"
+    },
+    {
+      "engine_build": "cronsim@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-010"
+    },
+    {
+      "engine_build": "cronstrue@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-010"
+    },
+    {
+      "engine_build": "fugit@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-010"
+    },
+    {
+      "engine_build": "php-cron-expression@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-010"
+    },
+    {
+      "engine_build": "robfig-cron@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-010"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-010"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-011"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-011"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-012"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-012"
+    },
+    {
+      "engine_build": "cron-parser@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-012"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-012"
+    },
+    {
+      "engine_build": "croner@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-012"
+    },
+    {
+      "engine_build": "croner[legacyMode=false]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-012"
+    },
+    {
+      "engine_build": "cronsim@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-012"
+    },
+    {
+      "engine_build": "cronsim@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-012"
+    },
+    {
+      "engine_build": "php-cron-expression@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-012"
+    },
+    {
+      "engine_build": "robfig-cron@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-012"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-012"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-013"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DOW-013"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DST-001"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DST-001"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DST-002"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DST-002"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DST-003"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DST-003"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DST-004"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DST-004"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DST-005"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DST-005"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DST-006"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DST-006"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DST-007"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DST-007"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DST-008"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DST-008"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DST-009"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DST-009"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DST-010"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DST-010"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DST-011"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DST-011"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DST-012"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DST-012"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DST-013"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DST-013"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DST-014"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DST-014"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DST-015"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DST-015"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DST-016"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DST-016"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DST-017"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DST-017"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DST-018"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DST-018"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DST-019"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DST-019"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DST-020"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-DST-020"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-001"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-001"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-001"
+    },
+    {
+      "engine_build": "robfig-cron@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-001"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-001"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-002"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-002"
+    },
+    {
+      "engine_build": "cron-parser@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-002"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-002"
+    },
+    {
+      "engine_build": "croner@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-002"
+    },
+    {
+      "engine_build": "croner[legacyMode=false]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-002"
+    },
+    {
+      "engine_build": "croniter@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-002"
+    },
+    {
+      "engine_build": "croniter@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-002"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-002"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-002"
+    },
+    {
+      "engine_build": "cronsim@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-002"
+    },
+    {
+      "engine_build": "cronsim@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-002"
+    },
+    {
+      "engine_build": "fugit@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-002"
+    },
+    {
+      "engine_build": "php-cron-expression@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-002"
+    },
+    {
+      "engine_build": "robfig-cron@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-002"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-002"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-003"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-003"
+    },
+    {
+      "engine_build": "cron-parser@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-003"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-003"
+    },
+    {
+      "engine_build": "cronsim@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-003"
+    },
+    {
+      "engine_build": "cronsim@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-003"
+    },
+    {
+      "engine_build": "fugit@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-003"
+    },
+    {
+      "engine_build": "robfig-cron@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-003"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-003"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-004"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-004"
+    },
+    {
+      "engine_build": "cron-parser@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-004"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-004"
+    },
+    {
+      "engine_build": "cronsim@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-004"
+    },
+    {
+      "engine_build": "cronsim@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-004"
+    },
+    {
+      "engine_build": "fugit@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-004"
+    },
+    {
+      "engine_build": "robfig-cron@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-004"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-004"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-005"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-005"
+    },
+    {
+      "engine_build": "cron-parser@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-005"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-005"
+    },
+    {
+      "engine_build": "croniter@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-005"
+    },
+    {
+      "engine_build": "croniter@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-005"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-005"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-005"
+    },
+    {
+      "engine_build": "fugit@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-005"
+    },
+    {
+      "engine_build": "robfig-cron@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-005"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-005"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-006"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-006"
+    },
+    {
+      "engine_build": "cron-parser@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-006"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-006"
+    },
+    {
+      "engine_build": "croniter@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-006"
+    },
+    {
+      "engine_build": "croniter@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-006"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-006"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-006"
+    },
+    {
+      "engine_build": "cronsim@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-006"
+    },
+    {
+      "engine_build": "cronsim@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-006"
+    },
+    {
+      "engine_build": "fugit@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-006"
+    },
+    {
+      "engine_build": "php-cron-expression@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-006"
+    },
+    {
+      "engine_build": "robfig-cron@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-006"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-006"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-007"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-007"
+    },
+    {
+      "engine_build": "cron-parser@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-007"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-007"
+    },
+    {
+      "engine_build": "croniter@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-007"
+    },
+    {
+      "engine_build": "croniter@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-007"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-007"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-007"
+    },
+    {
+      "engine_build": "cronsim@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-007"
+    },
+    {
+      "engine_build": "cronsim@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-007"
+    },
+    {
+      "engine_build": "fugit@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-007"
+    },
+    {
+      "engine_build": "php-cron-expression@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-007"
+    },
+    {
+      "engine_build": "robfig-cron@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-007"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-007"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-008"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-008"
+    },
+    {
+      "engine_build": "cron-parser@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-008"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-008"
+    },
+    {
+      "engine_build": "croniter@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-008"
+    },
+    {
+      "engine_build": "croniter@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-008"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-008"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-008"
+    },
+    {
+      "engine_build": "cronsim@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-008"
+    },
+    {
+      "engine_build": "cronsim@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-008"
+    },
+    {
+      "engine_build": "fugit@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-008"
+    },
+    {
+      "engine_build": "php-cron-expression@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-008"
+    },
+    {
+      "engine_build": "robfig-cron@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-008"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-008"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-009"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-009"
+    },
+    {
+      "engine_build": "cron-parser@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-009"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-009"
+    },
+    {
+      "engine_build": "croniter@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-009"
+    },
+    {
+      "engine_build": "croniter@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-009"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-009"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-009"
+    },
+    {
+      "engine_build": "cronsim@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-009"
+    },
+    {
+      "engine_build": "cronsim@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-009"
+    },
+    {
+      "engine_build": "fugit@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-009"
+    },
+    {
+      "engine_build": "php-cron-expression@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-009"
+    },
+    {
+      "engine_build": "robfig-cron@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-009"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-009"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-010"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-010"
+    },
+    {
+      "engine_build": "cron-parser@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-010"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-010"
+    },
+    {
+      "engine_build": "croniter@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-010"
+    },
+    {
+      "engine_build": "croniter@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-010"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-010"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-010"
+    },
+    {
+      "engine_build": "cronsim@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-010"
+    },
+    {
+      "engine_build": "cronsim@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-010"
+    },
+    {
+      "engine_build": "fugit@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-010"
+    },
+    {
+      "engine_build": "php-cron-expression@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-010"
+    },
+    {
+      "engine_build": "robfig-cron@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-010"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-010"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-011"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-011"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-011"
+    },
+    {
+      "engine_build": "croner@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-011"
+    },
+    {
+      "engine_build": "croner[legacyMode=false]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-011"
+    },
+    {
+      "engine_build": "croniter@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-011"
+    },
+    {
+      "engine_build": "croniter@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-011"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-011"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-011"
+    },
+    {
+      "engine_build": "cronsim@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-011"
+    },
+    {
+      "engine_build": "cronsim@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-011"
+    },
+    {
+      "engine_build": "cronstrue@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-011"
+    },
+    {
+      "engine_build": "fugit@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-011"
+    },
+    {
+      "engine_build": "php-cron-expression@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-011"
+    },
+    {
+      "engine_build": "robfig-cron@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-011"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-011"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-012"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-012"
+    },
+    {
+      "engine_build": "cron-parser@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-012"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-012"
+    },
+    {
+      "engine_build": "croner@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-012"
+    },
+    {
+      "engine_build": "croner[legacyMode=false]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-012"
+    },
+    {
+      "engine_build": "croniter@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-012"
+    },
+    {
+      "engine_build": "croniter@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-012"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-012"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-012"
+    },
+    {
+      "engine_build": "cronsim@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-012"
+    },
+    {
+      "engine_build": "cronsim@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-012"
+    },
+    {
+      "engine_build": "cronstrue@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-012"
+    },
+    {
+      "engine_build": "php-cron-expression@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-012"
+    },
+    {
+      "engine_build": "robfig-cron@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-012"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-012"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-013"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-013"
+    },
+    {
+      "engine_build": "cron-parser@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-013"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-013"
+    },
+    {
+      "engine_build": "croner@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-013"
+    },
+    {
+      "engine_build": "croner[legacyMode=false]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-013"
+    },
+    {
+      "engine_build": "croniter@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-013"
+    },
+    {
+      "engine_build": "croniter@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-013"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-013"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-013"
+    },
+    {
+      "engine_build": "cronsim@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-013"
+    },
+    {
+      "engine_build": "cronsim@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-013"
+    },
+    {
+      "engine_build": "fugit@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-013"
+    },
+    {
+      "engine_build": "php-cron-expression@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-013"
+    },
+    {
+      "engine_build": "robfig-cron@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-013"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-013"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-014"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-014"
+    },
+    {
+      "engine_build": "cron-parser@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-014"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-014"
+    },
+    {
+      "engine_build": "croner@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-014"
+    },
+    {
+      "engine_build": "croner[legacyMode=false]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-014"
+    },
+    {
+      "engine_build": "croniter@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-014"
+    },
+    {
+      "engine_build": "croniter@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-014"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-014"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-014"
+    },
+    {
+      "engine_build": "cronsim@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-014"
+    },
+    {
+      "engine_build": "cronsim@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-014"
+    },
+    {
+      "engine_build": "cronstrue@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-014"
+    },
+    {
+      "engine_build": "fugit@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-014"
+    },
+    {
+      "engine_build": "php-cron-expression@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-014"
+    },
+    {
+      "engine_build": "robfig-cron@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-014"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-EXT-014"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-001"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-001"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-002"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-002"
+    },
+    {
+      "engine_build": "php-cron-expression@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-002"
+    },
+    {
+      "engine_build": "robfig-cron@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-002"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-003"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-003"
+    },
+    {
+      "engine_build": "cron-parser@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-003"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-003"
+    },
+    {
+      "engine_build": "croniter@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-003"
+    },
+    {
+      "engine_build": "croniter@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-003"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-003"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-003"
+    },
+    {
+      "engine_build": "cronsim@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-003"
+    },
+    {
+      "engine_build": "cronsim@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-003"
+    },
+    {
+      "engine_build": "fugit@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-003"
+    },
+    {
+      "engine_build": "php-cron-expression@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-003"
+    },
+    {
+      "engine_build": "robfig-cron@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-003"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-003"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-004"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-004"
+    },
+    {
+      "engine_build": "php-cron-expression@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-004"
+    },
+    {
+      "engine_build": "robfig-cron@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-004"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-005"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-005"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-005"
+    },
+    {
+      "engine_build": "croner@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-005"
+    },
+    {
+      "engine_build": "croner[legacyMode=false]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-005"
+    },
+    {
+      "engine_build": "croniter@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-005"
+    },
+    {
+      "engine_build": "croniter@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-005"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-005"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-005"
+    },
+    {
+      "engine_build": "cronsim@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-005"
+    },
+    {
+      "engine_build": "cronsim@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-005"
+    },
+    {
+      "engine_build": "cronstrue@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-005"
+    },
+    {
+      "engine_build": "fugit@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-005"
+    },
+    {
+      "engine_build": "php-cron-expression@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-005"
+    },
+    {
+      "engine_build": "robfig-cron@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-005"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-005"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-006"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-006"
+    },
+    {
+      "engine_build": "cron-parser@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-006"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-006"
+    },
+    {
+      "engine_build": "croner@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-006"
+    },
+    {
+      "engine_build": "croner[legacyMode=false]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-006"
+    },
+    {
+      "engine_build": "croniter@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-006"
+    },
+    {
+      "engine_build": "croniter@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-006"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-006"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-006"
+    },
+    {
+      "engine_build": "cronsim@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-006"
+    },
+    {
+      "engine_build": "cronsim@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-006"
+    },
+    {
+      "engine_build": "cronstrue@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-006"
+    },
+    {
+      "engine_build": "fugit@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-006"
+    },
+    {
+      "engine_build": "php-cron-expression@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-006"
+    },
+    {
+      "engine_build": "robfig-cron@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-006"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-006"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-007"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-007"
+    },
+    {
+      "engine_build": "cron-parser@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-007"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-007"
+    },
+    {
+      "engine_build": "croner@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-007"
+    },
+    {
+      "engine_build": "croner[legacyMode=false]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-007"
+    },
+    {
+      "engine_build": "croniter@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-007"
+    },
+    {
+      "engine_build": "croniter@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-007"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-007"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-007"
+    },
+    {
+      "engine_build": "cronsim@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-007"
+    },
+    {
+      "engine_build": "cronsim@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-007"
+    },
+    {
+      "engine_build": "fugit@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-007"
+    },
+    {
+      "engine_build": "php-cron-expression@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-007"
+    },
+    {
+      "engine_build": "robfig-cron@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-007"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-007"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-008"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-008"
+    },
+    {
+      "engine_build": "cronsim@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-008"
+    },
+    {
+      "engine_build": "cronsim@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-008"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-009"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-009"
+    },
+    {
+      "engine_build": "cronsim@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-009"
+    },
+    {
+      "engine_build": "cronsim@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-009"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-010"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-010"
+    },
+    {
+      "engine_build": "cronsim@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-010"
+    },
+    {
+      "engine_build": "cronsim@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-010"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-011"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-011"
+    },
+    {
+      "engine_build": "cronsim@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-011"
+    },
+    {
+      "engine_build": "cronsim@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-011"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-012"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-012"
+    },
+    {
+      "engine_build": "cronsim@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-012"
+    },
+    {
+      "engine_build": "cronsim@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-012"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-013"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-013"
+    },
+    {
+      "engine_build": "cron-parser@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-013"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-013"
+    },
+    {
+      "engine_build": "croner@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-013"
+    },
+    {
+      "engine_build": "croner[legacyMode=false]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-013"
+    },
+    {
+      "engine_build": "croniter@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-013"
+    },
+    {
+      "engine_build": "croniter@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-013"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-013"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-013"
+    },
+    {
+      "engine_build": "cronsim@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-013"
+    },
+    {
+      "engine_build": "cronsim@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-013"
+    },
+    {
+      "engine_build": "fugit@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-013"
+    },
+    {
+      "engine_build": "php-cron-expression@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-013"
+    },
+    {
+      "engine_build": "robfig-cron@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-013"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-FIELDS-013"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-001"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-001"
+    },
+    {
+      "engine_build": "cron-parser@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-001"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-001"
+    },
+    {
+      "engine_build": "croner@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-001"
+    },
+    {
+      "engine_build": "croner[legacyMode=false]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-001"
+    },
+    {
+      "engine_build": "croniter@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-001"
+    },
+    {
+      "engine_build": "croniter@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-001"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-001"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-001"
+    },
+    {
+      "engine_build": "cronsim@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-001"
+    },
+    {
+      "engine_build": "cronsim@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-001"
+    },
+    {
+      "engine_build": "cronstrue@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-001"
+    },
+    {
+      "engine_build": "fugit@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-001"
+    },
+    {
+      "engine_build": "php-cron-expression@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-001"
+    },
+    {
+      "engine_build": "robfig-cron@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-001"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-001"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-002"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-002"
+    },
+    {
+      "engine_build": "cron-parser@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-002"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-002"
+    },
+    {
+      "engine_build": "croner@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-002"
+    },
+    {
+      "engine_build": "croner[legacyMode=false]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-002"
+    },
+    {
+      "engine_build": "croniter@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-002"
+    },
+    {
+      "engine_build": "croniter@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-002"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-002"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-002"
+    },
+    {
+      "engine_build": "cronsim@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-002"
+    },
+    {
+      "engine_build": "cronsim@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-002"
+    },
+    {
+      "engine_build": "cronstrue@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-002"
+    },
+    {
+      "engine_build": "php-cron-expression@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-002"
+    },
+    {
+      "engine_build": "robfig-cron@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-002"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-002"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-003"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-003"
+    },
+    {
+      "engine_build": "cron-parser@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-003"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-003"
+    },
+    {
+      "engine_build": "croner@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-003"
+    },
+    {
+      "engine_build": "croner[legacyMode=false]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-003"
+    },
+    {
+      "engine_build": "croniter@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-003"
+    },
+    {
+      "engine_build": "croniter@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-003"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-003"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-003"
+    },
+    {
+      "engine_build": "cronsim@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-003"
+    },
+    {
+      "engine_build": "cronsim@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-003"
+    },
+    {
+      "engine_build": "cronstrue@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-003"
+    },
+    {
+      "engine_build": "fugit@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-003"
+    },
+    {
+      "engine_build": "php-cron-expression@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-003"
+    },
+    {
+      "engine_build": "robfig-cron@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-003"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-003"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-004"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-004"
+    },
+    {
+      "engine_build": "cron-parser@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-004"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-004"
+    },
+    {
+      "engine_build": "croner@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-004"
+    },
+    {
+      "engine_build": "croner[legacyMode=false]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-004"
+    },
+    {
+      "engine_build": "croniter@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-004"
+    },
+    {
+      "engine_build": "croniter@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-004"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-004"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-004"
+    },
+    {
+      "engine_build": "cronsim@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-004"
+    },
+    {
+      "engine_build": "cronsim@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-004"
+    },
+    {
+      "engine_build": "cronstrue@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-004"
+    },
+    {
+      "engine_build": "fugit@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-004"
+    },
+    {
+      "engine_build": "php-cron-expression@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-004"
+    },
+    {
+      "engine_build": "robfig-cron@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-004"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-004"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-005"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-005"
+    },
+    {
+      "engine_build": "cron-parser@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-005"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-005"
+    },
+    {
+      "engine_build": "croner@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-005"
+    },
+    {
+      "engine_build": "croner[legacyMode=false]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-005"
+    },
+    {
+      "engine_build": "croniter@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-005"
+    },
+    {
+      "engine_build": "croniter@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-005"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-005"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-005"
+    },
+    {
+      "engine_build": "cronsim@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-005"
+    },
+    {
+      "engine_build": "cronsim@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-005"
+    },
+    {
+      "engine_build": "cronstrue@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-005"
+    },
+    {
+      "engine_build": "fugit@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-005"
+    },
+    {
+      "engine_build": "php-cron-expression@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-005"
+    },
+    {
+      "engine_build": "robfig-cron@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-005"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-005"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-006"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-006"
+    },
+    {
+      "engine_build": "cron-parser@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-006"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-006"
+    },
+    {
+      "engine_build": "croner@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-006"
+    },
+    {
+      "engine_build": "croner[legacyMode=false]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-006"
+    },
+    {
+      "engine_build": "croniter@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-006"
+    },
+    {
+      "engine_build": "croniter@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-006"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-006"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-006"
+    },
+    {
+      "engine_build": "cronsim@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-006"
+    },
+    {
+      "engine_build": "cronsim@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-006"
+    },
+    {
+      "engine_build": "cronstrue@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-006"
+    },
+    {
+      "engine_build": "fugit@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-006"
+    },
+    {
+      "engine_build": "php-cron-expression@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-006"
+    },
+    {
+      "engine_build": "robfig-cron@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-006"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-006"
+    },
+    {
+      "engine_build": "cron-parser@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-007"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-007"
+    },
+    {
+      "engine_build": "croniter@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-007"
+    },
+    {
+      "engine_build": "croniter@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-007"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-007"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-007"
+    },
+    {
+      "engine_build": "cronsim@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-007"
+    },
+    {
+      "engine_build": "cronsim@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-007"
+    },
+    {
+      "engine_build": "fugit@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-007"
+    },
+    {
+      "engine_build": "php-cron-expression@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-007"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-007"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-008"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-008"
+    },
+    {
+      "engine_build": "cron-parser@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-008"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-008"
+    },
+    {
+      "engine_build": "croner@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-008"
+    },
+    {
+      "engine_build": "croner[legacyMode=false]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-008"
+    },
+    {
+      "engine_build": "croniter@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-008"
+    },
+    {
+      "engine_build": "croniter@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-008"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-008"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-008"
+    },
+    {
+      "engine_build": "cronsim@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-008"
+    },
+    {
+      "engine_build": "cronsim@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-008"
+    },
+    {
+      "engine_build": "cronstrue@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-008"
+    },
+    {
+      "engine_build": "fugit@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-008"
+    },
+    {
+      "engine_build": "php-cron-expression@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-008"
+    },
+    {
+      "engine_build": "robfig-cron@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-008"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-008"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-009"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-009"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-009"
+    },
+    {
+      "engine_build": "croner@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-009"
+    },
+    {
+      "engine_build": "croner[legacyMode=false]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-009"
+    },
+    {
+      "engine_build": "croniter@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-009"
+    },
+    {
+      "engine_build": "croniter@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-009"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-009"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-009"
+    },
+    {
+      "engine_build": "cronsim@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-009"
+    },
+    {
+      "engine_build": "cronsim@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-009"
+    },
+    {
+      "engine_build": "cronstrue@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-009"
+    },
+    {
+      "engine_build": "fugit@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-009"
+    },
+    {
+      "engine_build": "php-cron-expression@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-009"
+    },
+    {
+      "engine_build": "robfig-cron@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-009"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-009"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-010"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-010"
+    },
+    {
+      "engine_build": "cron-parser@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-010"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-010"
+    },
+    {
+      "engine_build": "croner@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-010"
+    },
+    {
+      "engine_build": "croner[legacyMode=false]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-010"
+    },
+    {
+      "engine_build": "croniter@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-010"
+    },
+    {
+      "engine_build": "croniter@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-010"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-010"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-010"
+    },
+    {
+      "engine_build": "cronsim@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-010"
+    },
+    {
+      "engine_build": "cronsim@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-010"
+    },
+    {
+      "engine_build": "fugit@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-010"
+    },
+    {
+      "engine_build": "php-cron-expression@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-010"
+    },
+    {
+      "engine_build": "robfig-cron@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-010"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-010"
+    },
+    {
+      "engine_build": "cron-parser@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-011"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-011"
+    },
+    {
+      "engine_build": "croniter@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-011"
+    },
+    {
+      "engine_build": "croniter@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-011"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-011"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-011"
+    },
+    {
+      "engine_build": "cronsim@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-011"
+    },
+    {
+      "engine_build": "cronsim@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-011"
+    },
+    {
+      "engine_build": "fugit@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-011"
+    },
+    {
+      "engine_build": "php-cron-expression@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-011"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-011"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-012"
+    },
+    {
+      "engine_build": "cronstrue@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-012"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-INV-012"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-001"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-001"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-002"
+    },
+    {
+      "engine_build": "croner@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-002"
+    },
+    {
+      "engine_build": "croner[legacyMode=false]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-002"
+    },
+    {
+      "engine_build": "php-cron-expression@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-002"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-002"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-003"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-003"
+    },
+    {
+      "engine_build": "croner@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-003"
+    },
+    {
+      "engine_build": "croner[legacyMode=false]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-003"
+    },
+    {
+      "engine_build": "php-cron-expression@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-003"
+    },
+    {
+      "engine_build": "robfig-cron@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-003"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-004"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-004"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-004"
+    },
+    {
+      "engine_build": "croner@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-004"
+    },
+    {
+      "engine_build": "croner[legacyMode=false]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-004"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-004"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-005"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-005"
+    },
+    {
+      "engine_build": "cron-parser@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-005"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-005"
+    },
+    {
+      "engine_build": "croner@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-005"
+    },
+    {
+      "engine_build": "croner[legacyMode=false]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-005"
+    },
+    {
+      "engine_build": "croniter@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-005"
+    },
+    {
+      "engine_build": "croniter@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-005"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-005"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-005"
+    },
+    {
+      "engine_build": "cronsim@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-005"
+    },
+    {
+      "engine_build": "cronsim@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-005"
+    },
+    {
+      "engine_build": "fugit@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-005"
+    },
+    {
+      "engine_build": "php-cron-expression@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-005"
+    },
+    {
+      "engine_build": "robfig-cron@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-005"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-005"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-006"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-006"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-007"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-007"
+    },
+    {
+      "engine_build": "cron-parser@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-007"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-007"
+    },
+    {
+      "engine_build": "croner@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-007"
+    },
+    {
+      "engine_build": "croner[legacyMode=false]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-007"
+    },
+    {
+      "engine_build": "cronsim@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-007"
+    },
+    {
+      "engine_build": "cronsim@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-007"
+    },
+    {
+      "engine_build": "php-cron-expression@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-007"
+    },
+    {
+      "engine_build": "robfig-cron@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-007"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-007"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-008"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-008"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-009"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-009"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-010"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-010"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-011"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-011"
+    },
+    {
+      "engine_build": "cron-parser@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-011"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-011"
+    },
+    {
+      "engine_build": "croner@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-011"
+    },
+    {
+      "engine_build": "croner[legacyMode=false]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-011"
+    },
+    {
+      "engine_build": "croniter@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-011"
+    },
+    {
+      "engine_build": "croniter@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-011"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-011"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-011"
+    },
+    {
+      "engine_build": "cronsim@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-011"
+    },
+    {
+      "engine_build": "cronsim@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-011"
+    },
+    {
+      "engine_build": "fugit@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-011"
+    },
+    {
+      "engine_build": "php-cron-expression@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-011"
+    },
+    {
+      "engine_build": "robfig-cron@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-011"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-011"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-012"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "CRON-STEP-012"
+    },
+    {
+      "engine_build": "ice_cube@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-BY-011"
+    },
+    {
+      "engine_build": "php-rrule@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-BY-011"
+    },
+    {
+      "engine_build": "python-dateutil@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-BY-011"
+    },
+    {
+      "engine_build": "python-dateutil@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "RRULE-BY-011"
+    },
+    {
+      "engine_build": "rrule-go@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-BY-011"
+    },
+    {
+      "engine_build": "rrule.js@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-BY-011"
+    },
+    {
+      "engine_build": "ice_cube@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-BY-015"
+    },
+    {
+      "engine_build": "php-rrule@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-BY-015"
+    },
+    {
+      "engine_build": "python-dateutil@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-BY-015"
+    },
+    {
+      "engine_build": "python-dateutil@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "RRULE-BY-015"
+    },
+    {
+      "engine_build": "rrule-go@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-BY-015"
+    },
+    {
+      "engine_build": "rrule.js@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-BY-015"
+    },
+    {
+      "engine_build": "ice_cube@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-BY-020"
+    },
+    {
+      "engine_build": "ice_cube@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-BY-021"
+    },
+    {
+      "engine_build": "ice_cube@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-BY-022"
+    },
+    {
+      "engine_build": "ice_cube@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-BY-023"
+    },
+    {
+      "engine_build": "ice_cube@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-BY-024"
+    },
+    {
+      "engine_build": "php-rrule@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-BY-024"
+    },
+    {
+      "engine_build": "php-rrule@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-BY-025"
+    },
+    {
+      "engine_build": "ice_cube@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-BY-026"
+    },
+    {
+      "engine_build": "php-rrule@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-BY-026"
+    },
+    {
+      "engine_build": "php-rrule@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-BY-032"
+    },
+    {
+      "engine_build": "rrule-go@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-BY-032"
+    },
+    {
+      "engine_build": "php-rrule@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-CORE-010"
+    },
+    {
+      "engine_build": "python-dateutil@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-CORE-010"
+    },
+    {
+      "engine_build": "python-dateutil@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "RRULE-CORE-010"
+    },
+    {
+      "engine_build": "php-rrule@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-CORE-011"
+    },
+    {
+      "engine_build": "ice_cube@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-CORE-015"
+    },
+    {
+      "engine_build": "pandas@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-CORE-015"
+    },
+    {
+      "engine_build": "pandas@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "RRULE-CORE-015"
+    },
+    {
+      "engine_build": "php-rrule@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-CORE-015"
+    },
+    {
+      "engine_build": "python-dateutil@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-CORE-015"
+    },
+    {
+      "engine_build": "python-dateutil@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "RRULE-CORE-015"
+    },
+    {
+      "engine_build": "rrule-go@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-CORE-015"
+    },
+    {
+      "engine_build": "ice_cube@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-CORE-016"
+    },
+    {
+      "engine_build": "pandas@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-CORE-016"
+    },
+    {
+      "engine_build": "pandas@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "RRULE-CORE-016"
+    },
+    {
+      "engine_build": "php-rrule@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-CORE-016"
+    },
+    {
+      "engine_build": "php-rrule@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-CORE-017"
+    },
+    {
+      "engine_build": "pandas@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-DST-001"
+    },
+    {
+      "engine_build": "pandas@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "RRULE-DST-001"
+    },
+    {
+      "engine_build": "pandas@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-DST-002"
+    },
+    {
+      "engine_build": "pandas@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "RRULE-DST-002"
+    },
+    {
+      "engine_build": "pandas@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-DST-004"
+    },
+    {
+      "engine_build": "pandas@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "RRULE-DST-004"
+    },
+    {
+      "engine_build": "pandas@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-DST-005"
+    },
+    {
+      "engine_build": "pandas@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "RRULE-DST-005"
+    },
+    {
+      "engine_build": "python-dateutil@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-SET-002"
+    },
+    {
+      "engine_build": "python-dateutil@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "RRULE-SET-002"
+    },
+    {
+      "engine_build": "python-dateutil@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-SET-003"
+    },
+    {
+      "engine_build": "python-dateutil@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "RRULE-SET-003"
+    },
+    {
+      "engine_build": "python-dateutil@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-SET-004"
+    },
+    {
+      "engine_build": "python-dateutil@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "RRULE-SET-004"
+    },
+    {
+      "engine_build": "python-dateutil@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-SET-007"
+    },
+    {
+      "engine_build": "python-dateutil@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "RRULE-SET-007"
+    },
+    {
+      "engine_build": "python-dateutil@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-SET-011"
+    },
+    {
+      "engine_build": "python-dateutil@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "RRULE-SET-011"
+    },
+    {
+      "engine_build": "rrule-go@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-SET-011"
+    },
+    {
+      "engine_build": "rrule.js@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-SET-011"
+    },
+    {
+      "engine_build": "python-dateutil@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-SET-012"
+    },
+    {
+      "engine_build": "python-dateutil@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "RRULE-SET-012"
+    },
+    {
+      "engine_build": "python-dateutil@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "RRULE-SET-014"
+    },
+    {
+      "engine_build": "python-dateutil@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "RRULE-SET-014"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "TZDB-001"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "TZDB-001"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "TZDB-002"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "TZDB-002"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "TZDB-003"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "TZDB-003"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "TZDB-005"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "TZDB-005"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "TZDB-006"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "TZDB-006"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "TZDB-007"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "TZDB-007"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "TZDB-008"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "TZDB-008"
+    },
+    {
+      "engine_build": "cron-parser@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "TZDB-008"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "TZDB-008"
+    },
+    {
+      "engine_build": "croner@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "TZDB-008"
+    },
+    {
+      "engine_build": "croner[legacyMode=false]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "TZDB-008"
+    },
+    {
+      "engine_build": "croniter@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "TZDB-008"
+    },
+    {
+      "engine_build": "croniter@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "TZDB-008"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "TZDB-008"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "TZDB-008"
+    },
+    {
+      "engine_build": "cronsim@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "TZDB-008"
+    },
+    {
+      "engine_build": "cronsim@tz2026c",
+      "legacy_status": "error",
+      "vector_id": "TZDB-008"
+    },
+    {
+      "engine_build": "fugit@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "TZDB-008"
+    },
+    {
+      "engine_build": "php-cron-expression@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "TZDB-008"
+    },
+    {
+      "engine_build": "robfig-cron@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "TZDB-008"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "TZDB-008"
+    },
+    {
+      "engine_build": "apscheduler3@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "TZDB-009"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "TZDB-009"
+    },
+    {
+      "engine_build": "croniter@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "TZDB-009"
+    },
+    {
+      "engine_build": "croniter[day_or=False]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "TZDB-009"
+    },
+    {
+      "engine_build": "cronsim@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "TZDB-009"
+    },
+    {
+      "engine_build": "fugit@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "TZDB-009"
+    },
+    {
+      "engine_build": "php-cron-expression@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "TZDB-009"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "TZDB-009"
+    },
+    {
+      "engine_build": "cron-parser[strict]@tzle2026a",
+      "legacy_status": "error",
+      "vector_id": "TZDB-010"
+    },
+    {
+      "engine_build": "robfig-cron[seconds]@tz2026a",
+      "legacy_status": "error",
+      "vector_id": "TZDB-010"
+    }
+  ],
+  "rc1_vector_count": 184,
+  "rc2_vector_count": 184,
+  "registry_coverage": {
+    "axes_referenced": 44,
+    "axes_resolved": 44,
+    "dialect_ids_referenced": 1,
+    "dialect_ids_resolved": 1,
+    "sources_referenced": 30,
+    "sources_resolved": 30
+  },
+  "removed_incumbent_observations": 2432,
+  "removed_incumbent_vectors": 184,
+  "semantic_drift": [],
+  "semantic_drift_count": 0
+}

@@ -1,0 +1,67 @@
+{
+  "classification": "AMBIGUOUS_STANDARD",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "instant-match",
+        "note": "2026-01-06T14:00 London is 2026-01-06T09:00 New York — the same instant, so the instance is removed.",
+        "occurrences": [
+          "2026-01-05T09:00:00-05:00|2026-01-05T14:00:00Z",
+          "2026-01-07T09:00:00-05:00|2026-01-07T14:00:00Z"
+        ],
+        "when": {
+          "rrule.exdate_matching": "instant"
+        }
+      },
+      {
+        "label": "wall-time-match",
+        "note": "Engines comparing (zone, wall time) pairs find no match and remove nothing.",
+        "occurrences": [
+          "2026-01-05T09:00:00-05:00|2026-01-05T14:00:00Z",
+          "2026-01-06T09:00:00-05:00|2026-01-06T14:00:00Z",
+          "2026-01-07T09:00:00-05:00|2026-01-07T14:00:00Z"
+        ],
+        "when": {
+          "rrule.exdate_matching": "wall"
+        }
+      }
+    ],
+    "mode": "admissible"
+  },
+  "family": "rrule.sets",
+  "id": "RRULE-SET-006",
+  "input": {
+    "count": 4,
+    "ics": "DTSTART;TZID=America/New_York:20260105T090000\nRRULE:FREQ=DAILY;COUNT=3\nEXDATE;TZID=Europe/London:20260106T140000",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "note": "no statement about whether EXDATE matching is by instant or by (zone, wall time) pair",
+      "source_id": "rfc5545-3.8.5.1"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "Occurrence identity in one vector. If instances are instants, the first answer is right; if they are zone-qualified wall times, the second is. RFC 5545 never says, and the choice propagates into every deduplication and cancellation feature built on top.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "rrule.exdate_matching"
+  ],
+  "tags": [
+    "exdate",
+    "identity",
+    "headline"
+  ],
+  "title": "EXDATE in a different zone naming the same instant"
+}

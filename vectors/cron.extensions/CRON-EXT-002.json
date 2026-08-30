@@ -1,0 +1,66 @@
+{
+  "classification": "DIALECT_DEPENDENT",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "supported",
+        "occurrences": [
+          "2027-01-28T09:00:00",
+          "2027-02-25T09:00:00",
+          "2027-03-28T09:00:00",
+          "2027-04-27T09:00:00"
+        ],
+        "when": {
+          "cron.L": "supported"
+        }
+      },
+      {
+        "label": "reject",
+        "occurrences": null,
+        "when": {
+          "cron.L": "unsupported"
+        }
+      }
+    ],
+    "mode": "per_dialect"
+  },
+  "family": "cron.extensions",
+  "id": "CRON-EXT-002",
+  "input": {
+    "count": 4,
+    "expr": "0 9 L-3 * *",
+    "fields": 5,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2027-01-01T00:00:00",
+    "zone": null
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "\"L-3\" would mean the third-to-last day of the calendar month",
+      "source_id": "quartz"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "Offset-from-last is the cron analogue of RRULE BYMONTHDAY=-4 and lets the two grammars be cross-checked.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "cron.L",
+    "cron.dialect"
+  ],
+  "tags": [
+    "extensions",
+    "L"
+  ],
+  "title": "L-3 (third-to-last day of month)"
+}

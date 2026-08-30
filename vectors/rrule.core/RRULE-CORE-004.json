@@ -1,0 +1,53 @@
+{
+  "classification": "NORMATIVE",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "single",
+    "note": "Under either DTSTART reading the EXDATE removes the 1997-09-02 seed, so this vector is decidable where RRULE-CORE-003 is not.",
+    "occurrences": [
+      "1998-02-13T09:00:00-05:00|1998-02-13T14:00:00Z",
+      "1998-03-13T09:00:00-05:00|1998-03-13T14:00:00Z",
+      "1998-11-13T09:00:00-05:00|1998-11-13T14:00:00Z",
+      "1999-08-13T09:00:00-04:00|1999-08-13T13:00:00Z",
+      "2000-10-13T09:00:00-04:00|2000-10-13T13:00:00Z"
+    ]
+  },
+  "family": "rrule.core",
+  "id": "RRULE-CORE-004",
+  "input": {
+    "count": 5,
+    "ics": "DTSTART;TZID=America/New_York:19970902T090000\nEXDATE;TZID=America/New_York:19970902T090000\nRRULE:FREQ=MONTHLY;BYDAY=FR;BYMONTHDAY=13",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "Every Friday the 13th, forever: ... ==> (1998 9:00 AM EST) February 13;March 13;November 13 (1999 9:00 AM EDT) August 13 (2000 9:00 AM EDT) October 13",
+      "source_id": "rfc5545-3.8.5.3"
+    },
+    {
+      "note": "a proposal to delete this EXDATE was rejected",
+      "source_id": "eid5920"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "Deliberately paired with CORE-003: the same rule becomes NORMATIVE once the EXDATE removes the contested instance. The pair localises the ambiguity precisely.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "dtstart",
+    "exdate",
+    "byday",
+    "bymonthday"
+  ],
+  "title": "RFC 5545's Friday-the-13th example verbatim, with its EXDATE"
+}

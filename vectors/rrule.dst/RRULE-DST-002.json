@@ -1,0 +1,49 @@
+{
+  "classification": "NORMATIVE",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "single",
+    "note": "The fold case IS settled by §3.3.5: first occurrence, i.e. the pre-transition offset. Emitting both instants, or only the second, is a conformance failure.",
+    "occurrences": [
+      "2026-10-30T01:30:00-04:00|2026-10-30T05:30:00Z",
+      "2026-10-31T01:30:00-04:00|2026-10-31T05:30:00Z",
+      "2026-11-01T01:30:00-04:00|2026-11-01T05:30:00Z",
+      "2026-11-02T01:30:00-05:00|2026-11-02T06:30:00Z"
+    ]
+  },
+  "family": "rrule.dst",
+  "id": "RRULE-DST-002",
+  "input": {
+    "count": 6,
+    "ics": "DTSTART;TZID=America/New_York:20261030T013000\nRRULE:FREQ=DAILY;COUNT=4",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "If the local time described occurs more than once ... the DATE-TIME value refers to the first occurrence.",
+      "source_id": "rfc5545-3.3.5"
+    },
+    {
+      "source_id": "eid4271"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "Deliberately classified NORMATIVE while its gap counterpart is AMBIGUOUS_STANDARD: §3.3.5 resolves the fold and leaves the gap to erratum 4271. Engines usually get the fold right and the gap wrong, and the asymmetry is only visible when the two are tested as a pair.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "fold",
+    "headline"
+  ],
+  "title": "Daily 01:30 across the US autumn fold"
+}

@@ -1,0 +1,51 @@
+{
+  "classification": "NORMATIVE",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "single",
+    "note": "Quarterly anchored to January, because the month field's range starts at 1 — not 'every three months from now'.",
+    "occurrences": [
+      "2026-04-01T00:00:00",
+      "2026-07-01T00:00:00",
+      "2026-10-01T00:00:00",
+      "2027-01-01T00:00:00",
+      "2027-04-01T00:00:00",
+      "2027-07-01T00:00:00"
+    ]
+  },
+  "family": "cron.steps",
+  "id": "CRON-STEP-012",
+  "input": {
+    "count": 6,
+    "expr": "0 0 1 */3 *",
+    "fields": 5,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-01-01T00:00:00",
+    "zone": null
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "source_id": "crontab5"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "Anchoring of a step is always to the field's low bound, never to the current instant; this is the cron/RRULE INTERVAL distinction in its cheapest observable form.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "steps",
+    "anchoring",
+    "headline"
+  ],
+  "title": "Step applied to a single '*' in the month field"
+}

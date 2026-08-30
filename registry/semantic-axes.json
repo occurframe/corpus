@@ -1,0 +1,425 @@
+{
+  "axes": [
+    {
+      "axis_id": "cron.L",
+      "axis_kind": "policy",
+      "description": "Research II semantic axis cron.L; values are preserved from RC1.",
+      "values": [
+        "last",
+        "quartz",
+        "supported",
+        "unsupported"
+      ]
+    },
+    {
+      "axis_id": "cron.W",
+      "axis_kind": "policy",
+      "description": "Research II semantic axis cron.W; values are preserved from RC1.",
+      "values": [
+        "supported",
+        "unsupported"
+      ]
+    },
+    {
+      "axis_id": "cron.bare_start_step",
+      "axis_kind": "policy",
+      "description": "Research II semantic axis cron.bare_start_step; values are preserved from RC1.",
+      "values": [
+        "ignore_step",
+        "reject",
+        "start_at"
+      ]
+    },
+    {
+      "axis_id": "cron.dialect",
+      "axis_kind": "dialect",
+      "description": "Research II semantic axis cron.dialect; values are preserved from RC1.",
+      "values": []
+    },
+    {
+      "axis_id": "cron.dom_dow",
+      "axis_kind": "policy",
+      "description": "Research II semantic axis cron.dom_dow; values are preserved from RC1.",
+      "values": [
+        "and",
+        "and+monday-zero",
+        "declared",
+        "exclusive",
+        "nth",
+        "or",
+        "or-any-nonstar",
+        "or-set-semantics",
+        "or/vixie",
+        "or_text",
+        "reject",
+        "vixie"
+      ]
+    },
+    {
+      "axis_id": "cron.dow_numbering",
+      "axis_kind": "policy",
+      "description": "Research II semantic axis cron.dow_numbering; values are preserved from RC1.",
+      "values": [
+        "both",
+        "declared",
+        "monday_zero",
+        "quartz",
+        "zero"
+      ]
+    },
+    {
+      "axis_id": "cron.dst_fold",
+      "axis_kind": "policy",
+      "description": "Research II semantic axis cron.dst_fold; values are preserved from RC1.",
+      "values": [
+        "both",
+        "declared",
+        "first",
+        "second"
+      ]
+    },
+    {
+      "axis_id": "cron.dst_gap",
+      "axis_kind": "policy",
+      "description": "Research II semantic axis cron.dst_gap; values are preserved from RC1.",
+      "values": [
+        "declared",
+        "fire_at_gap_start",
+        "next_valid",
+        "skip"
+      ]
+    },
+    {
+      "axis_id": "cron.empty_set",
+      "axis_kind": "policy",
+      "description": "Research II semantic axis cron.empty_set; values are preserved from RC1.",
+      "values": [
+        "empty",
+        "raise",
+        "reject",
+        "unbounded"
+      ]
+    },
+    {
+      "axis_id": "cron.field_count",
+      "axis_kind": "policy",
+      "description": "Research II semantic axis cron.field_count; values are preserved from RC1.",
+      "values": [
+        "5-or-6",
+        7
+      ]
+    },
+    {
+      "axis_id": "cron.hash",
+      "axis_kind": "policy",
+      "description": "Research II semantic axis cron.hash; values are preserved from RC1.",
+      "values": [
+        "clamp",
+        "supported",
+        "unsupported"
+      ]
+    },
+    {
+      "axis_id": "cron.hash_H",
+      "axis_kind": "policy",
+      "description": "Research II semantic axis cron.hash_H; values are preserved from RC1.",
+      "values": [
+        "supported",
+        "unsupported"
+      ]
+    },
+    {
+      "axis_id": "cron.long_names",
+      "axis_kind": "policy",
+      "description": "Research II semantic axis cron.long_names; values are preserved from RC1.",
+      "values": [
+        "accept",
+        "reject"
+      ]
+    },
+    {
+      "axis_id": "cron.qmark",
+      "axis_kind": "policy",
+      "description": "Research II semantic axis cron.qmark; values are preserved from RC1.",
+      "values": [
+        "one_only",
+        "supported",
+        "unsupported"
+      ]
+    },
+    {
+      "axis_id": "cron.random",
+      "axis_kind": "policy",
+      "description": "Research II semantic axis cron.random; values are preserved from RC1.",
+      "values": [
+        "supported",
+        "unsupported"
+      ]
+    },
+    {
+      "axis_id": "cron.range_wrap",
+      "axis_kind": "policy",
+      "description": "Research II semantic axis cron.range_wrap; values are preserved from RC1.",
+      "values": [
+        "reject",
+        "wrap"
+      ]
+    },
+    {
+      "axis_id": "cron.seconds",
+      "axis_kind": "policy",
+      "description": "Research II semantic axis cron.seconds; values are preserved from RC1.",
+      "values": [
+        "supported",
+        "unsupported"
+      ]
+    },
+    {
+      "axis_id": "cron.sixth_field",
+      "axis_kind": "policy",
+      "description": "Research II semantic axis cron.sixth_field; values are preserved from RC1.",
+      "values": [
+        "reject",
+        "seconds",
+        "year"
+      ]
+    },
+    {
+      "axis_id": "cron.start_inclusivity",
+      "axis_kind": "policy",
+      "description": "Research II semantic axis cron.start_inclusivity; values are preserved from RC1.",
+      "values": [
+        "exclusive",
+        "inclusive"
+      ]
+    },
+    {
+      "axis_id": "cron.start_truncation",
+      "axis_kind": "policy",
+      "description": "Research II semantic axis cron.start_truncation; values are preserved from RC1.",
+      "values": [
+        "exact",
+        "truncate"
+      ]
+    },
+    {
+      "axis_id": "cron.step_gt_field",
+      "axis_kind": "dialect",
+      "description": "Research II semantic axis cron.step_gt_field; values are preserved from RC1.",
+      "values": [
+        "accept",
+        "reject"
+      ]
+    },
+    {
+      "axis_id": "cron.step_on_named_range",
+      "axis_kind": "policy",
+      "description": "Research II semantic axis cron.step_on_named_range; values are preserved from RC1.",
+      "values": [
+        "accept",
+        "reject"
+      ]
+    },
+    {
+      "axis_id": "rrule.byday_ordinal_scope",
+      "axis_kind": "policy",
+      "description": "Research II semantic axis rrule.byday_ordinal_scope; values are preserved from RC1.",
+      "values": []
+    },
+    {
+      "axis_id": "rrule.bysetpos_alone",
+      "axis_kind": "policy",
+      "description": "Research II semantic axis rrule.bysetpos_alone; values are preserved from RC1.",
+      "values": [
+        "degenerate",
+        "reject"
+      ]
+    },
+    {
+      "axis_id": "rrule.byweekno_wkst",
+      "axis_kind": "policy",
+      "description": "Research II semantic axis rrule.byweekno_wkst; values are preserved from RC1.",
+      "values": []
+    },
+    {
+      "axis_id": "rrule.count_zero",
+      "axis_kind": "policy",
+      "description": "Research II semantic axis rrule.count_zero; values are preserved from RC1.",
+      "values": [
+        "dtstart",
+        "empty",
+        "reject"
+      ]
+    },
+    {
+      "axis_id": "rrule.dtstart_emission",
+      "axis_kind": "policy",
+      "description": "Research II semantic axis rrule.dtstart_emission; values are preserved from RC1.",
+      "values": [
+        "always",
+        "if_matching",
+        "reject",
+        "seed_only"
+      ]
+    },
+    {
+      "axis_id": "rrule.empty_set",
+      "axis_kind": "policy",
+      "description": "Research II semantic axis rrule.empty_set; values are preserved from RC1.",
+      "values": [
+        "dtstart",
+        "empty",
+        "reject"
+      ]
+    },
+    {
+      "axis_id": "rrule.exdate_matching",
+      "axis_kind": "policy",
+      "description": "Research II semantic axis rrule.exdate_matching; values are preserved from RC1.",
+      "values": [
+        "instant",
+        "wall"
+      ]
+    },
+    {
+      "axis_id": "rrule.exdate_unmatched",
+      "axis_kind": "policy",
+      "description": "Research II semantic axis rrule.exdate_unmatched; values are preserved from RC1.",
+      "values": [
+        "ignore",
+        "reject",
+        "warn"
+      ]
+    },
+    {
+      "axis_id": "rrule.exdate_value_type",
+      "axis_kind": "policy",
+      "description": "Research II semantic axis rrule.exdate_value_type; values are preserved from RC1.",
+      "values": [
+        "date_is_midnight",
+        "date_matches_day",
+        "must_match_dtstart"
+      ]
+    },
+    {
+      "axis_id": "rrule.exrule",
+      "axis_kind": "policy",
+      "description": "Research II semantic axis rrule.exrule; values are preserved from RC1.",
+      "values": [
+        "ignore",
+        "reject",
+        "supported"
+      ]
+    },
+    {
+      "axis_id": "rrule.gap",
+      "axis_kind": "policy",
+      "description": "Research II semantic axis rrule.gap; values are preserved from RC1.",
+      "values": [
+        "imaginary",
+        "omit",
+        "pre_gap_offset"
+      ]
+    },
+    {
+      "axis_id": "rrule.multiple_rrule",
+      "axis_kind": "policy",
+      "description": "Research II semantic axis rrule.multiple_rrule; values are preserved from RC1.",
+      "values": [
+        "first",
+        "reject",
+        "union"
+      ]
+    },
+    {
+      "axis_id": "rrule.note2",
+      "axis_kind": "policy",
+      "description": "Research II semantic axis rrule.note2; values are preserved from RC1.",
+      "values": [
+        "post_errata",
+        "pre_errata"
+      ]
+    },
+    {
+      "axis_id": "rrule.profile",
+      "axis_kind": "dialect",
+      "description": "Research II semantic axis rrule.profile; values are preserved from RC1.",
+      "values": []
+    },
+    {
+      "axis_id": "rrule.range_inclusivity",
+      "axis_kind": "policy",
+      "description": "Research II semantic axis rrule.range_inclusivity; values are preserved from RC1.",
+      "values": [
+        "(a,b)",
+        "[a,b)",
+        "[a,b]"
+      ]
+    },
+    {
+      "axis_id": "rrule.rdate_before_dtstart",
+      "axis_kind": "policy",
+      "description": "Research II semantic axis rrule.rdate_before_dtstart; values are preserved from RC1.",
+      "values": [
+        "drop",
+        "include",
+        "reject"
+      ]
+    },
+    {
+      "axis_id": "rrule.rdate_period",
+      "axis_kind": "policy",
+      "description": "Research II semantic axis rrule.rdate_period; values are preserved from RC1.",
+      "values": [
+        "supported",
+        "unsupported"
+      ]
+    },
+    {
+      "axis_id": "rrule.rscale_support",
+      "axis_kind": "policy",
+      "description": "Research II semantic axis rrule.rscale_support; values are preserved from RC1.",
+      "values": [
+        "ignore",
+        "no",
+        "yes"
+      ]
+    },
+    {
+      "axis_id": "rrule.truncation",
+      "axis_kind": "policy",
+      "description": "Research II semantic axis rrule.truncation; values are preserved from RC1.",
+      "values": [
+        "caller_window",
+        "lazy",
+        "materialise"
+      ]
+    },
+    {
+      "axis_id": "tz.database_profile",
+      "axis_kind": "dialect",
+      "description": "Research II semantic axis tz.database_profile; values are preserved from RC1.",
+      "values": []
+    },
+    {
+      "axis_id": "tz.link_handling",
+      "axis_kind": "policy",
+      "description": "Research II semantic axis tz.link_handling; values are preserved from RC1.",
+      "values": [
+        "reject",
+        "resolve"
+      ]
+    },
+    {
+      "axis_id": "tz.tzdb_version",
+      "axis_kind": "policy",
+      "description": "Research II semantic axis tz.tzdb_version; values are preserved from RC1.",
+      "values": [
+        "2026a",
+        "2026b",
+        "2026c"
+      ]
+    }
+  ],
+  "schema_version": "1.0.0"
+}

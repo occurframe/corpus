@@ -1,0 +1,48 @@
+{
+  "classification": "INVALID",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "error_class": "count_and_until",
+    "mode": "reject",
+    "note": "MUST NOT. Admissible non-conformant behaviours observed in the wild: apply whichever bound is hit first; ignore UNTIL; ignore COUNT; emit a deprecation warning and proceed. All are failures against this vector."
+  },
+  "family": "rrule.core",
+  "id": "RRULE-CORE-011",
+  "input": {
+    "count": 12,
+    "ics": "DTSTART;TZID=America/New_York:19970902T090000\nRRULE:FREQ=DAILY;COUNT=10;UNTIL=19970904T130000Z",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "note": "stated only in an ABNF comment, which no generated parser can enforce",
+      "quote": "The UNTIL rule part and the COUNT rule part MUST NOT occur in the same 'recur'.",
+      "source_id": "rfc5545-3.3.10"
+    },
+    {
+      "note": "python-dateutil deprecated accepting both 'to make sure dateutil is fully compliant with RFC-5545'",
+      "source_id": "dateutil-docs"
+    }
+  ],
+  "operation": "rrule.parse",
+  "rationale": "The only MUST NOT in §3.3.10 expressed exclusively as an ABNF comment. It is the clearest example of a constraint the grammar cannot carry, and therefore of why a conformance corpus is needed at all.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "count",
+    "until",
+    "invalid",
+    "headline"
+  ],
+  "title": "COUNT and UNTIL in the same RRULE (forbidden)"
+}

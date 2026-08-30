@@ -1,0 +1,26 @@
+{
+  "$id": "https://occurframe.dev/schemas/1/release-manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "canonical_corpus_digest": { "pattern": "^[0-9a-f]{64}$", "type": "string" },
+    "corpus_version": { "const": "1.0.0-rc2" },
+    "files": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "path": { "pattern": "^[a-z0-9-]+\\.jsonl$", "type": "string" },
+          "records": { "minimum": 0, "type": "integer" },
+          "sha256": { "pattern": "^[0-9a-f]{64}$", "type": "string" }
+        },
+        "required": ["path", "records", "sha256"],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "schema_version": { "const": "1.0.0" }
+  },
+  "required": ["schema_version", "corpus_version", "canonical_corpus_digest", "files"],
+  "title": "Occurframe deterministic release manifest",
+  "type": "object"
+}

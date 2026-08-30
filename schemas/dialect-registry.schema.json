@@ -1,0 +1,56 @@
+{
+  "$id": "https://occurframe.dev/schemas/1/dialect-registry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "dialects": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "claiming_implementations": { "items": { "type": "string" }, "type": "array" },
+          "dialect_id": { "pattern": "^[a-z0-9][a-z0-9._-]*@[0-9]+(?:[.][0-9]+)*$", "type": "string" },
+          "documented_dst_behavior": { "minLength": 1, "type": "string" },
+          "dom_dow_semantics": { "minLength": 1, "type": "string" },
+          "dow_numbering": { "minLength": 1, "type": "string" },
+          "evidence_grade": { "enum": ["primary", "maintainer", "empirical", "mixed", "documentation_conflict"] },
+          "extensions": { "items": { "type": "string" }, "type": "array" },
+          "field_layout": {
+            "additionalProperties": false,
+            "properties": {
+              "field_names": { "items": { "type": "string" }, "type": "array" },
+              "field_count": { "minimum": 1, "type": "integer" }
+            },
+            "required": ["field_count", "field_names"],
+            "type": "object"
+          },
+          "macros": { "items": { "type": "string" }, "type": "array" },
+          "pinning_vectors": { "items": { "type": "string" }, "type": "array" },
+          "source_references": { "items": { "type": "string" }, "minItems": 1, "type": "array" },
+          "step_semantics": { "minLength": 1, "type": "string" },
+          "timezone_binding": { "minLength": 1, "type": "string" }
+        },
+        "required": [
+          "dialect_id",
+          "field_layout",
+          "dow_numbering",
+          "dom_dow_semantics",
+          "step_semantics",
+          "extensions",
+          "macros",
+          "timezone_binding",
+          "documented_dst_behavior",
+          "source_references",
+          "claiming_implementations",
+          "pinning_vectors",
+          "evidence_grade"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "schema_version": { "const": "1.0.0" }
+  },
+  "required": ["schema_version", "dialects"],
+  "title": "Occurframe versioned cron dialect registry",
+  "type": "object"
+}

@@ -1,0 +1,89 @@
+{
+  "classification": "POLICY_DEPENDENT",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": "per-case"
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "tzdb<=2026a/gap-skip",
+        "note": "2027-03-14T02:30 is inside the spring-forward gap and is skipped.",
+        "occurrences": [
+          "2027-03-12T02:30:00-08:00|2027-03-12T10:30:00Z",
+          "2027-03-13T02:30:00-08:00|2027-03-13T10:30:00Z",
+          "2027-03-15T02:30:00-07:00|2027-03-15T09:30:00Z",
+          "2027-03-16T02:30:00-07:00|2027-03-16T09:30:00Z"
+        ],
+        "when": {
+          "cron.dst_gap": "skip",
+          "tz.tzdb_version": "2026a"
+        }
+      },
+      {
+        "label": "tzdb<=2026a/next-valid",
+        "occurrences": [
+          "2027-03-12T02:30:00-08:00|2027-03-12T10:30:00Z",
+          "2027-03-13T02:30:00-08:00|2027-03-13T10:30:00Z",
+          "2027-03-14T03:00:00-07:00|2027-03-14T10:00:00Z",
+          "2027-03-15T02:30:00-07:00|2027-03-15T09:30:00Z"
+        ],
+        "when": {
+          "cron.dst_gap": "next_valid",
+          "tz.tzdb_version": "2026a"
+        }
+      },
+      {
+        "label": "tzdb>=2026b",
+        "note": "No transition exists at all, so the DST policy is not even reached and every day fires.",
+        "occurrences": [
+          "2027-03-12T02:30:00-07:00|2027-03-12T09:30:00Z",
+          "2027-03-13T02:30:00-07:00|2027-03-13T09:30:00Z",
+          "2027-03-14T02:30:00-07:00|2027-03-14T09:30:00Z",
+          "2027-03-15T02:30:00-07:00|2027-03-15T09:30:00Z"
+        ],
+        "when": {
+          "tz.tzdb_version": "2026b"
+        }
+      }
+    ],
+    "mode": "per_policy",
+    "note": "Two policy axes compose: the DST-gap policy is only observable under one of the two tzdb releases."
+  },
+  "family": "tzdb.provenance",
+  "id": "TZDB-005",
+  "input": {
+    "count": 4,
+    "expr": "30 2 * * *",
+    "fields": 5,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2027-03-12T00:00:00",
+    "zone": "America/Vancouver"
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "source_id": "tzdb-2026b"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "The most subtle failure this corpus can express. A test suite that pins the DST policy but not the tzdb will pass or fail depending on when the container image was built, and the failure will look like a scheduling bug.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "cron.dst_gap",
+    "tz.tzdb_version"
+  ],
+  "tags": [
+    "tzdb",
+    "provenance",
+    "gap",
+    "headline"
+  ],
+  "title": "A gap that exists under one tzdb and not another (America/Vancouver 2027-03-14 02:30)"
+}

@@ -1,0 +1,40 @@
+{
+  "classification": "INVALID",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "error_class": "byweekno_freq_mismatch",
+    "mode": "reject"
+  },
+  "family": "rrule.by",
+  "id": "RRULE-BY-024",
+  "input": {
+    "count": 3,
+    "ics": "DTSTART:20260101T090000\nRRULE:FREQ=MONTHLY;BYWEEKNO=1;COUNT=3",
+    "kind": "rrule",
+    "zone": null
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "This rule part MUST NOT be used when the FREQ rule part is set to anything other than YEARLY.",
+      "source_id": "rfc5545-3.3.10"
+    }
+  ],
+  "operation": "rrule.parse",
+  "rationale": "An explicit MUST NOT tied to FREQ; the expand/limit table's only outright prohibition.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "byweekno",
+    "invalid"
+  ],
+  "title": "BYWEEKNO with FREQ=MONTHLY (forbidden)"
+}

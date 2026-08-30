@@ -1,0 +1,67 @@
+{
+  "classification": "DIALECT_DEPENDENT",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "links-present",
+        "note": "Resolves to America/Los_Angeles.",
+        "occurrences": [
+          "2026-01-14T12:00:00-08:00|2026-01-14T20:00:00Z",
+          "2026-01-15T12:00:00-08:00|2026-01-15T20:00:00Z"
+        ],
+        "when": {
+          "tz.link_handling": "resolve"
+        }
+      },
+      {
+        "label": "links-absent",
+        "note": "Builds without the 'backward' file reject the identifier.",
+        "occurrences": null,
+        "when": {
+          "tz.link_handling": "reject"
+        }
+      }
+    ],
+    "mode": "per_dialect"
+  },
+  "family": "tzdb.provenance",
+  "id": "TZDB-009",
+  "input": {
+    "count": 2,
+    "expr": "0 12 * * *",
+    "fields": 5,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-01-14T00:00:00",
+    "zone": "US/Pacific"
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "note": "backward-compatibility Links are shipped in the 'backward' file and are omitted from some slim/vanguard builds and from some ICU configurations",
+      "source_id": "tz-theory"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "Zone identifiers stored years ago may not resolve in a modern slim tzdb build. This is a migration hazard for any product that persists a zone string, and it is a property of the *build* rather than of the release number.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "tz.database_profile",
+    "tz.link_handling"
+  ],
+  "tags": [
+    "tzdb",
+    "aliases",
+    "migration"
+  ],
+  "title": "Deprecated zone alias (US/Pacific)"
+}

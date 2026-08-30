@@ -1,0 +1,45 @@
+{
+  "classification": "NORMATIVE",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "single",
+    "note": "The RDATE instance is merged in date order, not appended.",
+    "occurrences": [
+      "2026-01-05T09:00:00-05:00|2026-01-05T14:00:00Z",
+      "2026-01-07T14:00:00-05:00|2026-01-07T19:00:00Z",
+      "2026-01-12T09:00:00-05:00|2026-01-12T14:00:00Z",
+      "2026-01-19T09:00:00-05:00|2026-01-19T14:00:00Z"
+    ]
+  },
+  "family": "rrule.sets",
+  "id": "RRULE-SET-002",
+  "input": {
+    "count": 5,
+    "ics": "DTSTART;TZID=America/New_York:20260105T090000\nRRULE:FREQ=WEEKLY;COUNT=3\nRDATE;TZID=America/New_York:20260107T140000",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "This property can be specified in recurring 'VEVENT' ... to define a set of instances",
+      "source_id": "rfc5545-3.8.5.2"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "Ordering of merged RDATEs is a common bug and is directly observable.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "rdate"
+  ],
+  "title": "RDATE adds an instance outside the RRULE"
+}

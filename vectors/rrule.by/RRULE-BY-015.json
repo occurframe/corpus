@@ -1,0 +1,40 @@
+{
+  "classification": "INVALID",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "error_class": "bysetpos_out_of_range",
+    "mode": "reject"
+  },
+  "family": "rrule.by",
+  "id": "RRULE-BY-015",
+  "input": {
+    "count": 3,
+    "ics": "DTSTART:19970904T090000\nRRULE:FREQ=MONTHLY;BYDAY=TU;BYSETPOS=0;COUNT=3",
+    "kind": "rrule",
+    "zone": null
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "Valid values are 1 to 366 or -366 to -1.",
+      "source_id": "rfc5545-3.3.10"
+    }
+  ],
+  "operation": "rrule.parse",
+  "rationale": "An explicit numeric range in the RFC that engines routinely do not enforce.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "bysetpos",
+    "invalid"
+  ],
+  "title": "BYSETPOS=0 (out of range)"
+}

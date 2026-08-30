@@ -1,0 +1,69 @@
+{
+  "classification": "DIALECT_DEPENDENT",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "supported",
+        "note": "31 Jan, 28 Feb, 31 Mar, 30 Apr, 31 May.",
+        "occurrences": [
+          "2027-01-31T09:00:00",
+          "2027-02-28T09:00:00",
+          "2027-03-31T09:00:00",
+          "2027-04-30T09:00:00",
+          "2027-05-31T09:00:00"
+        ],
+        "when": {
+          "cron.L": "supported"
+        }
+      },
+      {
+        "label": "reject",
+        "note": "POSIX/Vixie: 'L' is not in the grammar.",
+        "occurrences": null,
+        "when": {
+          "cron.L": "unsupported"
+        }
+      }
+    ],
+    "mode": "per_dialect"
+  },
+  "family": "cron.extensions",
+  "id": "CRON-EXT-001",
+  "input": {
+    "count": 5,
+    "expr": "0 9 L * *",
+    "fields": 5,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2027-01-01T00:00:00",
+    "zone": null
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "'L' ... has different meaning in each of the two fields in which it is allowed",
+      "source_id": "quartz"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "'Last day of month' is the single most requested construct cron cannot express in its standard grammar; the extension is widespread but not universal.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "cron.L",
+    "cron.dialect"
+  ],
+  "tags": [
+    "extensions",
+    "L"
+  ],
+  "title": "L in the day-of-month field (last day of month)"
+}

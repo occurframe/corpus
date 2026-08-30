@@ -1,0 +1,68 @@
+{
+  "classification": "DIALECT_DEPENDENT",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "supported",
+        "occurrences": [
+          "2026-01-30T09:00:00",
+          "2026-02-27T09:00:00",
+          "2026-03-27T09:00:00",
+          "2026-04-24T09:00:00",
+          "2026-05-29T09:00:00"
+        ],
+        "when": {
+          "cron.L": "supported"
+        }
+      },
+      {
+        "label": "reject",
+        "occurrences": null,
+        "when": {
+          "cron.L": "unsupported"
+        }
+      }
+    ],
+    "mode": "per_dialect"
+  },
+  "family": "cron.extensions",
+  "id": "CRON-EXT-008",
+  "input": {
+    "count": 5,
+    "expr": "0 0 9 ? * FRIL *",
+    "fields": 7,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-01-01T00:00:00",
+    "zone": null
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "\"6L\" ... means \"the last friday of the month\"",
+      "source_id": "quartz"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "Counterpart of RRULE BYDAY=-1FR.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "cron.L",
+    "cron.dialect"
+  ],
+  "tags": [
+    "extensions",
+    "L",
+    "cross-grammar"
+  ],
+  "title": "FRIL / 6L: last Friday of the month"
+}

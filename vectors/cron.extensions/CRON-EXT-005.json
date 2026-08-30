@@ -1,0 +1,69 @@
+{
+  "classification": "DIALECT_DEPENDENT",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "supported",
+        "occurrences": [
+          "2026-01-30T09:00:00",
+          "2026-02-27T09:00:00",
+          "2026-03-31T09:00:00",
+          "2026-04-30T09:00:00",
+          "2026-05-29T09:00:00",
+          "2026-06-30T09:00:00"
+        ],
+        "when": {
+          "cron.W": "supported"
+        }
+      },
+      {
+        "label": "reject",
+        "occurrences": null,
+        "when": {
+          "cron.W": "unsupported"
+        }
+      }
+    ],
+    "mode": "per_dialect"
+  },
+  "family": "cron.extensions",
+  "id": "CRON-EXT-005",
+  "input": {
+    "count": 6,
+    "expr": "0 9 LW * *",
+    "fields": 5,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-01-01T00:00:00",
+    "zone": null
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "specify \"LW\" ... which translates to \"last weekday of the month\"",
+      "source_id": "quartz"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "Combines two extensions; catches engines that support each separately but not together.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "cron.W",
+    "cron.dialect"
+  ],
+  "tags": [
+    "extensions",
+    "W",
+    "L"
+  ],
+  "title": "LW: last weekday of the month"
+}

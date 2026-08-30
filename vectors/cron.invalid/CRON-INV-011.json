@@ -1,0 +1,76 @@
+{
+  "classification": "AMBIGUOUS_STANDARD",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "empty",
+        "occurrences": [],
+        "when": {
+          "cron.empty_set": "empty"
+        }
+      },
+      {
+        "label": "error-at-parse",
+        "occurrences": null,
+        "when": {
+          "cron.empty_set": "reject"
+        }
+      },
+      {
+        "label": "error-at-iteration",
+        "occurrences": null,
+        "when": {
+          "cron.empty_set": "raise"
+        }
+      },
+      {
+        "label": "hang",
+        "occurrences": null,
+        "when": {
+          "cron.empty_set": "unbounded"
+        }
+      }
+    ],
+    "mode": "admissible"
+  },
+  "family": "cron.invalid",
+  "id": "CRON-INV-011",
+  "input": {
+    "count": 1,
+    "expr": "0 0 31 4 *",
+    "fields": 5,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-01-01T00:00:00",
+    "zone": null
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "source_id": "crontab5"
+    },
+    {
+      "source_id": "posix-crontab"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "Second empty-set vector, chosen so that an engine with a leap-year special case still fails to find an occurrence.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "cron.empty_set"
+  ],
+  "tags": [
+    "invalid",
+    "empty-set"
+  ],
+  "title": "Day-of-month 31 in a month that never has 31 days"
+}

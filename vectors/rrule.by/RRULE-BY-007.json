@@ -1,0 +1,55 @@
+{
+  "classification": "NORMATIVE",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "single",
+    "note": "2027 is not a leap year so February is skipped; 2028 is, so 2028-02-29 is included.",
+    "occurrences": [
+      "2027-01-29T09:00:00-05:00|2027-01-29T14:00:00Z",
+      "2027-03-29T09:00:00-04:00|2027-03-29T13:00:00Z",
+      "2027-04-29T09:00:00-04:00|2027-04-29T13:00:00Z",
+      "2027-05-29T09:00:00-04:00|2027-05-29T13:00:00Z",
+      "2027-06-29T09:00:00-04:00|2027-06-29T13:00:00Z",
+      "2027-07-29T09:00:00-04:00|2027-07-29T13:00:00Z",
+      "2027-08-29T09:00:00-04:00|2027-08-29T13:00:00Z",
+      "2027-09-29T09:00:00-04:00|2027-09-29T13:00:00Z",
+      "2027-10-29T09:00:00-04:00|2027-10-29T13:00:00Z",
+      "2027-11-29T09:00:00-05:00|2027-11-29T14:00:00Z",
+      "2027-12-29T09:00:00-05:00|2027-12-29T14:00:00Z",
+      "2028-01-29T09:00:00-05:00|2028-01-29T14:00:00Z",
+      "2028-02-29T09:00:00-05:00|2028-02-29T14:00:00Z",
+      "2028-03-29T09:00:00-04:00|2028-03-29T13:00:00Z"
+    ]
+  },
+  "family": "rrule.by",
+  "id": "RRULE-BY-007",
+  "input": {
+    "count": 16,
+    "ics": "DTSTART;TZID=America/New_York:20270129T090000\nRRULE:FREQ=MONTHLY;BYMONTHDAY=29;COUNT=14",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "source_id": "rfc5545-3.3.10"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "The leap-year boundary inside a monthly rule; catches engines whose month-length table is hard-coded.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "bymonthday",
+    "leap-year"
+  ],
+  "title": "BYMONTHDAY=29: February appears only in leap years"
+}

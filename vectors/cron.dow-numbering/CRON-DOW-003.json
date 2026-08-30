@@ -1,0 +1,95 @@
+{
+  "classification": "DIALECT_DEPENDENT",
+  "context": {
+    "dialect": "declared",
+    "policy": {
+      "cron.dow_numbering": "declared"
+    },
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "vixie-both",
+        "note": "0 and 7 both denote Sunday.",
+        "occurrences": [
+          "2026-01-04T12:00:00",
+          "2026-01-11T12:00:00",
+          "2026-01-18T12:00:00",
+          "2026-01-25T12:00:00"
+        ],
+        "when": {
+          "cron.dow_numbering": "both"
+        }
+      },
+      {
+        "label": "monday-zero",
+        "note": "APScheduler 3.x from_crontab(): 0=MON..6=SUN and 7 is out of range. Named days (SUN, MON) stay Sunday-based in the same engine, so numeric and named spellings of one weekday disagree.",
+        "occurrences": null,
+        "when": {
+          "cron.dow_numbering": "monday_zero"
+        }
+      },
+      {
+        "label": "posix-zero-only",
+        "note": "value 7 outside [0,6]",
+        "occurrences": null,
+        "when": {
+          "cron.dow_numbering": "zero"
+        }
+      },
+      {
+        "label": "quartz-1-7",
+        "note": "Quartz/AWS/Cloudflare: 1=SUN..7=SAT, so this literal names a different weekday.",
+        "occurrences": null,
+        "when": {
+          "cron.dow_numbering": "quartz"
+        }
+      }
+    ],
+    "mode": "per_dialect",
+    "note": "A numeral copied from a Vixie crontab into a Quartz scheduler fires on the wrong day every week, forever, with no error at any layer."
+  },
+  "family": "cron.dow-numbering",
+  "id": "CRON-DOW-003",
+  "input": {
+    "count": 4,
+    "expr": "0 12 * * 0,7",
+    "fields": 5,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-01-01T00:00:00",
+    "zone": null
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "day of the week (0 - 6 with 0=Sunday)",
+      "source_id": "posix-crontab"
+    },
+    {
+      "quote": "day of week (0 - 7) (0 or 7 is Sunday, or use names)",
+      "source_id": "crontab5"
+    },
+    {
+      "quote": "dayMap.put(\"SUN\", 1)",
+      "source_id": "quartz"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "Two incompatible numbering bases with overlapping legal ranges, so the same literal is valid in both dialects and silently means a different weekday. This is the highest-severity silent-mistranslation vector in the corpus.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "cron.dialect",
+    "cron.dow_numbering"
+  ],
+  "tags": [
+    "dow",
+    "silent-mistranslation"
+  ],
+  "title": "Day-of-week 0 and 7 in one list"
+}

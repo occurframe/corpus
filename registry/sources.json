@@ -1,0 +1,155 @@
+{
+  "schema_version": "1.0.0",
+  "sources": [
+    {
+      "source_id": "aws-eventbridge",
+      "title": "AWS EventBridge schedule expressions (6 fields, '?' required)",
+      "url": "https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-cron-expressions.html"
+    },
+    {
+      "source_id": "crontab-guru-bug",
+      "title": "crontab.guru, 'the cron bug'",
+      "url": "https://crontab.guru/cron-bug.html"
+    },
+    {
+      "source_id": "crontab5",
+      "title": "crontab(5), Vixie/cronie lineage",
+      "url": "https://man7.org/linux/man-pages/man5/crontab.5.html"
+    },
+    {
+      "source_id": "dateutil-docs",
+      "title": "python-dateutil rrule documentation (until+count deprecation)",
+      "url": "https://dateutil.readthedocs.io/en/stable/rrule.html"
+    },
+    {
+      "source_id": "dcron",
+      "title": "dcron crontab.markdown (Nth-weekday day-field semantics)",
+      "url": "https://github.com/dubiousjim/dcron/blob/master/crontab.markdown"
+    },
+    {
+      "source_id": "eid1913",
+      "title": "RFC 5545 erratum 1913 (Verified, Technical, §3.3.10)",
+      "url": "https://www.rfc-editor.org/errata/eid1913"
+    },
+    {
+      "source_id": "eid3747",
+      "title": "RFC 5545 erratum 3747 (Verified, Editorial, §3.3.10 Note 2)",
+      "url": "https://www.rfc-editor.org/errata/eid3747"
+    },
+    {
+      "source_id": "eid3779",
+      "title": "RFC 5545 erratum 3779 (Verified, Technical, §3.3.10)",
+      "url": "https://www.rfc-editor.org/errata/eid3779"
+    },
+    {
+      "source_id": "eid3883",
+      "title": "RFC 5545 erratum 3883 (Verified, Technical, §3.8.5.3 UNTIL example)",
+      "url": "https://www.rfc-editor.org/errata/eid3883"
+    },
+    {
+      "source_id": "eid4271",
+      "title": "RFC 5545 erratum 4271 (Verified, Technical, §3.3.10 nonexistent local times)",
+      "url": "https://www.rfc-editor.org/errata/eid4271"
+    },
+    {
+      "source_id": "eid5920",
+      "title": "RFC 5545 erratum 5920 (REJECTED, §3.8.5.3 Friday-the-13th example)",
+      "url": "https://www.rfc-editor.org/errata/eid5920"
+    },
+    {
+      "source_id": "eid6316",
+      "title": "RFC 5545 erratum 6316 (REPORTED since 2020-10-22, §3.8.5.1 EXDATE value type)",
+      "url": "https://www.rfc-editor.org/errata/eid6316"
+    },
+    {
+      "source_id": "fcron5",
+      "title": "fcrontab(5), dayand option",
+      "url": "https://man.archlinux.org/man/fcrontab.5.en"
+    },
+    {
+      "source_id": "healthchecks-funky",
+      "title": "healthchecks.io, 'Schedule a cron job the funky way' (*/100,1-7 idiom)",
+      "url": "https://blog.healthchecks.io/2022/09/schedule-cron-job-the-funky-way/"
+    },
+    {
+      "source_id": "micron",
+      "title": "GNU micron manual, Cronjob Definition (strict/vixie/dillon)",
+      "url": "https://www.gnu.org.ua/software/micron/manual/Cronjob-Definition.html"
+    },
+    {
+      "source_id": "posix-crontab",
+      "title": "POSIX.1-2017 crontab",
+      "url": "https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html"
+    },
+    {
+      "source_id": "quartz",
+      "title": "Quartz CronExpression (1=SUN..7=SAT, '?' requirement, L/W/#)",
+      "url": "https://www.quartz-scheduler.org/api/2.3.0/org/quartz/CronExpression.html"
+    },
+    {
+      "source_id": "rfc5545-3.3.10",
+      "title": "RFC 5545 §3.3.10 (RECUR value type)",
+      "url": "https://www.rfc-editor.org/rfc/rfc5545#section-3.3.10"
+    },
+    {
+      "source_id": "rfc5545-3.3.5",
+      "title": "RFC 5545 §3.3.5 (DATE-TIME)",
+      "url": "https://www.rfc-editor.org/rfc/rfc5545#section-3.3.5"
+    },
+    {
+      "source_id": "rfc5545-3.8.5.1",
+      "title": "RFC 5545 §3.8.5.1 (Exception Date-Times)",
+      "url": "https://www.rfc-editor.org/rfc/rfc5545#section-3.8.5.1"
+    },
+    {
+      "source_id": "rfc5545-3.8.5.2",
+      "title": "RFC 5545 §3.8.5.2 (Recurrence Date-Times)",
+      "url": "https://www.rfc-editor.org/rfc/rfc5545#section-3.8.5.2"
+    },
+    {
+      "source_id": "rfc5545-3.8.5.3",
+      "title": "RFC 5545 §3.8.5.3 (Recurrence Rule)",
+      "url": "https://www.rfc-editor.org/rfc/rfc5545#section-3.8.5.3"
+    },
+    {
+      "source_id": "rfc7529",
+      "title": "RFC 7529 (Non-Gregorian Recurrence Rules, RSCALE/SKIP)",
+      "url": "https://www.rfc-editor.org/rfc/rfc7529"
+    },
+    {
+      "source_id": "rfc8984-4.3.3",
+      "title": "RFC 8984 §4.3.3 (JSCalendar RecurrenceRule)",
+      "url": "https://www.rfc-editor.org/rfc/rfc8984#section-4.3.3"
+    },
+    {
+      "source_id": "tz-theory",
+      "title": "IANA tz theory.html (zone naming and stability guarantees)",
+      "url": "https://data.iana.org/time-zones/theory.html"
+    },
+    {
+      "source_id": "tzdb-2026b",
+      "title": "tzdb 2026b (2026-04-22): British Columbia permanent -07",
+      "url": "https://www.iana.org/time-zones/releases/2026b"
+    },
+    {
+      "source_id": "tzdb-2026c",
+      "title": "tzdb 2026c (2026-07-08): Alberta permanent -06; Morocco permanent UTC 2026-09-20",
+      "url": "https://www.iana.org/time-zones/releases/2026c"
+    },
+    {
+      "source_id": "tzdb-news",
+      "title": "IANA tz database NEWS",
+      "url": "https://data.iana.org/time-zones/tzdb/NEWS"
+    },
+    {
+      "source_id": "vixie-cron.c",
+      "title": "vixie/cron cron.c find_jobs() dom/dow predicate",
+      "url": "https://github.com/vixie/cron/blob/master/cron.c"
+    },
+    {
+      "source_id": "vixie-entry.c",
+      "title": "vixie/cron entry.c DOM_STAR/DOW_STAR first-character flagging",
+      "url": "https://github.com/vixie/cron/blob/master/entry.c"
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "classification": "DIALECT_DEPENDENT",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "three-letter-only",
+        "note": "crontab(5) specifies exactly three letters; longer names are a parse error.",
+        "occurrences": null,
+        "when": {
+          "cron.long_names": "reject"
+        }
+      },
+      {
+        "label": "prefix-tolerant",
+        "note": "Engines that match on a case-insensitive prefix accept the full name.",
+        "occurrences": [
+          "2026-01-07T12:00:00",
+          "2026-01-14T12:00:00",
+          "2026-01-21T12:00:00"
+        ],
+        "when": {
+          "cron.long_names": "accept"
+        }
+      }
+    ],
+    "mode": "per_dialect"
+  },
+  "family": "cron.names",
+  "id": "CRON-DOW-010",
+  "input": {
+    "count": 3,
+    "expr": "0 12 * * Wednesday",
+    "fields": 5,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-01-01T00:00:00",
+    "zone": null
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "Names can also be used for the 'month' and 'day of week' fields. Use the first three letters of the particular day or month (case does not matter).",
+      "source_id": "crontab5"
+    }
+  ],
+  "operation": "cron.parse",
+  "rationale": "Tolerance beyond the grammar is itself a divergence: an expression that parses in one engine is a deployment failure in another.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "cron.dialect",
+    "cron.long_names"
+  ],
+  "tags": [
+    "names"
+  ],
+  "title": "Full weekday name (not in any published grammar)"
+}

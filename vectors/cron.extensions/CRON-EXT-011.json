@@ -1,0 +1,67 @@
+{
+  "classification": "DIALECT_DEPENDENT",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "reject",
+        "note": "Every engine outside Jenkins.",
+        "occurrences": null,
+        "when": {
+          "cron.hash_H": "unsupported"
+        }
+      },
+      {
+        "label": "job-dependent",
+        "note": "Jenkins: the occurrence set is a function of the job name, so the expression alone does not denote a set. Not scoreable by this corpus; recorded to mark the boundary.",
+        "occurrences": null,
+        "when": {
+          "cron.hash_H": "supported"
+        }
+      }
+    ],
+    "mode": "per_dialect"
+  },
+  "family": "cron.extensions",
+  "id": "CRON-EXT-011",
+  "input": {
+    "count": 1,
+    "expr": "H * * * *",
+    "fields": 5,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-01-01T00:00:00",
+    "zone": null
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "note": "'H' is not in the Vixie grammar",
+      "source_id": "crontab5"
+    },
+    {
+      "note": "not in micron either; 'H' is a Jenkins extension whose value depends on the job's name, i.e. on data outside the expression",
+      "source_id": "micron"
+    }
+  ],
+  "operation": "cron.parse",
+  "rationale": "Included deliberately as the boundary marker: an expression whose meaning depends on data outside the expression cannot have a conformance vector, and saying so is part of specifying the oracle's scope.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "cron.dialect",
+    "cron.hash_H"
+  ],
+  "tags": [
+    "extensions",
+    "scope-boundary"
+  ],
+  "title": "'H' (Jenkins hash) in the minute field"
+}

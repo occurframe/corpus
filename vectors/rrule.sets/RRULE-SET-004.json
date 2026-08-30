@@ -1,0 +1,90 @@
+{
+  "classification": "AMBIGUOUS_STANDARD",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "exclude-whole-day",
+        "note": "The reading erratum 6316 proposes: a DATE-valued EXDATE removes every instance on that date.",
+        "occurrences": [
+          "2026-01-05T09:00:00-05:00|2026-01-05T14:00:00Z",
+          "2026-01-05T15:00:00-05:00|2026-01-05T20:00:00Z",
+          "2026-01-05T21:00:00-05:00|2026-01-06T02:00:00Z",
+          "2026-01-07T03:00:00-05:00|2026-01-07T08:00:00Z",
+          "2026-01-07T09:00:00-05:00|2026-01-07T14:00:00Z",
+          "2026-01-07T15:00:00-05:00|2026-01-07T20:00:00Z"
+        ],
+        "when": {
+          "rrule.exdate_value_type": "date_matches_day"
+        }
+      },
+      {
+        "label": "exclude-midnight-only",
+        "note": "The literal reading: DATE 20260106 is 20260106T000000, which no instance equals, so nothing is excluded.",
+        "occurrences": [
+          "2026-01-05T09:00:00-05:00|2026-01-05T14:00:00Z",
+          "2026-01-05T15:00:00-05:00|2026-01-05T20:00:00Z",
+          "2026-01-05T21:00:00-05:00|2026-01-06T02:00:00Z",
+          "2026-01-06T03:00:00-05:00|2026-01-06T08:00:00Z",
+          "2026-01-06T09:00:00-05:00|2026-01-06T14:00:00Z",
+          "2026-01-06T15:00:00-05:00|2026-01-06T20:00:00Z",
+          "2026-01-06T21:00:00-05:00|2026-01-07T02:00:00Z",
+          "2026-01-07T03:00:00-05:00|2026-01-07T08:00:00Z"
+        ],
+        "when": {
+          "rrule.exdate_value_type": "date_is_midnight"
+        }
+      },
+      {
+        "label": "reject",
+        "note": "Engines requiring EXDATE's value type to equal DTSTART's — the position erratum 6316 asks the RFC to take.",
+        "occurrences": null,
+        "when": {
+          "rrule.exdate_value_type": "must_match_dtstart"
+        }
+      }
+    ],
+    "mode": "admissible",
+    "note": "Six years as a Reported erratum with no resolution."
+  },
+  "family": "rrule.sets",
+  "id": "RRULE-SET-004",
+  "input": {
+    "count": 9,
+    "ics": "DTSTART;TZID=America/New_York:20260105T090000\nRRULE:FREQ=HOURLY;INTERVAL=6;COUNT=8\nEXDATE;VALUE=DATE:20260106",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "note": "REPORTED 2020-10-22, still not Verified six years on: asks whether a DATE-only EXDATE excludes all instances occurring on that date",
+      "source_id": "eid6316"
+    },
+    {
+      "note": "the property definition permits VALUE=DATE but does not say how it matches DATE-TIME instances",
+      "source_id": "rfc5545-3.8.5.1"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "A live, unresolved specification question in the most safety-relevant direction: an EXDATE that fails to exclude is a job that runs when someone said it must not. Three shipped behaviours, no arbiter.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "rrule.exdate_value_type"
+  ],
+  "tags": [
+    "exdate",
+    "value-type",
+    "errata",
+    "headline"
+  ],
+  "title": "EXDATE with VALUE=DATE against a DATE-TIME DTSTART (erratum 6316, open since 2020)"
+}

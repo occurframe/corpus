@@ -1,0 +1,46 @@
+{
+  "classification": "NORMATIVE",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2022e",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "single",
+    "note": "No wall time is skipped or repeated; an engine that keys gap/fold detection on the isdst flag reports a transition here and mis-resolves the instant.",
+    "occurrences": [
+      "2022-10-27T00:30:00+03:00|2022-10-26T21:30:00Z",
+      "2022-10-28T00:30:00+03:00|2022-10-27T21:30:00Z",
+      "2022-10-29T00:30:00+03:00|2022-10-28T21:30:00Z",
+      "2022-10-30T00:30:00+03:00|2022-10-29T21:30:00Z"
+    ]
+  },
+  "family": "rrule.dst",
+  "id": "RRULE-DST-011",
+  "input": {
+    "count": 5,
+    "ics": "DTSTART;TZID=Asia/Amman:20221027T003000\nRRULE:FREQ=DAILY;COUNT=4",
+    "kind": "rrule",
+    "zone": "Asia/Amman"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "note": "Jordan and Syria made +03 permanent in October 2022; the transition changes the abbreviation and the isdst flag but not the offset",
+      "source_id": "tzdb-news"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "The zero-offset transition separates two implementation strategies that are otherwise indistinguishable: comparing utcoffset() (correct) versus comparing dst() or the abbreviation (incorrect).",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "zero-offset",
+    "discriminator"
+  ],
+  "title": "Zero-offset transition: Asia/Amman abolishes DST (2022)"
+}

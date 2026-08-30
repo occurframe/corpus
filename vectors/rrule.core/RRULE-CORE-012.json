@@ -1,0 +1,47 @@
+{
+  "classification": "NORMATIVE",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "single",
+    "occurrences": [
+      "1997-09-02T09:00:00-04:00|1997-09-02T13:00:00Z",
+      "1997-09-12T09:00:00-04:00|1997-09-12T13:00:00Z",
+      "1997-09-22T09:00:00-04:00|1997-09-22T13:00:00Z",
+      "1997-10-02T09:00:00-04:00|1997-10-02T13:00:00Z",
+      "1997-10-12T09:00:00-04:00|1997-10-12T13:00:00Z"
+    ]
+  },
+  "family": "rrule.core",
+  "id": "RRULE-CORE-012",
+  "input": {
+    "count": 6,
+    "ics": "DTSTART;TZID=America/New_York:19970902T090000\nRRULE:FREQ=DAILY;INTERVAL=10;COUNT=5",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "Every 10 days, 5 occurrences: ... ==> (1997 9:00 AM EDT) September 2,12,22;October 2,12",
+      "source_id": "rfc5545-3.8.5.3"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "The direct counterpart of CRON-ANCH-004: RRULE's INTERVAL is anchored to DTSTART and crosses month boundaries; cron's step is anchored to the field's low bound and resets. The two vectors together define the gap any unified model must bridge.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "interval",
+    "anchoring",
+    "cross-grammar"
+  ],
+  "title": "INTERVAL counts periods from DTSTART, not from the calendar"
+}

@@ -1,0 +1,49 @@
+{
+  "classification": "NORMATIVE",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2020a",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "single",
+    "note": "Portugal moved from WET to CET on 1992-09-27 at 01:00 UTC, changing the STANDARD offset rather than a DST rule. Noon local stays noon local; the UTC instant moves.",
+    "occurrences": [
+      "1992-09-25T12:00:00+01:00|1992-09-25T11:00:00Z",
+      "1992-09-26T12:00:00+01:00|1992-09-26T11:00:00Z",
+      "1992-09-27T12:00:00+01:00|1992-09-27T11:00:00Z",
+      "1992-09-28T12:00:00+01:00|1992-09-28T11:00:00Z"
+    ]
+  },
+  "family": "tzdb.provenance",
+  "id": "TZDB-007",
+  "input": {
+    "count": 4,
+    "expr": "0 12 * * *",
+    "fields": 5,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "1992-09-25T00:00:00",
+    "zone": "Europe/Lisbon"
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "note": "historical data is revised between releases; the 1992 Portugal change is stable in modern tzdb",
+      "source_id": "tz-theory"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "Distinguishes 'the zone's DST rule changed' from 'the zone's standard offset changed'. Engines that cache a single standard offset per zone fail only on the second kind, and only for historical dates.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "tzdb",
+    "historical"
+  ],
+  "title": "A zone whose historical data changed: Europe/Lisbon 1992"
+}

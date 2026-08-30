@@ -1,0 +1,184 @@
+{
+  "classification": "DIALECT_DEPENDENT",
+  "context": {
+    "dialect": "declared",
+    "policy": {
+      "cron.dom_dow": "declared"
+    },
+    "requires": [
+      "cron.5field"
+    ],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "or/vixie",
+        "note": "Vixie / cronie / POSIX prose: OR when both day fields are restricted, AND when either is a literal '*'.",
+        "occurrences": [
+          "2026-01-05T00:00:00",
+          "2026-01-12T00:00:00",
+          "2026-01-19T00:00:00",
+          "2026-01-26T00:00:00",
+          "2026-01-29T00:00:00",
+          "2026-01-30T00:00:00",
+          "2026-01-31T00:00:00",
+          "2026-02-02T00:00:00"
+        ],
+        "when": {
+          "cron.dom_dow": "or/vixie"
+        }
+      },
+      {
+        "label": "or-any-nonstar",
+        "note": "OR whenever neither field is the literal '*', regardless of what the fields denote (croner legacy mode, dragonmantank/cron-expression). Differs from Vixie only for day fields that cover their whole range without being written '*'.",
+        "occurrences": [
+          "2026-01-05T00:00:00",
+          "2026-01-12T00:00:00",
+          "2026-01-19T00:00:00",
+          "2026-01-26T00:00:00",
+          "2026-01-29T00:00:00",
+          "2026-01-30T00:00:00",
+          "2026-01-31T00:00:00",
+          "2026-02-02T00:00:00"
+        ],
+        "when": {
+          "cron.dom_dow": "or-any-nonstar"
+        }
+      },
+      {
+        "label": "or-set-semantics",
+        "note": "POSIX read literally: 'element or list' means a proper subset of the field range, so a fully covering range is NOT restricted.",
+        "occurrences": [
+          "2026-01-05T00:00:00",
+          "2026-01-12T00:00:00",
+          "2026-01-19T00:00:00",
+          "2026-01-26T00:00:00",
+          "2026-01-29T00:00:00",
+          "2026-01-30T00:00:00",
+          "2026-01-31T00:00:00",
+          "2026-02-02T00:00:00"
+        ],
+        "when": {
+          "cron.dom_dow": "or-set-semantics"
+        }
+      },
+      {
+        "label": "and",
+        "note": "fcron dayand=true, GNU micron strict, node-cron, Cronos, APScheduler.",
+        "occurrences": [
+          "2026-03-30T00:00:00",
+          "2026-06-29T00:00:00",
+          "2026-08-31T00:00:00",
+          "2026-11-30T00:00:00",
+          "2027-03-29T00:00:00",
+          "2027-05-31T00:00:00",
+          "2027-08-30T00:00:00",
+          "2027-11-29T00:00:00"
+        ],
+        "when": {
+          "cron.dom_dow": "and"
+        }
+      },
+      {
+        "label": "and+monday-zero",
+        "note": "APScheduler 3.x CronTrigger.from_crontab(): AND, and numeric day-of-week is 0=MONDAY, so every numeric weekday in a copied crontab shifts by one day.",
+        "occurrences": [
+          "2026-03-31T00:00:00",
+          "2026-06-30T00:00:00",
+          "2026-09-29T00:00:00",
+          "2026-12-29T00:00:00",
+          "2027-03-30T00:00:00",
+          "2027-06-29T00:00:00",
+          "2027-08-31T00:00:00",
+          "2027-11-30T00:00:00"
+        ],
+        "when": {
+          "cron.dom_dow": "and+monday-zero"
+        }
+      },
+      {
+        "label": "nth",
+        "note": "dcron / GNU micron 'dillon': day-of-month values are read as ordinals 1..5 selecting the Nth such weekday; an empty set is the honest result when the DOM values fall outside 1..5.",
+        "occurrences": [],
+        "when": {
+          "cron.dom_dow": "nth"
+        }
+      },
+      {
+        "label": "reject",
+        "note": "Quartz / AWS EventBridge / Cloudflare: ParseException — 'Support for specifying both a day-of-week AND a day-of-month parameter is not implemented.'",
+        "occurrences": null,
+        "when": {
+          "cron.dom_dow": "reject"
+        }
+      },
+      {
+        "label": "exclusive",
+        "note": "Vercel: rejected at deploy time; one of the two day fields must be '*'.",
+        "occurrences": null,
+        "when": {
+          "cron.dom_dow": "exclusive"
+        }
+      }
+    ],
+    "mode": "per_dialect",
+    "note": "Five distinct resolutions of the DOM/DOW ambiguity exist in production: OR (Vixie lineage / POSIX / robfig / GCP), AND (fcron dayand, GNU micron strict, node-cron, Cronos), Nth-weekday (dcron / micron dillon), parse error with a mandatory '?' (Quartz, AWS EventBridge, Cloudflare), and mutual exclusion by requiring one field to be '*' (Vercel)."
+  },
+  "family": "cron.day-fields",
+  "id": "CRON-DAYF-005",
+  "input": {
+    "count": 8,
+    "expr": "0 0 29-31 * MON",
+    "fields": 5,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-01-01T00:00:00",
+    "zone": null
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "If both fields are restricted (i.e., are not *), the command will be run when either field matches the current time.",
+      "source_id": "crontab5"
+    },
+    {
+      "quote": "If either the month or day of month is specified as an element or list, and the day of week is also specified as an element or list, then any day matching either ... shall be matched.",
+      "source_id": "posix-crontab"
+    },
+    {
+      "quote": "the dom/dow situation is odd. '* * 1,15 * Sun' will run on the first and fifteenth AND every Sunday; ... yes, it's bizarre. like many bizarre things, it's the standard.",
+      "source_id": "vixie-cron.c"
+    },
+    {
+      "note": "three mutually incompatible interpretations of the same five fields, selectable per job",
+      "source_id": "micron"
+    },
+    {
+      "note": "dayand is (boolean, default true)",
+      "source_id": "fcron5"
+    },
+    {
+      "note": "0 11 1,5 * mon-wed means the first and last Mon/Tue/Wed",
+      "source_id": "dcron"
+    },
+    {
+      "source_id": "quartz"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "The single most consequential divergence in the cron family. No source arbitrates between the five: POSIX and crontab(5) state OR, fcron and micron ship AND as the default, dcron ships a third reading, and Quartz makes the input illegal. Classified DIALECT_DEPENDENT rather than KNOWN_DIVERGENCE because each behaviour is documented by its own dialect; the corpus therefore demands a declared dialect, not a universal answer. ",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "cron.dialect",
+    "cron.dom_dow"
+  ],
+  "tags": [
+    "dom_dow",
+    "five-way"
+  ],
+  "title": "Range DOM with a single DOW: month-end or Monday"
+}

@@ -1,0 +1,70 @@
+{
+  "classification": "POLICY_DEPENDENT",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "exact",
+        "note": "12:00:30 is still ahead of the anchor and must be emitted.",
+        "occurrences": [
+          "2026-01-01T12:00:30",
+          "2026-01-01T12:01:30",
+          "2026-01-01T12:02:30"
+        ],
+        "when": {
+          "cron.start_truncation": "exact"
+        }
+      },
+      {
+        "label": "truncate-to-minute",
+        "note": "Engines that floor to the minute lose the 12:00:30 firing.",
+        "occurrences": [
+          "2026-01-01T12:01:30",
+          "2026-01-01T12:02:30",
+          "2026-01-01T12:03:30"
+        ],
+        "when": {
+          "cron.start_truncation": "truncate"
+        }
+      }
+    ],
+    "mode": "per_policy"
+  },
+  "family": "cron.anchoring",
+  "id": "CRON-ANCH-003",
+  "input": {
+    "count": 3,
+    "expr": "30 * * * * *",
+    "fields": 6,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-01-01T12:00:15",
+    "zone": null
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "source_id": "quartz"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "Directly measurable divergence caused by an undocumented internal truncation.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "cron.start_truncation"
+  ],
+  "tags": [
+    "anchoring",
+    "policy",
+    "seconds"
+  ],
+  "title": "Sub-minute start instant, seconds-granularity expression"
+}

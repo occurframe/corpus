@@ -1,0 +1,67 @@
+{
+  "classification": "DIALECT_DEPENDENT",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "collapse-to-first",
+        "note": "The step exceeds the range so only the range start survives: minute 0 of every hour.",
+        "occurrences": [
+          "2026-01-01T01:00:00",
+          "2026-01-01T02:00:00",
+          "2026-01-01T03:00:00",
+          "2026-01-01T04:00:00"
+        ],
+        "when": {
+          "cron.step_gt_field": "accept"
+        }
+      },
+      {
+        "label": "reject",
+        "note": "Engines that validate step <= (hi - lo).",
+        "occurrences": null,
+        "when": {
+          "cron.step_gt_field": "reject"
+        }
+      }
+    ],
+    "mode": "per_dialect"
+  },
+  "family": "cron.steps",
+  "id": "CRON-STEP-004",
+  "input": {
+    "count": 4,
+    "expr": "*/90 * * * *",
+    "fields": 5,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-01-01T00:00:00",
+    "zone": null
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "steps are evaluated just within the field they are applied to",
+      "source_id": "crontab5"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "The user intent ('every 90 minutes') is inexpressible; both behaviours are defensible and both are shipped. Neither the man page nor POSIX addresses an oversized step.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "cron.dialect",
+    "cron.step_gt_field"
+  ],
+  "tags": [
+    "steps"
+  ],
+  "title": "Step larger than the field range: */90 in minutes"
+}

@@ -1,0 +1,46 @@
+{
+  "classification": "NORMATIVE",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "single",
+    "occurrences": [
+      "1997-09-02T09:00:00-04:00|1997-09-02T13:00:00Z"
+    ]
+  },
+  "family": "rrule.core",
+  "id": "RRULE-CORE-002",
+  "input": {
+    "count": 3,
+    "ics": "DTSTART;TZID=America/New_York:19970902T090000\nRRULE:FREQ=DAILY;COUNT=1",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "The COUNT rule part defines the number of occurrences at which to range-bound the recurrence.",
+      "source_id": "rfc5545-3.3.10"
+    },
+    {
+      "note": "JSCalendar legislates what RFC 5545 leaves to inference",
+      "quote": "the start date-time ... is always the first occurrence in the expansion",
+      "source_id": "rfc8984-4.3.3"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "Isolates the 'does COUNT count DTSTART' question from every other variable.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "count"
+  ],
+  "title": "COUNT includes DTSTART when DTSTART matches the rule"
+}

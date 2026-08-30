@@ -1,0 +1,61 @@
+{
+  "classification": "NORMATIVE",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "single",
+    "note": "Days 1,8,15,22,29 of every month; the 29→1 gap is 3, 2 or 4 days depending on month length.",
+    "occurrences": [
+      "2026-01-08T00:00:00",
+      "2026-01-15T00:00:00",
+      "2026-01-22T00:00:00",
+      "2026-01-29T00:00:00",
+      "2026-02-01T00:00:00",
+      "2026-02-08T00:00:00",
+      "2026-02-15T00:00:00",
+      "2026-02-22T00:00:00",
+      "2026-03-01T00:00:00",
+      "2026-03-08T00:00:00"
+    ]
+  },
+  "family": "cron.anchoring",
+  "id": "CRON-ANCH-004",
+  "input": {
+    "count": 10,
+    "expr": "0 0 */7 * *",
+    "fields": 5,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-01-01T00:00:00",
+    "zone": null
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "steps are evaluated just within the field they are applied to",
+      "source_id": "crontab5"
+    },
+    {
+      "note": "contrast: RRULE's INTERVAL counts periods from DTSTART; cron has no seed at all",
+      "quote": "The DTSTART ... are used as the seed values, and then the RRULE is applied to the seed values",
+      "source_id": "rfc5545-3.3.10"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "The structural difference between the two grammars, stated as one executable vector: cron is a predicate over instants with no origin, RRULE is a generator from an anchor. Any unified model must reproduce both columns.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "anchoring",
+    "cross-grammar",
+    "headline"
+  ],
+  "title": "Cron has no anchor: '*/7' in the day field restarts each month"
+}

@@ -1,0 +1,46 @@
+{
+  "classification": "NORMATIVE",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "single",
+    "note": "Including 2026-03-08T02:30, which is not a valid local time in New York. Floating times are correct here precisely because they are not bound to a zone.",
+    "occurrences": [
+      "2026-03-06T02:30:00",
+      "2026-03-07T02:30:00",
+      "2026-03-08T02:30:00",
+      "2026-03-09T02:30:00"
+    ]
+  },
+  "family": "rrule.dst",
+  "id": "RRULE-DST-008",
+  "input": {
+    "count": 5,
+    "ics": "DTSTART:20260306T023000\nRRULE:FREQ=DAILY;COUNT=4",
+    "kind": "rrule",
+    "zone": null
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "Date-time values of this type are said to be 'floating' and are not bound to any time zone in particular. They are used to represent the same hour, minute, and second value regardless of which time zone is currently being observed.",
+      "source_id": "rfc5545-3.3.5"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "The third DTSTART value type, and the one that makes the gap/fold question disappear entirely. A model that has no floating type cannot express this vector; a model that has one must decide when the binding to a zone happens.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "floating",
+    "gap"
+  ],
+  "title": "Floating DTSTART (no TZID, no Z) has no instants at all"
+}

@@ -1,0 +1,73 @@
+{
+  "classification": "DIALECT_DEPENDENT",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "seconds",
+        "note": "Quartz, croner, cron-parser, robfig-with-seconds.",
+        "occurrences": [
+          "2026-01-01T00:00:15",
+          "2026-01-01T00:00:30",
+          "2026-01-01T00:00:45",
+          "2026-01-01T00:01:00",
+          "2026-01-01T00:01:15",
+          "2026-01-01T00:01:30"
+        ],
+        "when": {
+          "cron.seconds": "supported"
+        }
+      },
+      {
+        "label": "reject",
+        "note": "Five-field engines.",
+        "occurrences": null,
+        "when": {
+          "cron.seconds": "unsupported"
+        }
+      }
+    ],
+    "mode": "per_dialect"
+  },
+  "family": "cron.field-count",
+  "id": "CRON-FIELDS-004",
+  "input": {
+    "count": 6,
+    "expr": "*/15 * * * * *",
+    "fields": 6,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-01-01T00:00:00",
+    "zone": null
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "note": "POSIX cron has one-minute resolution and no seconds field",
+      "source_id": "posix-crontab"
+    },
+    {
+      "source_id": "quartz"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "Sub-minute scheduling is the most common reason to leave the five-field form, and the point at which cron expressions stop being portable at all.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "cron.dialect",
+    "cron.seconds"
+  ],
+  "tags": [
+    "fields",
+    "seconds"
+  ],
+  "title": "Seconds granularity: every 15 seconds"
+}

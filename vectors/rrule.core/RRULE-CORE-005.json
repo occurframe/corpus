@@ -1,0 +1,44 @@
+{
+  "classification": "NORMATIVE",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "single",
+    "note": "1997-09-04T09:00 EDT is 13:00Z, exactly UNTIL, and is therefore included.",
+    "occurrences": [
+      "1997-09-02T09:00:00-04:00|1997-09-02T13:00:00Z",
+      "1997-09-03T09:00:00-04:00|1997-09-03T13:00:00Z",
+      "1997-09-04T09:00:00-04:00|1997-09-04T13:00:00Z"
+    ]
+  },
+  "family": "rrule.core",
+  "id": "RRULE-CORE-005",
+  "input": {
+    "count": 6,
+    "ics": "DTSTART;TZID=America/New_York:19970902T090000\nRRULE:FREQ=DAILY;UNTIL=19970904T130000Z",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "If the value specified by UNTIL is synchronized with the specified recurrence, this DATE or DATE-TIME becomes the last instance of the recurrence.",
+      "source_id": "rfc5545-3.3.10"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "Inclusivity is stated normatively and is still implemented as exclusive by some engines; it is cheap to test and decisive.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "until"
+  ],
+  "title": "UNTIL is inclusive when it names an instance exactly"
+}

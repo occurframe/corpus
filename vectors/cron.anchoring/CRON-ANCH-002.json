@@ -1,0 +1,67 @@
+{
+  "classification": "POLICY_DEPENDENT",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "truncate-to-minute",
+        "note": "Engines that floor the anchor to the minute then step; the 12:00 occurrence of the same day is already past.",
+        "occurrences": [
+          "2026-01-02T12:00:00",
+          "2026-01-03T12:00:00"
+        ],
+        "when": {
+          "cron.start_truncation": "truncate"
+        }
+      },
+      {
+        "label": "exact",
+        "note": "Engines comparing exact instants — same answer here, but see CRON-ANCH-003 where they differ.",
+        "occurrences": [
+          "2026-01-02T12:00:00",
+          "2026-01-03T12:00:00"
+        ],
+        "when": {
+          "cron.start_truncation": "exact"
+        }
+      }
+    ],
+    "mode": "per_policy"
+  },
+  "family": "cron.anchoring",
+  "id": "CRON-ANCH-002",
+  "input": {
+    "count": 2,
+    "expr": "0 12 * * *",
+    "fields": 5,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-01-01T12:00:30",
+    "zone": null
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "source_id": "crontab5"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "Truncation policy is invisible until it is not; pairing this with ANCH-003 isolates it.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "cron.start_truncation"
+  ],
+  "tags": [
+    "anchoring",
+    "policy"
+  ],
+  "title": "Sub-minute start instant (seconds and micros in the anchor)"
+}

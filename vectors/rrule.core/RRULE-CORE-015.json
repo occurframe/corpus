@@ -1,0 +1,39 @@
+{
+  "classification": "INVALID",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "error_class": "missing_freq",
+    "mode": "reject"
+  },
+  "family": "rrule.core",
+  "id": "RRULE-CORE-015",
+  "input": {
+    "count": 5,
+    "ics": "DTSTART:19970902T090000\nRRULE:COUNT=5",
+    "kind": "rrule",
+    "zone": null
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "The FREQ rule part ... This rule part MUST be specified in the recurrence rule.",
+      "source_id": "rfc5545-3.3.10"
+    }
+  ],
+  "operation": "rrule.parse",
+  "rationale": "The only unconditionally required rule part.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "invalid"
+  ],
+  "title": "FREQ missing"
+}

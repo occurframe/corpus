@@ -1,0 +1,46 @@
+{
+  "classification": "NORMATIVE",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "single",
+    "occurrences": [
+      "2026-01-25T09:00:00-05:00|2026-01-25T14:00:00Z",
+      "2026-02-22T09:00:00-05:00|2026-02-22T14:00:00Z",
+      "2026-03-29T09:00:00-04:00|2026-03-29T13:00:00Z",
+      "2026-04-26T09:00:00-04:00|2026-04-26T13:00:00Z",
+      "2026-05-31T09:00:00-04:00|2026-05-31T13:00:00Z"
+    ]
+  },
+  "family": "rrule.by",
+  "id": "RRULE-BY-004",
+  "input": {
+    "count": 6,
+    "ics": "DTSTART;TZID=America/New_York:20260101T090000\nRRULE:FREQ=MONTHLY;BYDAY=-1SU;COUNT=5",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "-1MO represents the last Monday of the month",
+      "source_id": "rfc5545-3.3.10"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "The correct spelling of what most authors of BYDAY=5SU actually meant; paired with BY-003 it quantifies the cost of the mistake.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "byday",
+    "negative-ordinal"
+  ],
+  "title": "BYDAY=-1SU (last Sunday) never skips a month"
+}

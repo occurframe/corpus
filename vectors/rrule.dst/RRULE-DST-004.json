@@ -1,0 +1,45 @@
+{
+  "classification": "AMBIGUOUS_STANDARD",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "open",
+    "note": "Recorded, not scored. 2026-10-04T02:15 does not exist in Lord Howe (the gap is 02:00-02:30). Engines that resolve a gap by adding one hour land at 03:15, which is 45 minutes later than the pre-gap-offset answer of 02:30."
+  },
+  "family": "rrule.dst",
+  "id": "RRULE-DST-004",
+  "input": {
+    "count": 5,
+    "ics": "DTSTART;TZID=Australia/Lord_Howe:20260919T021500\nRRULE:FREQ=WEEKLY;COUNT=4",
+    "kind": "rrule",
+    "zone": "Australia/Lord_Howe"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "source_id": "eid4271"
+    },
+    {
+      "source_id": "rfc5545-3.3.5"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "The half-hour transition is where a hard-coded one-hour correction becomes visibly wrong rather than merely arbitrary.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "rrule.gap"
+  ],
+  "tags": [
+    "gap",
+    "half-hour",
+    "open"
+  ],
+  "title": "Weekly 02:15 in Lord Howe (30-minute transition)"
+}

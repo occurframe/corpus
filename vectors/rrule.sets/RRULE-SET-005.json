@@ -1,0 +1,75 @@
+{
+  "classification": "POLICY_DEPENDENT",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "silent",
+        "note": "The overwhelmingly common behaviour.",
+        "occurrences": [
+          "2026-01-05T09:00:00-05:00|2026-01-05T14:00:00Z",
+          "2026-01-06T09:00:00-05:00|2026-01-06T14:00:00Z",
+          "2026-01-07T09:00:00-05:00|2026-01-07T14:00:00Z"
+        ],
+        "when": {
+          "rrule.exdate_unmatched": "ignore"
+        }
+      },
+      {
+        "label": "warn",
+        "note": "Same set, plus a diagnostic. Distinguishable only via the runner's diagnostics channel.",
+        "occurrences": [
+          "2026-01-05T09:00:00-05:00|2026-01-05T14:00:00Z",
+          "2026-01-06T09:00:00-05:00|2026-01-06T14:00:00Z",
+          "2026-01-07T09:00:00-05:00|2026-01-07T14:00:00Z"
+        ],
+        "when": {
+          "rrule.exdate_unmatched": "warn"
+        }
+      },
+      {
+        "label": "reject",
+        "note": "Treat a no-op EXDATE as an authoring error.",
+        "occurrences": null,
+        "when": {
+          "rrule.exdate_unmatched": "reject"
+        }
+      }
+    ],
+    "mode": "per_policy"
+  },
+  "family": "rrule.sets",
+  "id": "RRULE-SET-005",
+  "input": {
+    "count": 4,
+    "ics": "DTSTART;TZID=America/New_York:20260105T090000\nRRULE:FREQ=DAILY;COUNT=3\nEXDATE;TZID=America/New_York:20260106T100000",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "note": "no statement about an EXDATE that matches nothing",
+      "source_id": "rfc5545-3.8.5.1"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "A typo in an EXDATE — the wrong minute, the wrong zone — is silently a no-op in every mainstream engine, and the consequence is a job that runs on a day someone explicitly excluded. Worth a policy axis in any new product.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "rrule.exdate_unmatched"
+  ],
+  "tags": [
+    "exdate",
+    "policy"
+  ],
+  "title": "EXDATE naming an instant the rule never generates"
+}

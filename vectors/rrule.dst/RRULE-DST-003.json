@@ -1,0 +1,45 @@
+{
+  "classification": "NORMATIVE",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "single",
+    "note": "09:00 local on all three dates; the UTC instants are 14:00Z, 13:00Z, 13:00Z. An engine that expands in UTC and converts back produces 08:00 or 10:00 local after the transition.",
+    "occurrences": [
+      "2026-03-01T09:00:00-05:00|2026-03-01T14:00:00Z",
+      "2026-03-08T09:00:00-04:00|2026-03-08T13:00:00Z",
+      "2026-03-15T09:00:00-04:00|2026-03-15T13:00:00Z"
+    ]
+  },
+  "family": "rrule.dst",
+  "id": "RRULE-DST-003",
+  "input": {
+    "count": 4,
+    "ics": "DTSTART;TZID=America/New_York:20260301T090000\nRRULE:FREQ=WEEKLY;COUNT=3",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "note": "a DATE-TIME with a TZID is a local time; the UTC instant is derived, not stored",
+      "source_id": "rfc5545-3.3.5"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "The defining property of zoned recurrence, and the one most often broken by engines that normalise to UTC on parse. Cheap to test, decisive, and the reason the corpus's output encoding carries both local and UTC forms.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "offset-change",
+    "control"
+  ],
+  "title": "A recurrence whose local time is stable but whose UTC offset changes (the DST-safe property)"
+}

@@ -1,0 +1,43 @@
+{
+  "classification": "NORMATIVE",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "single",
+    "occurrences": [
+      "1997-09-04T09:00:00-04:00|1997-09-04T13:00:00Z",
+      "1997-10-07T09:00:00-04:00|1997-10-07T13:00:00Z",
+      "1997-11-06T09:00:00-05:00|1997-11-06T14:00:00Z"
+    ]
+  },
+  "family": "rrule.by",
+  "id": "RRULE-BY-012",
+  "input": {
+    "count": 4,
+    "ics": "DTSTART;TZID=America/New_York:19970904T090000\nRRULE:FREQ=MONTHLY;BYDAY=TU,WE,TH;BYSETPOS=3;COUNT=3",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "The third instance into the month of one of Tuesday, Wednesday, or Thursday, for the next 3 months: ... ==> (1997 9:00 AM EDT) September 4;October 7;November 6",
+      "source_id": "rfc5545-3.8.5.3"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "BYSETPOS is applied last, over the whole period's candidate set; engines that apply it per-BYDAY-value produce a different set entirely.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "bysetpos"
+  ],
+  "title": "BYSETPOS=3 over BYDAY=TU,WE,TH (RFC example)"
+}

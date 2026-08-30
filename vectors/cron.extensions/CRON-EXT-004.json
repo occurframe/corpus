@@ -1,0 +1,68 @@
+{
+  "classification": "DIALECT_DEPENDENT",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "supported",
+        "note": "1 Aug 2026 is a Saturday; the documented behaviour rolls forward to Monday 3 Aug, not back to Friday 31 Jul.",
+        "occurrences": [
+          "2026-07-01T09:00:00",
+          "2026-08-03T09:00:00",
+          "2026-09-01T09:00:00",
+          "2026-10-01T09:00:00"
+        ],
+        "when": {
+          "cron.W": "supported"
+        }
+      },
+      {
+        "label": "reject",
+        "occurrences": null,
+        "when": {
+          "cron.W": "unsupported"
+        }
+      }
+    ],
+    "mode": "per_dialect"
+  },
+  "family": "cron.extensions",
+  "id": "CRON-EXT-004",
+  "input": {
+    "count": 4,
+    "expr": "0 9 1W * *",
+    "fields": 5,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-07-01T00:00:00",
+    "zone": null
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "will not 'jump' over the boundary of a month's days",
+      "source_id": "quartz"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "The month-boundary clause is the part of 'W' implementations most often get wrong; it is separately testable.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "cron.W",
+    "cron.dialect"
+  ],
+  "tags": [
+    "extensions",
+    "W",
+    "business-day"
+  ],
+  "title": "1W when the 1st is a Saturday (must not jump into last month)"
+}

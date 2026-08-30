@@ -1,0 +1,45 @@
+{
+  "classification": "NORMATIVE",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "single",
+    "occurrences": [
+      "2026-01-30T09:00:00-05:00|2026-01-30T14:00:00Z",
+      "2026-03-30T09:00:00-04:00|2026-03-30T13:00:00Z",
+      "2026-04-30T09:00:00-04:00|2026-04-30T13:00:00Z",
+      "2026-05-30T09:00:00-04:00|2026-05-30T13:00:00Z",
+      "2026-06-30T09:00:00-04:00|2026-06-30T13:00:00Z"
+    ]
+  },
+  "family": "rrule.by",
+  "id": "RRULE-BY-006",
+  "input": {
+    "count": 7,
+    "ics": "DTSTART;TZID=America/New_York:20260130T090000\nRRULE:FREQ=MONTHLY;BYMONTHDAY=30;COUNT=5",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "source_id": "rfc5545-3.3.10"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "Separates 'omitted in 5 months' (31) from 'omitted in 1 month' (30); engines with a special case for 31 fail here.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "bymonthday",
+    "month-end"
+  ],
+  "title": "BYMONTHDAY=30: February always omitted"
+}

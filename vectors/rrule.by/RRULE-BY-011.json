@@ -1,0 +1,77 @@
+{
+  "classification": "DIALECT_DEPENDENT",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "rfc7529",
+        "note": "Engines implementing RFC 7529.",
+        "occurrences": [
+          "2024-02-29T09:00:00-05:00|2024-02-29T14:00:00Z",
+          "2025-02-28T09:00:00-05:00|2025-02-28T14:00:00Z",
+          "2026-02-28T09:00:00-05:00|2026-02-28T14:00:00Z"
+        ],
+        "when": {
+          "rrule.rscale_support": "yes"
+        }
+      },
+      {
+        "label": "ignore-unknown-parts",
+        "note": "Engines that silently drop RSCALE and SKIP fall back to OMIT — the most dangerous outcome, because the rule parses and produces a plausible but different set.",
+        "occurrences": [
+          "2024-02-29T09:00:00-05:00|2024-02-29T14:00:00Z",
+          "2028-02-29T09:00:00-05:00|2028-02-29T14:00:00Z",
+          "2032-02-29T09:00:00-05:00|2032-02-29T14:00:00Z"
+        ],
+        "when": {
+          "rrule.rscale_support": "ignore"
+        }
+      },
+      {
+        "label": "reject",
+        "note": "Engines that reject unknown rule parts.",
+        "occurrences": null,
+        "when": {
+          "rrule.rscale_support": "no"
+        }
+      }
+    ],
+    "mode": "per_dialect"
+  },
+  "family": "rrule.by",
+  "id": "RRULE-BY-011",
+  "input": {
+    "count": 4,
+    "ics": "DTSTART;TZID=America/New_York:20240229T090000\nRRULE:RSCALE=GREGORIAN;FREQ=YEARLY;SKIP=BACKWARD;COUNT=3",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "SKIP=BACKWARD ... the date is set to the closest preceding valid date",
+      "source_id": "rfc7529"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "RFC 7529 is eleven years old and effectively unimplemented outside CalDAV servers. The 'silently ignore' outcome is the reason this vector exists: unknown-rule-part handling is itself an unspecified policy.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "rrule.profile",
+    "rrule.rscale_support"
+  ],
+  "tags": [
+    "rfc7529",
+    "leap-year",
+    "unknown-parts"
+  ],
+  "title": "Yearly on 29 February with RSCALE and SKIP=BACKWARD (RFC 7529)"
+}

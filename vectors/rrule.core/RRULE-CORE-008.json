@@ -1,0 +1,45 @@
+{
+  "classification": "NORMATIVE",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "single",
+    "note": "17:00Z is 13:00 EDT, so only 09:00 and 12:00 local are in range — the behaviour the erratum exists to explain.",
+    "occurrences": [
+      "1997-09-02T09:00:00-04:00|1997-09-02T13:00:00Z",
+      "1997-09-02T12:00:00-04:00|1997-09-02T16:00:00Z"
+    ]
+  },
+  "family": "rrule.core",
+  "id": "RRULE-CORE-008",
+  "input": {
+    "count": 8,
+    "ics": "DTSTART;TZID=America/New_York:19970902T090000\nRRULE:FREQ=HOURLY;INTERVAL=3;UNTIL=19970902T170000Z",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "note": "Verified, Technical",
+      "source_id": "eid3883"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "Paired with CORE-007 so an engine that silently reads UNTIL as local time is caught: it would emit five instances here instead of two.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "until",
+    "utc-coupling",
+    "discriminator"
+  ],
+  "title": "The uncorrected erratum-3883 example (UNTIL=...T170000Z)"
+}

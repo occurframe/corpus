@@ -1,0 +1,68 @@
+{
+  "classification": "DIALECT_DEPENDENT",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "quartz7",
+        "note": "Quartz/Quartz.NET: Mondays at noon, restricted to 2027.",
+        "occurrences": [
+          "2027-01-04T12:00:00",
+          "2027-01-11T12:00:00",
+          "2027-01-18T12:00:00",
+          "2027-01-25T12:00:00"
+        ],
+        "when": {
+          "cron.field_count": 7
+        }
+      },
+      {
+        "label": "reject",
+        "note": "Everything in the Vixie lineage.",
+        "occurrences": null,
+        "when": {
+          "cron.field_count": "5-or-6"
+        }
+      }
+    ],
+    "mode": "per_dialect"
+  },
+  "family": "cron.field-count",
+  "id": "CRON-FIELDS-003",
+  "input": {
+    "count": 4,
+    "expr": "0 0 12 ? * MON 2027",
+    "fields": 7,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-01-01T00:00:00",
+    "zone": null
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "Seconds Minutes Hours Day-of-Month Month Day-of-Week Year (optional field)",
+      "source_id": "quartz"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "The year field is the only cron construct that can make a recurrence finite; it is also the least portable.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "cron.dialect",
+    "cron.field_count"
+  ],
+  "tags": [
+    "fields",
+    "year"
+  ],
+  "title": "Seven-field Quartz form with an explicit year"
+}

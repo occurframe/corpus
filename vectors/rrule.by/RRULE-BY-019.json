@@ -1,0 +1,46 @@
+{
+  "classification": "NORMATIVE",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "single",
+    "note": "Identical to WKST=MO. Engines that default to the locale's first day of week (observed in calendar UIs) return the WKST=SU set instead.",
+    "occurrences": [
+      "1997-08-05T09:00:00-04:00|1997-08-05T13:00:00Z",
+      "1997-08-10T09:00:00-04:00|1997-08-10T13:00:00Z",
+      "1997-08-19T09:00:00-04:00|1997-08-19T13:00:00Z",
+      "1997-08-24T09:00:00-04:00|1997-08-24T13:00:00Z"
+    ]
+  },
+  "family": "rrule.by",
+  "id": "RRULE-BY-019",
+  "input": {
+    "count": 5,
+    "ics": "DTSTART;TZID=America/New_York:19970805T090000\nRRULE:FREQ=WEEKLY;INTERVAL=2;COUNT=4;BYDAY=TU,SU",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "The default value is MO.",
+      "source_id": "rfc5545-3.3.10"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "A locale-dependent default would make the same rule mean different things for different users; the RFC forecloses it and this vector proves conformance.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "wkst",
+    "locale"
+  ],
+  "title": "WKST default is MO when omitted"
+}

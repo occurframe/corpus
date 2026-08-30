@@ -1,0 +1,49 @@
+{
+  "classification": "NORMATIVE",
+  "context": {
+    "dialect": "any",
+    "policy": {},
+    "requires": [
+      "cron.5field"
+    ],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "single",
+    "occurrences": [
+      "2026-01-01T10:15:00",
+      "2026-01-02T10:15:00",
+      "2026-01-03T10:15:00",
+      "2026-01-04T10:15:00"
+    ]
+  },
+  "family": "cron.field-count",
+  "id": "CRON-FIELDS-001",
+  "input": {
+    "count": 4,
+    "expr": "15 10 * * *",
+    "fields": 5,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-01-01T00:00:00",
+    "zone": null
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "The cron command shall ... minute, hour, day of the month, month, and day of the week",
+      "source_id": "posix-crontab"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "The one field-count every dialect accepts; the control vector for the family.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "fields"
+  ],
+  "title": "Five-field form (POSIX / Vixie baseline)"
+}

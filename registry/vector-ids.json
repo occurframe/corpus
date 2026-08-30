@@ -1,0 +1,926 @@
+{
+  "corpus_version": "1.0.0-rc2",
+  "ids": [
+    {
+      "family": "cron.anchoring",
+      "id": "CRON-ANCH-001",
+      "status": "active"
+    },
+    {
+      "family": "cron.anchoring",
+      "id": "CRON-ANCH-002",
+      "status": "active"
+    },
+    {
+      "family": "cron.anchoring",
+      "id": "CRON-ANCH-003",
+      "status": "active"
+    },
+    {
+      "family": "cron.anchoring",
+      "id": "CRON-ANCH-004",
+      "status": "active"
+    },
+    {
+      "family": "cron.day-fields",
+      "id": "CRON-DAYF-001",
+      "status": "active"
+    },
+    {
+      "family": "cron.day-fields",
+      "id": "CRON-DAYF-002",
+      "status": "active"
+    },
+    {
+      "family": "cron.day-fields",
+      "id": "CRON-DAYF-003",
+      "status": "active"
+    },
+    {
+      "family": "cron.day-fields",
+      "id": "CRON-DAYF-004",
+      "status": "active"
+    },
+    {
+      "family": "cron.day-fields",
+      "id": "CRON-DAYF-005",
+      "status": "active"
+    },
+    {
+      "family": "cron.day-fields",
+      "id": "CRON-DAYF-006",
+      "status": "active"
+    },
+    {
+      "family": "cron.day-fields",
+      "id": "CRON-DAYF-010",
+      "status": "active"
+    },
+    {
+      "family": "cron.day-fields",
+      "id": "CRON-DAYF-011",
+      "status": "active"
+    },
+    {
+      "family": "cron.day-fields",
+      "id": "CRON-DAYF-012",
+      "status": "active"
+    },
+    {
+      "family": "cron.day-fields",
+      "id": "CRON-DAYF-013",
+      "status": "active"
+    },
+    {
+      "family": "cron.dow-numbering",
+      "id": "CRON-DOW-001",
+      "status": "active"
+    },
+    {
+      "family": "cron.dow-numbering",
+      "id": "CRON-DOW-002",
+      "status": "active"
+    },
+    {
+      "family": "cron.dow-numbering",
+      "id": "CRON-DOW-003",
+      "status": "active"
+    },
+    {
+      "family": "cron.dow-numbering",
+      "id": "CRON-DOW-004",
+      "status": "active"
+    },
+    {
+      "family": "cron.dow-numbering",
+      "id": "CRON-DOW-005",
+      "status": "active"
+    },
+    {
+      "family": "cron.dow-numbering",
+      "id": "CRON-DOW-006",
+      "status": "active"
+    },
+    {
+      "family": "cron.dow-numbering",
+      "id": "CRON-DOW-007",
+      "status": "active"
+    },
+    {
+      "family": "cron.names",
+      "id": "CRON-DOW-008",
+      "status": "active"
+    },
+    {
+      "family": "cron.names",
+      "id": "CRON-DOW-009",
+      "status": "active"
+    },
+    {
+      "family": "cron.names",
+      "id": "CRON-DOW-010",
+      "status": "active"
+    },
+    {
+      "family": "cron.names",
+      "id": "CRON-DOW-011",
+      "status": "active"
+    },
+    {
+      "family": "cron.names",
+      "id": "CRON-DOW-012",
+      "status": "active"
+    },
+    {
+      "family": "cron.dow-numbering",
+      "id": "CRON-DOW-013",
+      "status": "active"
+    },
+    {
+      "family": "cron.dst",
+      "id": "CRON-DST-001",
+      "status": "active"
+    },
+    {
+      "family": "cron.dst",
+      "id": "CRON-DST-002",
+      "status": "active"
+    },
+    {
+      "family": "cron.dst",
+      "id": "CRON-DST-003",
+      "status": "active"
+    },
+    {
+      "family": "cron.dst",
+      "id": "CRON-DST-004",
+      "status": "active"
+    },
+    {
+      "family": "cron.dst",
+      "id": "CRON-DST-005",
+      "status": "active"
+    },
+    {
+      "family": "cron.dst",
+      "id": "CRON-DST-006",
+      "status": "active"
+    },
+    {
+      "family": "cron.dst",
+      "id": "CRON-DST-007",
+      "status": "active"
+    },
+    {
+      "family": "cron.dst",
+      "id": "CRON-DST-008",
+      "status": "active"
+    },
+    {
+      "family": "cron.dst",
+      "id": "CRON-DST-009",
+      "status": "active"
+    },
+    {
+      "family": "cron.dst",
+      "id": "CRON-DST-010",
+      "status": "active"
+    },
+    {
+      "family": "cron.dst",
+      "id": "CRON-DST-011",
+      "status": "active"
+    },
+    {
+      "family": "cron.dst",
+      "id": "CRON-DST-012",
+      "status": "active"
+    },
+    {
+      "family": "cron.dst",
+      "id": "CRON-DST-013",
+      "status": "active"
+    },
+    {
+      "family": "cron.dst",
+      "id": "CRON-DST-014",
+      "status": "active"
+    },
+    {
+      "family": "cron.dst",
+      "id": "CRON-DST-015",
+      "status": "active"
+    },
+    {
+      "family": "cron.dst",
+      "id": "CRON-DST-016",
+      "status": "active"
+    },
+    {
+      "family": "cron.dst",
+      "id": "CRON-DST-017",
+      "status": "active"
+    },
+    {
+      "family": "cron.dst",
+      "id": "CRON-DST-018",
+      "status": "active"
+    },
+    {
+      "family": "cron.dst",
+      "id": "CRON-DST-019",
+      "status": "active"
+    },
+    {
+      "family": "cron.dst",
+      "id": "CRON-DST-020",
+      "status": "active"
+    },
+    {
+      "family": "cron.extensions",
+      "id": "CRON-EXT-001",
+      "status": "active"
+    },
+    {
+      "family": "cron.extensions",
+      "id": "CRON-EXT-002",
+      "status": "active"
+    },
+    {
+      "family": "cron.extensions",
+      "id": "CRON-EXT-003",
+      "status": "active"
+    },
+    {
+      "family": "cron.extensions",
+      "id": "CRON-EXT-004",
+      "status": "active"
+    },
+    {
+      "family": "cron.extensions",
+      "id": "CRON-EXT-005",
+      "status": "active"
+    },
+    {
+      "family": "cron.extensions",
+      "id": "CRON-EXT-006",
+      "status": "active"
+    },
+    {
+      "family": "cron.extensions",
+      "id": "CRON-EXT-007",
+      "status": "active"
+    },
+    {
+      "family": "cron.extensions",
+      "id": "CRON-EXT-008",
+      "status": "active"
+    },
+    {
+      "family": "cron.extensions",
+      "id": "CRON-EXT-009",
+      "status": "active"
+    },
+    {
+      "family": "cron.extensions",
+      "id": "CRON-EXT-010",
+      "status": "active"
+    },
+    {
+      "family": "cron.extensions",
+      "id": "CRON-EXT-011",
+      "status": "active"
+    },
+    {
+      "family": "cron.extensions",
+      "id": "CRON-EXT-012",
+      "status": "active"
+    },
+    {
+      "family": "cron.extensions",
+      "id": "CRON-EXT-013",
+      "status": "active"
+    },
+    {
+      "family": "cron.extensions",
+      "id": "CRON-EXT-014",
+      "status": "active"
+    },
+    {
+      "family": "cron.field-count",
+      "id": "CRON-FIELDS-001",
+      "status": "active"
+    },
+    {
+      "family": "cron.field-count",
+      "id": "CRON-FIELDS-002",
+      "status": "active"
+    },
+    {
+      "family": "cron.field-count",
+      "id": "CRON-FIELDS-003",
+      "status": "active"
+    },
+    {
+      "family": "cron.field-count",
+      "id": "CRON-FIELDS-004",
+      "status": "active"
+    },
+    {
+      "family": "cron.field-count",
+      "id": "CRON-FIELDS-005",
+      "status": "active"
+    },
+    {
+      "family": "cron.field-count",
+      "id": "CRON-FIELDS-006",
+      "status": "active"
+    },
+    {
+      "family": "cron.field-count",
+      "id": "CRON-FIELDS-007",
+      "status": "active"
+    },
+    {
+      "family": "cron.field-count",
+      "id": "CRON-FIELDS-008",
+      "status": "active"
+    },
+    {
+      "family": "cron.field-count",
+      "id": "CRON-FIELDS-009",
+      "status": "active"
+    },
+    {
+      "family": "cron.field-count",
+      "id": "CRON-FIELDS-010",
+      "status": "active"
+    },
+    {
+      "family": "cron.field-count",
+      "id": "CRON-FIELDS-011",
+      "status": "active"
+    },
+    {
+      "family": "cron.field-count",
+      "id": "CRON-FIELDS-012",
+      "status": "active"
+    },
+    {
+      "family": "cron.field-count",
+      "id": "CRON-FIELDS-013",
+      "status": "active"
+    },
+    {
+      "family": "cron.invalid",
+      "id": "CRON-INV-001",
+      "status": "active"
+    },
+    {
+      "family": "cron.invalid",
+      "id": "CRON-INV-002",
+      "status": "active"
+    },
+    {
+      "family": "cron.invalid",
+      "id": "CRON-INV-003",
+      "status": "active"
+    },
+    {
+      "family": "cron.invalid",
+      "id": "CRON-INV-004",
+      "status": "active"
+    },
+    {
+      "family": "cron.invalid",
+      "id": "CRON-INV-005",
+      "status": "active"
+    },
+    {
+      "family": "cron.invalid",
+      "id": "CRON-INV-006",
+      "status": "active"
+    },
+    {
+      "family": "cron.invalid",
+      "id": "CRON-INV-007",
+      "status": "active"
+    },
+    {
+      "family": "cron.invalid",
+      "id": "CRON-INV-008",
+      "status": "active"
+    },
+    {
+      "family": "cron.invalid",
+      "id": "CRON-INV-009",
+      "status": "active"
+    },
+    {
+      "family": "cron.invalid",
+      "id": "CRON-INV-010",
+      "status": "active"
+    },
+    {
+      "family": "cron.invalid",
+      "id": "CRON-INV-011",
+      "status": "active"
+    },
+    {
+      "family": "cron.invalid",
+      "id": "CRON-INV-012",
+      "status": "active"
+    },
+    {
+      "family": "cron.steps",
+      "id": "CRON-STEP-001",
+      "status": "active"
+    },
+    {
+      "family": "cron.steps",
+      "id": "CRON-STEP-002",
+      "status": "active"
+    },
+    {
+      "family": "cron.steps",
+      "id": "CRON-STEP-003",
+      "status": "active"
+    },
+    {
+      "family": "cron.steps",
+      "id": "CRON-STEP-004",
+      "status": "active"
+    },
+    {
+      "family": "cron.steps",
+      "id": "CRON-STEP-005",
+      "status": "active"
+    },
+    {
+      "family": "cron.steps",
+      "id": "CRON-STEP-006",
+      "status": "active"
+    },
+    {
+      "family": "cron.steps",
+      "id": "CRON-STEP-007",
+      "status": "active"
+    },
+    {
+      "family": "cron.steps",
+      "id": "CRON-STEP-008",
+      "status": "active"
+    },
+    {
+      "family": "cron.steps",
+      "id": "CRON-STEP-009",
+      "status": "active"
+    },
+    {
+      "family": "cron.steps",
+      "id": "CRON-STEP-010",
+      "status": "active"
+    },
+    {
+      "family": "cron.steps",
+      "id": "CRON-STEP-011",
+      "status": "active"
+    },
+    {
+      "family": "cron.steps",
+      "id": "CRON-STEP-012",
+      "status": "active"
+    },
+    {
+      "family": "rrule.by",
+      "id": "RRULE-BY-001",
+      "status": "active"
+    },
+    {
+      "family": "rrule.by",
+      "id": "RRULE-BY-002",
+      "status": "active"
+    },
+    {
+      "family": "rrule.by",
+      "id": "RRULE-BY-003",
+      "status": "active"
+    },
+    {
+      "family": "rrule.by",
+      "id": "RRULE-BY-004",
+      "status": "active"
+    },
+    {
+      "family": "rrule.by",
+      "id": "RRULE-BY-005",
+      "status": "active"
+    },
+    {
+      "family": "rrule.by",
+      "id": "RRULE-BY-006",
+      "status": "active"
+    },
+    {
+      "family": "rrule.by",
+      "id": "RRULE-BY-007",
+      "status": "active"
+    },
+    {
+      "family": "rrule.by",
+      "id": "RRULE-BY-008",
+      "status": "active"
+    },
+    {
+      "family": "rrule.by",
+      "id": "RRULE-BY-009",
+      "status": "active"
+    },
+    {
+      "family": "rrule.by",
+      "id": "RRULE-BY-010",
+      "status": "active"
+    },
+    {
+      "family": "rrule.by",
+      "id": "RRULE-BY-011",
+      "status": "active"
+    },
+    {
+      "family": "rrule.by",
+      "id": "RRULE-BY-012",
+      "status": "active"
+    },
+    {
+      "family": "rrule.by",
+      "id": "RRULE-BY-013",
+      "status": "active"
+    },
+    {
+      "family": "rrule.by",
+      "id": "RRULE-BY-014",
+      "status": "active"
+    },
+    {
+      "family": "rrule.by",
+      "id": "RRULE-BY-015",
+      "status": "active"
+    },
+    {
+      "family": "rrule.by",
+      "id": "RRULE-BY-016",
+      "status": "active"
+    },
+    {
+      "family": "rrule.by",
+      "id": "RRULE-BY-017",
+      "status": "active"
+    },
+    {
+      "family": "rrule.by",
+      "id": "RRULE-BY-018",
+      "status": "active"
+    },
+    {
+      "family": "rrule.by",
+      "id": "RRULE-BY-019",
+      "status": "active"
+    },
+    {
+      "family": "rrule.by",
+      "id": "RRULE-BY-020",
+      "status": "active"
+    },
+    {
+      "family": "rrule.by",
+      "id": "RRULE-BY-021",
+      "status": "active"
+    },
+    {
+      "family": "rrule.by",
+      "id": "RRULE-BY-022",
+      "status": "active"
+    },
+    {
+      "family": "rrule.by",
+      "id": "RRULE-BY-023",
+      "status": "active"
+    },
+    {
+      "family": "rrule.by",
+      "id": "RRULE-BY-024",
+      "status": "active"
+    },
+    {
+      "family": "rrule.by",
+      "id": "RRULE-BY-025",
+      "status": "active"
+    },
+    {
+      "family": "rrule.by",
+      "id": "RRULE-BY-026",
+      "status": "active"
+    },
+    {
+      "family": "rrule.by",
+      "id": "RRULE-BY-027",
+      "status": "active"
+    },
+    {
+      "family": "rrule.by",
+      "id": "RRULE-BY-028",
+      "status": "active"
+    },
+    {
+      "family": "rrule.by",
+      "id": "RRULE-BY-029",
+      "status": "active"
+    },
+    {
+      "family": "rrule.by",
+      "id": "RRULE-BY-030",
+      "status": "active"
+    },
+    {
+      "family": "rrule.by",
+      "id": "RRULE-BY-031",
+      "status": "active"
+    },
+    {
+      "family": "rrule.by",
+      "id": "RRULE-BY-032",
+      "status": "active"
+    },
+    {
+      "family": "rrule.core",
+      "id": "RRULE-CORE-001",
+      "status": "active"
+    },
+    {
+      "family": "rrule.core",
+      "id": "RRULE-CORE-002",
+      "status": "active"
+    },
+    {
+      "family": "rrule.core",
+      "id": "RRULE-CORE-003",
+      "status": "active"
+    },
+    {
+      "family": "rrule.core",
+      "id": "RRULE-CORE-004",
+      "status": "active"
+    },
+    {
+      "family": "rrule.core",
+      "id": "RRULE-CORE-005",
+      "status": "active"
+    },
+    {
+      "family": "rrule.core",
+      "id": "RRULE-CORE-006",
+      "status": "active"
+    },
+    {
+      "family": "rrule.core",
+      "id": "RRULE-CORE-007",
+      "status": "active"
+    },
+    {
+      "family": "rrule.core",
+      "id": "RRULE-CORE-008",
+      "status": "active"
+    },
+    {
+      "family": "rrule.core",
+      "id": "RRULE-CORE-009",
+      "status": "active"
+    },
+    {
+      "family": "rrule.core",
+      "id": "RRULE-CORE-010",
+      "status": "active"
+    },
+    {
+      "family": "rrule.core",
+      "id": "RRULE-CORE-011",
+      "status": "active"
+    },
+    {
+      "family": "rrule.core",
+      "id": "RRULE-CORE-012",
+      "status": "active"
+    },
+    {
+      "family": "rrule.core",
+      "id": "RRULE-CORE-013",
+      "status": "active"
+    },
+    {
+      "family": "rrule.core",
+      "id": "RRULE-CORE-014",
+      "status": "active"
+    },
+    {
+      "family": "rrule.core",
+      "id": "RRULE-CORE-015",
+      "status": "active"
+    },
+    {
+      "family": "rrule.core",
+      "id": "RRULE-CORE-016",
+      "status": "active"
+    },
+    {
+      "family": "rrule.core",
+      "id": "RRULE-CORE-017",
+      "status": "active"
+    },
+    {
+      "family": "rrule.core",
+      "id": "RRULE-CORE-018",
+      "status": "active"
+    },
+    {
+      "family": "rrule.dst",
+      "id": "RRULE-DST-001",
+      "status": "active"
+    },
+    {
+      "family": "rrule.dst",
+      "id": "RRULE-DST-002",
+      "status": "active"
+    },
+    {
+      "family": "rrule.dst",
+      "id": "RRULE-DST-003",
+      "status": "active"
+    },
+    {
+      "family": "rrule.dst",
+      "id": "RRULE-DST-004",
+      "status": "active"
+    },
+    {
+      "family": "rrule.dst",
+      "id": "RRULE-DST-005",
+      "status": "active"
+    },
+    {
+      "family": "rrule.dst",
+      "id": "RRULE-DST-006",
+      "status": "active"
+    },
+    {
+      "family": "rrule.dst",
+      "id": "RRULE-DST-007",
+      "status": "active"
+    },
+    {
+      "family": "rrule.dst",
+      "id": "RRULE-DST-008",
+      "status": "active"
+    },
+    {
+      "family": "rrule.dst",
+      "id": "RRULE-DST-009",
+      "status": "active"
+    },
+    {
+      "family": "rrule.dst",
+      "id": "RRULE-DST-010",
+      "status": "active"
+    },
+    {
+      "family": "rrule.dst",
+      "id": "RRULE-DST-011",
+      "status": "active"
+    },
+    {
+      "family": "rrule.dst",
+      "id": "RRULE-DST-012",
+      "status": "active"
+    },
+    {
+      "family": "rrule.sets",
+      "id": "RRULE-SET-001",
+      "status": "active"
+    },
+    {
+      "family": "rrule.sets",
+      "id": "RRULE-SET-002",
+      "status": "active"
+    },
+    {
+      "family": "rrule.sets",
+      "id": "RRULE-SET-003",
+      "status": "active"
+    },
+    {
+      "family": "rrule.sets",
+      "id": "RRULE-SET-004",
+      "status": "active"
+    },
+    {
+      "family": "rrule.sets",
+      "id": "RRULE-SET-005",
+      "status": "active"
+    },
+    {
+      "family": "rrule.sets",
+      "id": "RRULE-SET-006",
+      "status": "active"
+    },
+    {
+      "family": "rrule.sets",
+      "id": "RRULE-SET-007",
+      "status": "active"
+    },
+    {
+      "family": "rrule.sets",
+      "id": "RRULE-SET-008",
+      "status": "active"
+    },
+    {
+      "family": "rrule.sets",
+      "id": "RRULE-SET-009",
+      "status": "active"
+    },
+    {
+      "family": "rrule.sets",
+      "id": "RRULE-SET-010",
+      "status": "active"
+    },
+    {
+      "family": "rrule.sets",
+      "id": "RRULE-SET-011",
+      "status": "active"
+    },
+    {
+      "family": "rrule.sets",
+      "id": "RRULE-SET-012",
+      "status": "active"
+    },
+    {
+      "family": "rrule.sets",
+      "id": "RRULE-SET-013",
+      "status": "active"
+    },
+    {
+      "family": "rrule.sets",
+      "id": "RRULE-SET-014",
+      "status": "active"
+    },
+    {
+      "family": "tzdb.provenance",
+      "id": "TZDB-001",
+      "status": "active"
+    },
+    {
+      "family": "tzdb.provenance",
+      "id": "TZDB-002",
+      "status": "active"
+    },
+    {
+      "family": "tzdb.provenance",
+      "id": "TZDB-003",
+      "status": "active"
+    },
+    {
+      "family": "tzdb.provenance",
+      "id": "TZDB-004",
+      "status": "active"
+    },
+    {
+      "family": "tzdb.provenance",
+      "id": "TZDB-005",
+      "status": "active"
+    },
+    {
+      "family": "tzdb.provenance",
+      "id": "TZDB-006",
+      "status": "active"
+    },
+    {
+      "family": "tzdb.provenance",
+      "id": "TZDB-007",
+      "status": "active"
+    },
+    {
+      "family": "tzdb.provenance",
+      "id": "TZDB-008",
+      "status": "active"
+    },
+    {
+      "family": "tzdb.provenance",
+      "id": "TZDB-009",
+      "status": "active"
+    },
+    {
+      "family": "tzdb.provenance",
+      "id": "TZDB-010",
+      "status": "active"
+    }
+  ],
+  "schema_version": "1.0.0"
+}

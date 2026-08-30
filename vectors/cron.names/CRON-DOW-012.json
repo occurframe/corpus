@@ -1,0 +1,71 @@
+{
+  "classification": "DIALECT_DEPENDENT",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "reject-reversed",
+        "note": "Vixie's parser rejects a reversed range.",
+        "occurrences": null,
+        "when": {
+          "cron.range_wrap": "reject"
+        }
+      },
+      {
+        "label": "wrap-modulo",
+        "note": "Wrapping dialects read NOV-FEB as {11,12,1,2}.",
+        "occurrences": [
+          "2026-01-01T12:00:00",
+          "2026-02-01T12:00:00",
+          "2026-11-01T12:00:00",
+          "2026-12-01T12:00:00",
+          "2027-01-01T12:00:00"
+        ],
+        "when": {
+          "cron.range_wrap": "wrap"
+        }
+      }
+    ],
+    "mode": "per_dialect"
+  },
+  "family": "cron.names",
+  "id": "CRON-DOW-012",
+  "input": {
+    "count": 5,
+    "expr": "0 12 1 NOV-FEB *",
+    "fields": 5,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-01-01T00:00:00",
+    "zone": null
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "source_id": "crontab5"
+    },
+    {
+      "source_id": "posix-crontab"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "The wrap question is asked once per field; the month field is where users hit it (winter seasons cross the year).",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "cron.dialect",
+    "cron.range_wrap"
+  ],
+  "tags": [
+    "names",
+    "range-wrap"
+  ],
+  "title": "Named month range wrapping the year boundary: NOV-FEB"
+}

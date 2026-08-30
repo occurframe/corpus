@@ -1,0 +1,46 @@
+{
+  "classification": "NORMATIVE",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "single",
+    "occurrences": [
+      "1997-09-22T09:00:00-04:00|1997-09-22T13:00:00Z",
+      "1997-10-20T09:00:00-04:00|1997-10-20T13:00:00Z",
+      "1997-11-17T09:00:00-05:00|1997-11-17T14:00:00Z",
+      "1997-12-22T09:00:00-05:00|1997-12-22T14:00:00Z"
+    ]
+  },
+  "family": "rrule.by",
+  "id": "RRULE-BY-002",
+  "input": {
+    "count": 6,
+    "ics": "DTSTART;TZID=America/New_York:19970922T090000\nRRULE:FREQ=MONTHLY;BYDAY=-2MO;COUNT=4",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "Monthly on the second-to-last Monday of the month for 6 months",
+      "source_id": "rfc5545-3.8.5.3"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "Negative ordinals are the construct cron cannot express at all beyond 'L'; this is where the grammars stop being translatable.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "byday",
+    "negative-ordinal",
+    "cross-grammar"
+  ],
+  "title": "Monthly on the second-to-last Monday (RFC example)"
+}

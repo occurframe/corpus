@@ -1,0 +1,93 @@
+{
+  "classification": "DIALECT_DEPENDENT",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "start-at",
+        "note": "Quartz semantics: 5, 25, 45 — the bare value is a lower bound and the range runs to the field maximum.",
+        "occurrences": [
+          "2026-01-01T00:05:00",
+          "2026-01-01T00:25:00",
+          "2026-01-01T00:45:00",
+          "2026-01-01T01:05:00",
+          "2026-01-01T01:25:00",
+          "2026-01-01T01:45:00"
+        ],
+        "when": {
+          "cron.bare_start_step": "start_at"
+        }
+      },
+      {
+        "label": "reject",
+        "note": "Engines implementing only the documented 'range/step' form.",
+        "occurrences": null,
+        "when": {
+          "cron.bare_start_step": "reject"
+        }
+      },
+      {
+        "label": "single-value",
+        "note": "Engines that parse the value and silently drop the step.",
+        "occurrences": [
+          "2026-01-01T00:05:00",
+          "2026-01-01T01:05:00",
+          "2026-01-01T02:05:00",
+          "2026-01-01T03:05:00",
+          "2026-01-01T04:05:00",
+          "2026-01-01T05:05:00"
+        ],
+        "when": {
+          "cron.bare_start_step": "ignore_step"
+        }
+      }
+    ],
+    "mode": "per_dialect"
+  },
+  "family": "cron.steps",
+  "id": "CRON-STEP-002",
+  "input": {
+    "count": 6,
+    "expr": "5/20 * * * *",
+    "fields": 5,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-01-01T00:00:00",
+    "zone": null
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "note": "no '/' operator at all",
+      "source_id": "posix-crontab"
+    },
+    {
+      "note": "documents 'range/step', not 'value/step'",
+      "source_id": "crontab5"
+    },
+    {
+      "quote": "'5/20' in the minutes field means every 20th minute of the hour starting at minute 5",
+      "source_id": "quartz"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "'N/step' appears in no POSIX or crontab(5) grammar but is accepted by most modern engines with Quartz's meaning. The silent-drop behaviour is the dangerous one and is why this vector exists.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "cron.bare_start_step",
+    "cron.dialect"
+  ],
+  "tags": [
+    "steps",
+    "start-at"
+  ],
+  "title": "5/20: bare value with a step (start-at semantics)"
+}

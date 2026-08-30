@@ -1,0 +1,53 @@
+{
+  "classification": "AMBIGUOUS_STANDARD",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "open",
+    "note": "Recorded, not scored. The RFC defines week numbering relative to WKST but states the four-day rule in ISO terms; engines variously (a) recompute week 1 under the declared WKST, (b) use ISO weeks regardless of WKST, or (c) ignore BYWEEKNO when WKST is not MO. No source arbitrates, and two Verified errata edit the neighbouring sentence irreconcilably."
+  },
+  "family": "rrule.by",
+  "id": "RRULE-BY-023",
+  "input": {
+    "count": 4,
+    "ics": "DTSTART;TZID=America/New_York:20260101T090000\nRRULE:FREQ=YEARLY;BYWEEKNO=1;BYDAY=SU;WKST=SU;COUNT=3",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "note": "the four-day rule is stated without reference to WKST, so whether 'week 1' is recomputed under a non-Monday WKST is not determined",
+      "quote": "a week is defined as a seven day period, starting on the weekday defined by the WKST rule part",
+      "source_id": "rfc5545-3.3.10"
+    },
+    {
+      "note": "Verified; edits the same BYDAY sentence as erratum 1913 to a different and non-nested wording",
+      "source_id": "eid3779"
+    },
+    {
+      "note": "Verified; the other edit of that sentence",
+      "source_id": "eid1913"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "An honest 'open' vector. Its value is the measurement: the differential matrix shows how many distinct answers exist, which is the falsifiable claim, rather than a fabricated expected list.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "rrule.byweekno_wkst"
+  ],
+  "tags": [
+    "byweekno",
+    "wkst",
+    "errata",
+    "open"
+  ],
+  "title": "BYWEEKNO with WKST=SU (weeks are not ISO weeks any more)"
+}

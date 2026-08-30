@@ -1,0 +1,59 @@
+{
+  "classification": "POLICY_DEPENDENT",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "empty",
+        "note": "Return an empty set — the reading consistent with EXDATE precedence.",
+        "occurrences": [],
+        "when": {
+          "rrule.empty_set": "empty"
+        }
+      },
+      {
+        "label": "reject",
+        "note": "Treat a component with no instances as invalid.",
+        "occurrences": null,
+        "when": {
+          "rrule.empty_set": "reject"
+        }
+      }
+    ],
+    "mode": "per_policy"
+  },
+  "family": "rrule.sets",
+  "id": "RRULE-SET-009",
+  "input": {
+    "count": 3,
+    "ics": "DTSTART;TZID=America/New_York:20260105T090000\nRRULE:FREQ=DAILY;COUNT=2\nEXDATE;TZID=America/New_York:20260105T090000,20260106T090000",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "note": "no statement about a fully excluded set",
+      "source_id": "rfc5545-3.8.5.3"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "Empty is a legitimate answer that many APIs cannot express (an iterator that raises StopIteration on the first call is indistinguishable from an error to some callers). Paired with CRON-INV-007 and RRULE-CORE-018.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "rrule.empty_set"
+  ],
+  "tags": [
+    "empty-set",
+    "exdate"
+  ],
+  "title": "Every instance excluded: an empty recurrence set"
+}

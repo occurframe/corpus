@@ -1,0 +1,46 @@
+{
+  "classification": "NORMATIVE",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "single",
+    "note": "With WKST defaulting to MO, the weekly period is Mon-Sun and the last of {Mon,Wed,Fri} is Friday. DTSTART 2026-01-05 is a Monday and is NOT in the set, so this vector also probes DTSTART emission.",
+    "occurrences": [
+      "2026-01-09T09:00:00-05:00|2026-01-09T14:00:00Z",
+      "2026-01-16T09:00:00-05:00|2026-01-16T14:00:00Z",
+      "2026-01-23T09:00:00-05:00|2026-01-23T14:00:00Z",
+      "2026-01-30T09:00:00-05:00|2026-01-30T14:00:00Z"
+    ]
+  },
+  "family": "rrule.by",
+  "id": "RRULE-BY-014",
+  "input": {
+    "count": 5,
+    "ics": "DTSTART;TZID=America/New_York:20260105T090000\nRRULE:FREQ=WEEKLY;BYDAY=MO,WE,FR;BYSETPOS=-1;COUNT=4",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "BYSETPOS ... specify the nth occurrence within the set of recurrence instances specified by the rule ... corresponding to the last day of the week",
+      "source_id": "rfc5545-3.3.10"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "BYSETPOS interacts with WKST through the definition of the period; few engines test this combination.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "bysetpos",
+    "wkst"
+  ],
+  "title": "BYSETPOS with FREQ=WEEKLY (a period with at most 7 candidates)"
+}

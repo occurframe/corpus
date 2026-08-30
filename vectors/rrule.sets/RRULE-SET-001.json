@@ -1,0 +1,46 @@
+{
+  "classification": "NORMATIVE",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "single",
+    "note": "COUNT=5 generates five candidates; EXDATE removes one, so four remain. COUNT bounds generation, not the final set.",
+    "occurrences": [
+      "2026-01-05T09:00:00-05:00|2026-01-05T14:00:00Z",
+      "2026-01-06T09:00:00-05:00|2026-01-06T14:00:00Z",
+      "2026-01-08T09:00:00-05:00|2026-01-08T14:00:00Z",
+      "2026-01-09T09:00:00-05:00|2026-01-09T14:00:00Z"
+    ]
+  },
+  "family": "rrule.sets",
+  "id": "RRULE-SET-001",
+  "input": {
+    "count": 6,
+    "ics": "DTSTART;TZID=America/New_York:20260105T090000\nRRULE:FREQ=DAILY;COUNT=5\nEXDATE;TZID=America/New_York:20260107T090000",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "the 'EXDATE' property ... take precedence over those specified by inclusion properties (i.e., RDATE and RRULE)",
+      "source_id": "rfc5545-3.8.5.3"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "The COUNT-versus-EXDATE interaction is the corpus's cheapest test of whether an engine composes the set correctly or applies EXDATE before COUNT.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "exdate",
+    "count"
+  ],
+  "title": "EXDATE removes an instance the RRULE generates"
+}

@@ -1,0 +1,86 @@
+{
+  "classification": "AMBIGUOUS_STANDARD",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "emit-dtstart",
+        "note": "DTSTART is emitted as instance 1 even though 1997-09-02 is a Tuesday and not the 13th. This is JSCalendar's legislated behaviour and the reading the RFC's own Friday-the-13th example (which EXDATEs DTSTART away) presupposes.",
+        "occurrences": [
+          "1997-09-02T09:00:00-04:00|1997-09-02T13:00:00Z",
+          "1998-02-13T09:00:00-05:00|1998-02-13T14:00:00Z",
+          "1998-03-13T09:00:00-05:00|1998-03-13T14:00:00Z",
+          "1998-11-13T09:00:00-05:00|1998-11-13T14:00:00Z"
+        ],
+        "when": {
+          "rrule.dtstart_emission": "always"
+        }
+      },
+      {
+        "label": "rule-only",
+        "note": "DTSTART is a seed only; the set contains rule matches at or after it. python-dateutil, rrule.js and most engines behave this way.",
+        "occurrences": [
+          "1998-02-13T09:00:00-05:00|1998-02-13T14:00:00Z",
+          "1998-03-13T09:00:00-05:00|1998-03-13T14:00:00Z",
+          "1998-11-13T09:00:00-05:00|1998-11-13T14:00:00Z",
+          "1999-08-13T09:00:00-04:00|1999-08-13T13:00:00Z"
+        ],
+        "when": {
+          "rrule.dtstart_emission": "if_matching"
+        }
+      },
+      {
+        "label": "reject",
+        "note": "Refuse the rule as undefined per the literal text of §3.8.5.3.",
+        "occurrences": null,
+        "when": {
+          "rrule.dtstart_emission": "reject"
+        }
+      }
+    ],
+    "mode": "admissible",
+    "note": "Three readings, one of which the RFC's own example depends on and another of which it declares undefined."
+  },
+  "family": "rrule.core",
+  "id": "RRULE-CORE-003",
+  "input": {
+    "count": 5,
+    "ics": "DTSTART;TZID=America/New_York:19970902T090000\nRRULE:FREQ=MONTHLY;BYDAY=FR;BYMONTHDAY=13;COUNT=4",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "If the specified recurrence rule does not include the start date-time, then the recurrence instances ... are undefined.",
+      "source_id": "rfc5545-3.8.5.3"
+    },
+    {
+      "note": "REJECTED, on the ground that 'the original example intentionally demonstrates the EXDATE feature by excluding the first occurrence' — which presupposes DTSTART *is* emitted. The RFC Editor thereby endorsed the emit reading inside an errata rejection note, which has no normative standing.",
+      "source_id": "eid5920"
+    },
+    {
+      "quote": "the start date-time ... is always the first occurrence in the expansion ... even if it would normally not match the rule",
+      "source_id": "rfc8984-4.3.3"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "DTSTART's role is the deepest under-specification in RFC 5545. §3.8.5.3 says the case is undefined; the same section prints an example that only works if DTSTART is emitted; erratum 5920's rejection entrenches the contradiction; RFC 8984 fixes it in the opposite direction to the ecosystem. Manufacturing a single answer here would be dishonest.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "rrule.dtstart_emission"
+  ],
+  "tags": [
+    "dtstart",
+    "headline"
+  ],
+  "title": "DTSTART unsynchronised with the rule (the RFC calls this undefined)"
+}

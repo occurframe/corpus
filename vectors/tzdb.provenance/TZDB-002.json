@@ -1,0 +1,78 @@
+{
+  "classification": "POLICY_DEPENDENT",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": "per-case"
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "tzdb<=2026b",
+        "note": "Ordinary MDT->MST fall back.",
+        "occurrences": [
+          "2026-10-30T12:00:00-06:00|2026-10-30T18:00:00Z",
+          "2026-10-31T12:00:00-06:00|2026-10-31T18:00:00Z",
+          "2026-11-01T12:00:00-07:00|2026-11-01T19:00:00Z",
+          "2026-11-02T12:00:00-07:00|2026-11-02T19:00:00Z"
+        ],
+        "when": {
+          "tz.tzdb_version": "2026b"
+        }
+      },
+      {
+        "label": "tzdb>=2026c",
+        "note": "Permanent -06, reported with the abbreviation CST.",
+        "occurrences": [
+          "2026-10-30T12:00:00-06:00|2026-10-30T18:00:00Z",
+          "2026-10-31T12:00:00-06:00|2026-10-31T18:00:00Z",
+          "2026-11-01T12:00:00-06:00|2026-11-01T18:00:00Z",
+          "2026-11-02T12:00:00-06:00|2026-11-02T18:00:00Z"
+        ],
+        "when": {
+          "tz.tzdb_version": "2026c"
+        }
+      }
+    ],
+    "mode": "per_policy",
+    "note": "Deliberately paired with TZDB-001: the two provinces changed in DIFFERENT tzdb releases, so a process on 2026b is correct for Vancouver and wrong for Edmonton."
+  },
+  "family": "tzdb.provenance",
+  "id": "TZDB-002",
+  "input": {
+    "count": 4,
+    "expr": "0 12 * * *",
+    "fields": 5,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-10-30T00:00:00",
+    "zone": "America/Edmonton"
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "Alberta's 2026-03-08 spring forward was its last foreseeable clock change, as it moved to permanent -06 thereafter.",
+      "source_id": "tzdb-2026c"
+    },
+    {
+      "source_id": "tzdb-news"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "The pair is a three-way discriminator: a run that gets TZDB-001 right and TZDB-002 wrong is on 2026b exactly; both wrong is <=2026a; both right is >=2026c. The corpus can therefore *infer* an engine's tzdb release from its output, which is what makes tzdb provenance auditable rather than self-reported.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "tz.tzdb_version"
+  ],
+  "tags": [
+    "tzdb",
+    "provenance",
+    "discriminator",
+    "headline"
+  ],
+  "title": "America/Edmonton noon daily across 2026-11-01 (Alberta abolished DST in tzdb 2026c)"
+}

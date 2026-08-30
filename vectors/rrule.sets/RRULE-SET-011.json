@@ -1,0 +1,65 @@
+{
+  "classification": "DIALECT_DEPENDENT",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": "2025c",
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "supported",
+        "note": "The period's start becomes the instance; its duration overrides the component's.",
+        "occurrences": [
+          "2026-01-05T09:00:00-05:00|2026-01-05T14:00:00Z",
+          "2026-01-07T09:00:00-05:00|2026-01-07T14:00:00Z",
+          "2026-01-12T09:00:00-05:00|2026-01-12T14:00:00Z"
+        ],
+        "when": {
+          "rrule.rdate_period": "supported"
+        }
+      },
+      {
+        "label": "reject",
+        "note": "Most recurrence-only libraries have no duration concept and cannot represent this at all.",
+        "occurrences": null,
+        "when": {
+          "rrule.rdate_period": "unsupported"
+        }
+      }
+    ],
+    "mode": "per_dialect"
+  },
+  "family": "rrule.sets",
+  "id": "RRULE-SET-011",
+  "input": {
+    "count": 4,
+    "ics": "DTSTART;TZID=America/New_York:20260105T090000\nRRULE:FREQ=WEEKLY;COUNT=2\nRDATE;VALUE=PERIOD:20260107T140000Z/PT1H",
+    "kind": "rrule",
+    "zone": "America/New_York"
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "Value Type: The default value type for this property is DATE-TIME. The value type can be set to DATE or PERIOD.",
+      "source_id": "rfc5545-3.8.5.2"
+    }
+  ],
+  "operation": "rrule.expand",
+  "rationale": "PERIOD-valued RDATE is the only place RFC 5545 lets a single occurrence carry a different *magnitude* from its siblings — the construct Stripe's prorated stub period needs and that no pure recurrence library models.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "rrule.profile",
+    "rrule.rdate_period"
+  ],
+  "tags": [
+    "rdate",
+    "period",
+    "scope-boundary"
+  ],
+  "title": "RDATE with a PERIOD value"
+}

@@ -1,0 +1,72 @@
+{
+  "classification": "POLICY_DEPENDENT",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "exclusive",
+        "note": "Strictly after the start instant. croniter get_next, cron-parser, croner default.",
+        "occurrences": [
+          "2026-01-02T12:00:00",
+          "2026-01-03T12:00:00",
+          "2026-01-04T12:00:00"
+        ],
+        "when": {
+          "cron.start_inclusivity": "exclusive"
+        }
+      },
+      {
+        "label": "inclusive",
+        "note": "At or after. APScheduler's get_next_fire_time(None, now) and several schedulers' catch-up paths.",
+        "occurrences": [
+          "2026-01-01T12:00:00",
+          "2026-01-02T12:00:00",
+          "2026-01-03T12:00:00"
+        ],
+        "when": {
+          "cron.start_inclusivity": "inclusive"
+        }
+      }
+    ],
+    "mode": "per_policy",
+    "note": "An off-by-one that duplicates or drops exactly one run, always at a boundary, and only when the caller's clock lands exactly on the schedule."
+  },
+  "family": "cron.anchoring",
+  "id": "CRON-ANCH-001",
+  "input": {
+    "count": 3,
+    "expr": "0 12 * * *",
+    "fields": 5,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-01-01T12:00:00",
+    "zone": null
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "note": "crontab(5) describes a daemon matching the current minute; it says nothing about a 'next occurrence after T' API, which is a library invention",
+      "source_id": "crontab5"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "No cron document defines a 'next after T' function, so its inclusivity is a library policy. It is the most common source of duplicate-fire bugs in catch-up logic, and the corpus makes the axis explicit rather than picking a winner.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "cron.start_inclusivity"
+  ],
+  "tags": [
+    "anchoring",
+    "policy",
+    "headline"
+  ],
+  "title": "Start instant exactly on an occurrence: inclusive or exclusive?"
+}

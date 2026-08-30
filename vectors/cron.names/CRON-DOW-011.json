@@ -1,0 +1,74 @@
+{
+  "classification": "DIALECT_DEPENDENT",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "accept",
+        "note": "Mon, Wed, Fri.",
+        "occurrences": [
+          "2026-01-02T12:00:00",
+          "2026-01-05T12:00:00",
+          "2026-01-07T12:00:00",
+          "2026-01-09T12:00:00",
+          "2026-01-12T12:00:00",
+          "2026-01-14T12:00:00"
+        ],
+        "when": {
+          "cron.step_on_named_range": "accept"
+        }
+      },
+      {
+        "label": "reject",
+        "note": "Dialects that forbid steps on name-valued ranges.",
+        "occurrences": null,
+        "when": {
+          "cron.step_on_named_range": "reject"
+        }
+      }
+    ],
+    "mode": "per_dialect"
+  },
+  "family": "cron.names",
+  "id": "CRON-DOW-011",
+  "input": {
+    "count": 6,
+    "expr": "0 12 * * MON-FRI/2",
+    "fields": 5,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-01-01T00:00:00",
+    "zone": null
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "Step values can be used in conjunction with ranges.",
+      "source_id": "crontab5"
+    },
+    {
+      "note": "POSIX defines no step operator at all; '/' is a Vixie extension.",
+      "source_id": "posix-crontab"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "POSIX has no '/' operator; every step vector in this corpus is therefore an extension test, not a standards test.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "cron.dialect",
+    "cron.step_on_named_range"
+  ],
+  "tags": [
+    "names",
+    "steps"
+  ],
+  "title": "Named range with a step: MON-FRI/2"
+}

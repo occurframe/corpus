@@ -1,0 +1,53 @@
+{
+  "classification": "NORMATIVE",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "mode": "single",
+    "note": "Days 1, 11, 21, 31 of each month; the phase resets every month, so the gap from the 31st to the 1st is one day.",
+    "occurrences": [
+      "2026-01-11T00:00:00",
+      "2026-01-21T00:00:00",
+      "2026-01-31T00:00:00",
+      "2026-02-01T00:00:00",
+      "2026-02-11T00:00:00",
+      "2026-02-21T00:00:00",
+      "2026-03-01T00:00:00",
+      "2026-03-11T00:00:00"
+    ]
+  },
+  "family": "cron.steps",
+  "id": "CRON-STEP-009",
+  "input": {
+    "count": 8,
+    "expr": "0 0 */10 * *",
+    "fields": 5,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2026-01-01T00:00:00",
+    "zone": null
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "steps are evaluated just within the field they are applied to",
+      "source_id": "crontab5"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "The clearest demonstration that cron is a predicate over instants and not an interval generator: the '10-day period' the user asked for never exists.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "steps",
+    "headline"
+  ],
+  "title": "Step in the day-of-month field: */10 does not mean every 10 days"
+}

@@ -1,0 +1,40 @@
+{
+  "classification": "INVALID",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": null
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "error_class": "interval_not_positive",
+    "mode": "reject",
+    "note": "Observed failure modes include an infinite loop and a silent coercion to 1."
+  },
+  "family": "rrule.core",
+  "id": "RRULE-CORE-016",
+  "input": {
+    "count": 3,
+    "ics": "DTSTART:19970902T090000\nRRULE:FREQ=DAILY;INTERVAL=0;COUNT=3",
+    "kind": "rrule",
+    "zone": null
+  },
+  "kind": "rrule",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "quote": "The INTERVAL rule part ... contains a positive integer representing at which intervals the recurrence rule repeats.",
+      "source_id": "rfc5545-3.3.10"
+    }
+  ],
+  "operation": "rrule.parse",
+  "rationale": "A crash-class vector on a MUST-shaped word ('positive').",
+  "schema_version": "1.0.0",
+  "semantic_axes": [],
+  "tags": [
+    "invalid"
+  ],
+  "title": "INTERVAL=0"
+}

@@ -1,0 +1,72 @@
+{
+  "classification": "POLICY_DEPENDENT",
+  "context": {
+    "dialect": null,
+    "policy": {},
+    "requires": [],
+    "tzdb_min": null,
+    "tzdb_pin": "per-case"
+  },
+  "corpus_version": "1.0.0-rc2",
+  "expectation": {
+    "cases": [
+      {
+        "label": "tzdb<=2026b",
+        "note": "MST.",
+        "occurrences": [
+          "2027-01-14T12:00:00-07:00|2027-01-14T19:00:00Z",
+          "2027-01-15T12:00:00-07:00|2027-01-15T19:00:00Z"
+        ],
+        "when": {
+          "tz.tzdb_version": "2026b"
+        }
+      },
+      {
+        "label": "tzdb>=2026c",
+        "note": "Reported as CST — the abbreviation of a zone 1,200 km to the east. Any system that persists 'MST' rather than 'America/Edmonton' is now storing a wrong answer.",
+        "occurrences": [
+          "2027-01-14T12:00:00-06:00|2027-01-14T18:00:00Z",
+          "2027-01-15T12:00:00-06:00|2027-01-15T18:00:00Z"
+        ],
+        "when": {
+          "tz.tzdb_version": "2026c"
+        }
+      }
+    ],
+    "mode": "per_policy"
+  },
+  "family": "tzdb.provenance",
+  "id": "TZDB-006",
+  "input": {
+    "count": 2,
+    "expr": "0 12 * * *",
+    "fields": 5,
+    "inclusive": false,
+    "kind": "cron",
+    "start": "2027-01-14T00:00:00",
+    "zone": "America/Edmonton"
+  },
+  "kind": "cron",
+  "lifecycle": "active",
+  "normative_evidence": [
+    {
+      "note": "tzdb abbreviations are advisory and are neither unique nor stable across releases",
+      "source_id": "tz-theory"
+    },
+    {
+      "source_id": "tzdb-2026c"
+    }
+  ],
+  "operation": "cron.next",
+  "rationale": "Included to close a specific product question: whether an occurrence record may store an offset or an abbreviation instead of an IANA zone id. It may not, and this vector is the proof.",
+  "schema_version": "1.0.0",
+  "semantic_axes": [
+    "tz.tzdb_version"
+  ],
+  "tags": [
+    "tzdb",
+    "provenance",
+    "identity"
+  ],
+  "title": "Zone abbreviation is not a stable identifier (Edmonton reports CST at -06:00)"
+}
