@@ -1,0 +1,147 @@
+{
+  "$id": "https://occurframe.dev/schemas/1/runner-protocol-v3.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "oneOf": [
+    { "$ref": "#/$defs/hello" },
+    { "$ref": "#/$defs/case" },
+    { "$ref": "#/$defs/started" },
+    { "$ref": "#/$defs/result" }
+  ],
+  "title": "Occurframe expectation-blind runner protocol v3 NDJSON message",
+  "$defs": {
+    "case": {
+      "additionalProperties": false,
+      "properties": {
+        "budget_ms": { "minimum": 1, "type": "integer" },
+        "family": { "type": "string" },
+        "input": { "type": "object" },
+        "message": { "const": "case" },
+        "operation": { "type": "string" },
+        "protocol_version": { "const": "3.0" },
+        "request_id": { "type": "string" },
+        "semantic_context": { "$ref": "#/$defs/semantic_context" },
+        "vector_id": { "type": "string" }
+      },
+      "required": ["message", "protocol_version", "request_id", "vector_id", "family", "operation", "input", "semantic_context", "budget_ms"],
+      "type": "object"
+    },
+    "component": {
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string" },
+        "provenance": { "type": "string" },
+        "version": { "type": "string" }
+      },
+      "required": ["name", "version"],
+      "type": "object"
+    },
+    "diagnostic": {
+      "additionalProperties": false,
+      "properties": {
+        "code": { "type": "string" },
+        "details": { "type": "string" },
+        "message": { "type": "string" }
+      },
+      "required": ["code", "message"],
+      "type": "object"
+    },
+    "hello": {
+      "additionalProperties": false,
+      "properties": {
+        "capabilities": { "items": { "type": "string" }, "type": "array" },
+        "dialect_ids": { "items": { "type": "string" }, "type": "array" },
+        "engine": { "$ref": "#/$defs/component" },
+        "message": { "const": "hello" },
+        "protocol_version": { "const": "3.0" },
+        "runner": { "$ref": "#/$defs/component" },
+        "runtime": { "$ref": "#/$defs/runtime" },
+        "semantic_profile_claims": { "additionalProperties": { "$ref": "#/$defs/semantic_value" }, "type": "object" },
+        "tzdb_provenance": { "$ref": "#/$defs/tzdb" }
+      },
+      "required": ["message", "protocol_version", "runner", "engine", "runtime", "capabilities", "dialect_ids", "semantic_profile_claims", "tzdb_provenance"],
+      "type": "object"
+    },
+    "outcome": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": { "occurrences": { "items": { "type": "string" }, "type": "array" }, "type": { "const": "occurrences" } },
+          "required": ["type", "occurrences"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": { "type": { "const": "accepted" } },
+          "required": ["type"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": { "diagnostic": { "$ref": "#/$defs/diagnostic" }, "type": { "enum": ["rejection", "unsupported", "engine_error"] } },
+          "required": ["type", "diagnostic"],
+          "type": "object"
+        }
+      ]
+    },
+    "result": {
+      "additionalProperties": false,
+      "properties": {
+        "message": { "const": "result" },
+        "outcome": { "$ref": "#/$defs/outcome" },
+        "protocol_version": { "const": "3.0" },
+        "request_id": { "type": "string" },
+        "warnings": { "items": { "$ref": "#/$defs/diagnostic" }, "type": "array" }
+      },
+      "required": ["message", "protocol_version", "request_id", "outcome", "warnings"],
+      "type": "object"
+    },
+    "runtime": {
+      "additionalProperties": false,
+      "properties": { "language": { "type": "string" }, "runtime": { "type": "string" }, "version": { "type": "string" } },
+      "required": ["language", "runtime", "version"],
+      "type": "object"
+    },
+    "semantic_context": {
+      "additionalProperties": false,
+      "properties": {
+        "dialect": { "type": ["string", "null"] },
+        "policy": { "additionalProperties": { "$ref": "#/$defs/semantic_value" }, "type": "object" },
+        "requires": { "items": { "type": "string" }, "type": "array" },
+        "tzdb_min": { "type": ["string", "null"] },
+        "tzdb_pin": { "type": ["string", "null"] }
+      },
+      "required": ["dialect", "policy", "requires", "tzdb_min", "tzdb_pin"],
+      "type": "object"
+    },
+    "semantic_value": { "oneOf": [{ "type": "string" }, { "type": "integer" }, { "type": "boolean" }] },
+    "started": {
+      "additionalProperties": false,
+      "properties": { "message": { "const": "started" }, "protocol_version": { "const": "3.0" }, "request_id": { "type": "string" } },
+      "required": ["message", "protocol_version", "request_id"],
+      "type": "object"
+    },
+    "tzdb": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": { "fingerprint": { "type": "string" }, "release": { "type": "string" }, "release_kind": { "const": "exact" }, "source": { "type": "string" } },
+          "required": ["source", "release_kind", "release"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": { "fingerprint": { "type": "string" }, "max_inclusive": { "type": "string" }, "min_inclusive": { "type": "string" }, "release_kind": { "const": "bounded" }, "source": { "type": "string" } },
+          "required": ["source", "release_kind"],
+          "anyOf": [{ "required": ["min_inclusive"] }, { "required": ["max_inclusive"] }],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": { "fingerprint": { "type": "string" }, "release_kind": { "const": "unknown" }, "source": { "type": "string" } },
+          "required": ["source", "release_kind"],
+          "type": "object"
+        }
+      ]
+    }
+  }
+}

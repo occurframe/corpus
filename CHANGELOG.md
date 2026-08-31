@@ -46,6 +46,17 @@ vectors:          184
 
 The exact post-RC2 change surface is recorded in `correction-report.json`.
 
+### Protocol hardening after the authority corrections
+
+- Added runner protocol 3.0 as a new, incompatible schema identity. Its case
+  message is an expectation-blind projection and cannot carry canonical answers,
+  rationale, evidence, classification, tags, or scoring metadata.
+- Preserved protocol 2.0 unchanged as the historical contract used by RC2
+  evidence.
+- Kept corpus `1.0.0-rc3`, all 184 vectors, and the canonical vector digest
+  unchanged. Only generated package identity changes when the schema inventory
+  changes.
+
 ## 1.0.0-rc2 — superseded prerelease
 
 The second release candidate. This is **not** stable `1.0.0`, and its

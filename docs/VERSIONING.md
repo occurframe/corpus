@@ -8,7 +8,7 @@ Four identities version independently and are never conflated:
 | --- | --- | --- |
 | Behavioural specification | `1.0.0-rc1` | `spec/specification.json` |
 | Corpus | `1.0.0-rc3` | this repository's vectors and registries |
-| Runner protocol | `2.0` | `schemas/runner-protocol-v2.schema.json` |
+| Runner protocol | `3.0` | `schemas/runner-protocol-v3.schema.json` |
 | Occurframe tooling | separate | `occurframe/occurframe` |
 
 The specification is the semantics an implementation is measured against; the
@@ -25,6 +25,6 @@ Before stable `1.0.0`, one narrow exception applies when a defective authored in
 
 Dialect IDs are permanent and versioned. Configuration variants use separate IDs whenever the configuration changes semantic claims. New dialect entries may be added in a corpus minor version. Renaming or removal requires a corpus major version. Documentation/implementation disagreement is recorded with `evidence_grade: documentation_conflict`, not hidden.
 
-Schema `$id` values are stable. Incompatible wire changes require a new schema identity and appropriate corpus major version. Runner protocol changes use their own protocol version.
+Schema `$id` values are stable. Incompatible runner-wire changes require a new schema identity and runner protocol version. Protocol 2.0 remains an immutable historical contract; expectation-blind cases begin at protocol 3.0. The corpus version and canonical vector digest do not move for a protocol-only change because neither vector questions nor expected answers changed. A generated package digest may move when its schema inventory changes.
 
 Compatibility claims must name at least corpus version, dialect or RRULE profile, semantic policy claims, tzdb provenance, engine identity/provenance, and runtime. “Cron-compatible” is not a versioned identity.

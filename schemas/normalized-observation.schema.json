@@ -8,7 +8,8 @@
     "engine": { "$ref": "#/$defs/component" },
     "engine_outcome": { "$ref": "#/$defs/outcome" },
     "execution_status": { "enum": ["completed", "timeout", "runner_failure"] },
-    "protocol_version": { "const": "2.0" },
+    "protocol_version": { "const": "3.0" },
+    "runner_environment": { "$ref": "#/$defs/runner_environment" },
     "runner": { "$ref": "#/$defs/component" },
     "runtime": { "$ref": "#/$defs/runtime" },
     "semantic_profile_claims": {
@@ -35,6 +36,7 @@
     "dialect_ids",
     "semantic_profile_claims",
     "tzdb_provenance",
+    "runner_environment",
     "execution_status",
     "warnings"
   ],
@@ -97,6 +99,34 @@
         "version": { "type": "string" }
       },
       "required": ["language", "runtime", "version"],
+      "type": "object"
+    },
+    "runner_environment": {
+      "additionalProperties": false,
+      "properties": {
+        "environment_policy": { "const": "hermetic_allowlist_v1" },
+        "explicit_runner_variable_names": {
+          "items": { "type": "string" },
+          "type": "array"
+        },
+        "host_timezone_setting": { "type": "string" },
+        "launch_resolution_method": {
+          "enum": ["absolute_path", "repository_relative", "search_path"]
+        },
+        "locale_policy": { "type": "string" },
+        "platform_variable_names": {
+          "items": { "type": "string" },
+          "type": "array"
+        }
+      },
+      "required": [
+        "environment_policy",
+        "host_timezone_setting",
+        "locale_policy",
+        "launch_resolution_method",
+        "platform_variable_names",
+        "explicit_runner_variable_names"
+      ],
       "type": "object"
     },
     "tzdb": {
