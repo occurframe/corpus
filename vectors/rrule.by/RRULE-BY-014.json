@@ -7,7 +7,7 @@
     "tzdb_min": "2025c",
     "tzdb_pin": null
   },
-  "corpus_version": "1.0.0-rc2",
+  "corpus_version": "1.0.0-rc3",
   "expectation": {
     "mode": "single",
     "note": "With WKST defaulting to MO, the weekly period is Mon-Sun and the last of {Mon,Wed,Fri} is Friday. DTSTART 2026-01-05 is a Monday and is NOT in the set, so this vector also probes DTSTART emission.",

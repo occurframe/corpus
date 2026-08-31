@@ -7,7 +7,7 @@
     "tzdb_min": "2025c",
     "tzdb_pin": null
   },
-  "corpus_version": "1.0.0-rc2",
+  "corpus_version": "1.0.0-rc3",
   "expectation": {
     "mode": "open",
     "note": "Recorded, not scored. Under erratum 1913 the numeric prefix is invalid here (BYWEEKNO is present); under erratum 3779 it is valid and means the second Monday of the year. Both errata are Verified. There is no consolidated text of RFC 5545 §3.3.10."

@@ -7,7 +7,7 @@
     "tzdb_min": null,
     "tzdb_pin": null
   },
-  "corpus_version": "1.0.0-rc2",
+  "corpus_version": "1.0.0-rc3",
   "expectation": {
     "mode": "single",
     "note": "Quarterly anchored to January, because the month field's range starts at 1 — not 'every three months from now'.",

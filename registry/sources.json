@@ -127,6 +127,11 @@
       "url": "https://data.iana.org/time-zones/theory.html"
     },
     {
+      "source_id": "tzdb-2026a",
+      "title": "IANA Time Zone Database release 2026a (data-only distribution)",
+      "url": "https://www.iana.org/time-zones/releases/2026a"
+    },
+    {
       "source_id": "tzdb-2026b",
       "title": "tzdb 2026b (2026-04-22): British Columbia permanent -07",
       "url": "https://www.iana.org/time-zones/releases/2026b"

@@ -7,7 +7,7 @@
     "tzdb_min": "2025c",
     "tzdb_pin": null
   },
-  "corpus_version": "1.0.0-rc2",
+  "corpus_version": "1.0.0-rc3",
   "expectation": {
     "mode": "single",
     "note": "2027 is not a leap year so February is skipped; 2028 is, so 2028-02-29 is included.",

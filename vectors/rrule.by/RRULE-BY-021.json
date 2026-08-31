@@ -7,7 +7,7 @@
     "tzdb_min": "2025c",
     "tzdb_pin": null
   },
-  "corpus_version": "1.0.0-rc2",
+  "corpus_version": "1.0.0-rc3",
   "expectation": {
     "mode": "single",
     "note": "Two boundary effects in one set. (a) The candidate for year 2026 is 2025-12-29 — ISO week 1 of 2026 starts in calendar 2025 — and is dropped because it precedes DTSTART, so the first emitted instance is for 2027. (b) The candidate for year 2030 is 2029-12-31, which lies in calendar year 2029. An engine that filters candidates by calendar year loses the second.",

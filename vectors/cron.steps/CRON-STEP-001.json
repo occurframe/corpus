@@ -7,7 +7,7 @@
     "tzdb_min": null,
     "tzdb_pin": null
   },
-  "corpus_version": "1.0.0-rc2",
+  "corpus_version": "1.0.0-rc3",
   "expectation": {
     "mode": "single",
     "note": "Fires at :00 and :35 of every hour — NOT every 35 minutes.",

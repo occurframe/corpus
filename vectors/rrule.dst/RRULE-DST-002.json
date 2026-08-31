@@ -7,7 +7,7 @@
     "tzdb_min": "2025c",
     "tzdb_pin": null
   },
-  "corpus_version": "1.0.0-rc2",
+  "corpus_version": "1.0.0-rc3",
   "expectation": {
     "mode": "single",
     "note": "The fold case IS settled by §3.3.5: first occurrence, i.e. the pre-transition offset. Emitting both instants, or only the second, is a conformance failure.",

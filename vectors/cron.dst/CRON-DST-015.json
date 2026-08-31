@@ -12,7 +12,7 @@
     "tzdb_min": "2025c",
     "tzdb_pin": null
   },
-  "corpus_version": "1.0.0-rc2",
+  "corpus_version": "1.0.0-rc3",
   "expectation": {
     "cases": [
       {
@@ -45,7 +45,7 @@
       },
       {
         "label": "fire_at_gap_start",
-        "note": "Fire at the instant the gap opens (i.e. the pre-gap offset applied to the wall time) — RFC 5545 §3.3.5 as routed by erratum 4271.",
+        "note": "Corpus policy: clamp a nonexistent nominal wall time to the transition instant at which valid post-gap time begins. This vector's 23:30 wall time never reaches that branch.",
         "occurrences": [
           "2026-03-07T23:30:00-03:30|2026-03-08T03:00:00Z",
           "2026-03-08T23:30:00-02:30|2026-03-09T02:00:00Z",
@@ -87,7 +87,7 @@
       }
     ],
     "mode": "per_policy",
-    "note": "Five policies, five different occurrence sets. No source arbitrates for a *library*; crontab(5) speaks only about a daemon."
+    "note": "All five declared policy profiles intentionally produce the same occurrence set because 23:30 is outside the 2026 St_Johns gap and fold. This is a control, not a gap-policy discriminator."
   },
   "family": "cron.dst",
   "id": "CRON-DST-015",
@@ -104,19 +104,12 @@
   "lifecycle": "active",
   "normative_evidence": [
     {
-      "quote": "Jobs ... which are scheduled during the 'missing times' will never be run. ... times which occur more than once ... will cause matching jobs to be run twice.",
-      "source_id": "crontab5"
-    },
-    {
-      "quote": "If the local time described occurs more than once ... the DATE-TIME value refers to the first occurrence ... If the local time ... does not occur ... the DATE-TIME value is interpreted using the UTC offset before the gap.",
-      "source_id": "rfc5545-3.3.5"
-    },
-    {
-      "source_id": "eid4271"
+      "note": "Compiled IANA tzdb 2026a places the St_Johns transition at 2026-03-08T05:30:00Z, from UTC-03:30 to UTC-02:30; local time jumps from 01:59:59 to 03:00:00.",
+      "source_id": "tzdb-2026a"
     }
   ],
   "operation": "cron.next",
-  "rationale": "Newfoundland combines a non-hour offset with an ordinary DST rule; the gap is 00:01-01:00 local, not 02:00-03:00.",
+  "rationale": "America/St_Johns combines a fractional UTC offset with a modern DST rule. In 2026 the spring transition skips local 02:00-02:59, but this daily 23:30 wall time is outside the anomaly. The vector is therefore a negative control: it verifies UTC-03:30/UTC-02:30 conversion across a DST-observing zone without invoking a gap or fold policy.",
   "schema_version": "1.0.0",
   "semantic_axes": [
     "cron.dst_fold",
@@ -125,7 +118,8 @@
   "tags": [
     "gap",
     "non-hour-offset",
-    "dst"
+    "dst",
+    "control"
   ],
   "title": "Half-hour standard offset with DST (America/St_Johns, -03:30)"
 }

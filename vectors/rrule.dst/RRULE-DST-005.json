@@ -7,7 +7,7 @@
     "tzdb_min": "2025c",
     "tzdb_pin": null
   },
-  "corpus_version": "1.0.0-rc2",
+  "corpus_version": "1.0.0-rc3",
   "expectation": {
     "mode": "open",
     "note": "Recorded, not scored. Troll's 2026-03-29 transition is +00 to +02, so 01:30 and 02:30 both fail to exist. A one-hour correction lands inside the gap."

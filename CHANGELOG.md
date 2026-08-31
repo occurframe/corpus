@@ -8,7 +8,45 @@ may correct an expectation in place with reviewed evidence; a change to the inpu
 retires the old ID and records its successor. Retired IDs remain in
 `registry/vector-ids.json` forever. See [Versioning](docs/VERSIONING.md).
 
-## 1.0.0-rc2 — unreleased prerelease
+## 1.0.0-rc3 — unreleased prerelease
+
+This prerelease corrects three independently reproduced authority defects. It
+does not incorporate new engine observations, alter historical RC1/RC2 evidence,
+or change the behavioural specification, runner protocol, or certification
+profile.
+
+```text
+canonical digest: c0a9cf0587c02ce5022cbb94d060e14d5b9d6f99c3210e512965f35062c4dfe0
+vectors:          184
+```
+
+### Corrected
+
+- `CRON-DST-020`: replaced a four-result London Sunday `02:30` construction
+  that stopped before the transition with a five-result Sunday `01:30`
+  construction that reaches the 2026-03-29 gap. Skip, gap-start/next-valid,
+  and pre-gap-offset now produce genuinely different canonical answers. The ID
+  is preserved under the documented pre-1.0 defective-construction exception.
+- `CRON-DST-001`: kept `fire_at_gap_start` as the corpus policy that clamps to
+  the 07:00Z New York transition boundary, and added `pre_gap_offset` for the
+  RFC 5545 interpretation yielding 07:30Z / 03:30 UTC-04:00. Citations now say
+  which policy they support.
+- `CRON-DST-015`: retained every expected occurrence and corrected the rationale
+  to the modern St_Johns 02:00–02:59 gap. The 23:30 schedule is now described
+  honestly as a fractional-offset control outside the anomaly.
+
+### Registry and reference changes
+
+- Added `pre_gap_offset` to `cron.dst_gap` with a definition distinct from
+  `fire_at_gap_start`.
+- Registered the primary IANA tzdb 2026a distribution and attached exact
+  transition facts to all three vectors.
+- Extended the independent reference matcher and tests to distinguish clamp
+  from pre-gap-offset arithmetic and to derive the London weekly answers.
+
+The exact post-RC2 change surface is recorded in `correction-report.json`.
+
+## 1.0.0-rc2 — superseded prerelease
 
 The second release candidate. This is **not** stable `1.0.0`, and its
 expectations may still be corrected with reviewed evidence before one exists.

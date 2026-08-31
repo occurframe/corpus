@@ -7,7 +7,7 @@
     "tzdb_min": "2025c",
     "tzdb_pin": null
   },
-  "corpus_version": "1.0.0-rc2",
+  "corpus_version": "1.0.0-rc3",
   "expectation": {
     "mode": "single",
     "note": "01:00 appears twice with different offsets. This is the only construct in RFC 5545 that produces two instances with the same wall time, and it is the reason occurrence identity cannot be a wall-clock string.",

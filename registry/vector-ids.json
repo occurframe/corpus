@@ -1,5 +1,5 @@
 {
-  "corpus_version": "1.0.0-rc2",
+  "corpus_version": "1.0.0-rc3",
   "ids": [
     {
       "family": "cron.anchoring",

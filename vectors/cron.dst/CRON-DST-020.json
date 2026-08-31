@@ -12,17 +12,18 @@
     "tzdb_min": "2025c",
     "tzdb_pin": null
   },
-  "corpus_version": "1.0.0-rc2",
+  "corpus_version": "1.0.0-rc3",
   "expectation": {
     "cases": [
       {
         "label": "skip",
         "note": "crontab(5): jobs in the missing hour never run; jobs in the repeated hour run twice — but the second half of that sentence is a *daemon* behaviour, so a library that returns a set must still choose.",
         "occurrences": [
-          "2026-03-01T02:30:00+00:00|2026-03-01T02:30:00Z",
-          "2026-03-08T02:30:00+00:00|2026-03-08T02:30:00Z",
-          "2026-03-15T02:30:00+00:00|2026-03-15T02:30:00Z",
-          "2026-03-22T02:30:00+00:00|2026-03-22T02:30:00Z"
+          "2026-03-01T01:30:00+00:00|2026-03-01T01:30:00Z",
+          "2026-03-08T01:30:00+00:00|2026-03-08T01:30:00Z",
+          "2026-03-15T01:30:00+00:00|2026-03-15T01:30:00Z",
+          "2026-03-22T01:30:00+00:00|2026-03-22T01:30:00Z",
+          "2026-04-05T01:30:00+01:00|2026-04-05T00:30:00Z"
         ],
         "when": {
           "cron.dst_fold": "first",
@@ -33,10 +34,11 @@
         "label": "next_valid",
         "note": "Fire at the first valid wall time at or after the nominal one (croniter's default; APScheduler; most cloud schedulers).",
         "occurrences": [
-          "2026-03-01T02:30:00+00:00|2026-03-01T02:30:00Z",
-          "2026-03-08T02:30:00+00:00|2026-03-08T02:30:00Z",
-          "2026-03-15T02:30:00+00:00|2026-03-15T02:30:00Z",
-          "2026-03-22T02:30:00+00:00|2026-03-22T02:30:00Z"
+          "2026-03-01T01:30:00+00:00|2026-03-01T01:30:00Z",
+          "2026-03-08T01:30:00+00:00|2026-03-08T01:30:00Z",
+          "2026-03-15T01:30:00+00:00|2026-03-15T01:30:00Z",
+          "2026-03-22T01:30:00+00:00|2026-03-22T01:30:00Z",
+          "2026-03-29T02:00:00+01:00|2026-03-29T01:00:00Z"
         ],
         "when": {
           "cron.dst_fold": "first",
@@ -45,12 +47,13 @@
       },
       {
         "label": "fire_at_gap_start",
-        "note": "Fire at the instant the gap opens (i.e. the pre-gap offset applied to the wall time) — RFC 5545 §3.3.5 as routed by erratum 4271.",
+        "note": "Corpus policy: clamp the nonexistent nominal wall time to the transition instant at which valid post-gap time begins. This is not the RFC 5545 pre-gap-offset rule.",
         "occurrences": [
-          "2026-03-01T02:30:00+00:00|2026-03-01T02:30:00Z",
-          "2026-03-08T02:30:00+00:00|2026-03-08T02:30:00Z",
-          "2026-03-15T02:30:00+00:00|2026-03-15T02:30:00Z",
-          "2026-03-22T02:30:00+00:00|2026-03-22T02:30:00Z"
+          "2026-03-01T01:30:00+00:00|2026-03-01T01:30:00Z",
+          "2026-03-08T01:30:00+00:00|2026-03-08T01:30:00Z",
+          "2026-03-15T01:30:00+00:00|2026-03-15T01:30:00Z",
+          "2026-03-22T01:30:00+00:00|2026-03-22T01:30:00Z",
+          "2026-03-29T02:00:00+01:00|2026-03-29T01:00:00Z"
         ],
         "when": {
           "cron.dst_fold": "first",
@@ -58,13 +61,29 @@
         }
       },
       {
+        "label": "pre_gap_offset",
+        "note": "Interpret the nonexistent nominal wall time using the UTC offset immediately before the gap, following RFC 5545 §3.3.5 as clarified by erratum 4271. This named corpus policy borrows that calendar rule; it is not asserted as normative cron behavior.",
+        "occurrences": [
+          "2026-03-01T01:30:00+00:00|2026-03-01T01:30:00Z",
+          "2026-03-08T01:30:00+00:00|2026-03-08T01:30:00Z",
+          "2026-03-15T01:30:00+00:00|2026-03-15T01:30:00Z",
+          "2026-03-22T01:30:00+00:00|2026-03-22T01:30:00Z",
+          "2026-03-29T02:30:00+01:00|2026-03-29T01:30:00Z"
+        ],
+        "when": {
+          "cron.dst_fold": "first",
+          "cron.dst_gap": "pre_gap_offset"
+        }
+      },
+      {
         "label": "fold_both",
         "note": "Emit both instants of an ambiguous wall time (Vixie daemon behaviour for repeated hours, and cronsim's option).",
         "occurrences": [
-          "2026-03-01T02:30:00+00:00|2026-03-01T02:30:00Z",
-          "2026-03-08T02:30:00+00:00|2026-03-08T02:30:00Z",
-          "2026-03-15T02:30:00+00:00|2026-03-15T02:30:00Z",
-          "2026-03-22T02:30:00+00:00|2026-03-22T02:30:00Z"
+          "2026-03-01T01:30:00+00:00|2026-03-01T01:30:00Z",
+          "2026-03-08T01:30:00+00:00|2026-03-08T01:30:00Z",
+          "2026-03-15T01:30:00+00:00|2026-03-15T01:30:00Z",
+          "2026-03-22T01:30:00+00:00|2026-03-22T01:30:00Z",
+          "2026-03-29T02:00:00+01:00|2026-03-29T01:00:00Z"
         ],
         "when": {
           "cron.dst_fold": "both",
@@ -75,10 +94,11 @@
         "label": "fold_second",
         "note": "Emit only the second (post-transition) instant.",
         "occurrences": [
-          "2026-03-01T02:30:00+00:00|2026-03-01T02:30:00Z",
-          "2026-03-08T02:30:00+00:00|2026-03-08T02:30:00Z",
-          "2026-03-15T02:30:00+00:00|2026-03-15T02:30:00Z",
-          "2026-03-22T02:30:00+00:00|2026-03-22T02:30:00Z"
+          "2026-03-01T01:30:00+00:00|2026-03-01T01:30:00Z",
+          "2026-03-08T01:30:00+00:00|2026-03-08T01:30:00Z",
+          "2026-03-15T01:30:00+00:00|2026-03-15T01:30:00Z",
+          "2026-03-22T01:30:00+00:00|2026-03-22T01:30:00Z",
+          "2026-03-29T02:00:00+01:00|2026-03-29T01:00:00Z"
         ],
         "when": {
           "cron.dst_fold": "second",
@@ -87,13 +107,13 @@
       }
     ],
     "mode": "per_policy",
-    "note": "Five policies, five different occurrence sets. No source arbitrates for a *library*; crontab(5) speaks only about a daemon."
+    "note": "The weekly gap produces three answers: skip omits the transition Sunday and continues to April 5; next-valid and gap-start clamp to 02:00 BST; pre-gap-offset yields 02:30 BST. Fold declarations are retained for a complete profile but do not change this spring-gap result."
   },
   "family": "cron.dst",
   "id": "CRON-DST-020",
   "input": {
-    "count": 4,
-    "expr": "30 2 * * SUN",
+    "count": 5,
+    "expr": "30 1 * * SUN",
     "fields": 5,
     "inclusive": false,
     "kind": "cron",
@@ -104,19 +124,26 @@
   "lifecycle": "active",
   "normative_evidence": [
     {
+      "note": "Supports the skip case as daemon behavior; it does not define a recurrence-library mapping policy.",
       "quote": "Jobs ... which are scheduled during the 'missing times' will never be run. ... times which occur more than once ... will cause matching jobs to be run twice.",
       "source_id": "crontab5"
     },
     {
+      "note": "Supports the pre_gap_offset case only.",
       "quote": "If the local time described occurs more than once ... the DATE-TIME value refers to the first occurrence ... If the local time ... does not occur ... the DATE-TIME value is interpreted using the UTC offset before the gap.",
       "source_id": "rfc5545-3.3.5"
     },
     {
+      "note": "Clarifies the RFC recurrence text routed to the DATE-TIME nonexistent-time rule; supports pre_gap_offset only.",
       "source_id": "eid4271"
+    },
+    {
+      "note": "Compiled IANA tzdb 2026a places the London transition at 2026-03-29T01:00:00Z, from UTC+00:00 to UTC+01:00; local time jumps from 00:59:59 to 02:00:00.",
+      "source_id": "tzdb-2026a"
     }
   ],
   "operation": "cron.next",
-  "rationale": "The gap and the DOW restriction interact: a weekly job at 02:30 on Sundays hits the gap on exactly one Sunday a year, so the 'skip' policy silently drops a whole week rather than a day.",
+  "rationale": "London advances at 01:00Z on 2026-03-29, skipping local 01:00-01:59. This five-result Sunday 01:30 query reaches that nonexistent wall time: skip drops an entire scheduled week, gap-start/next-valid map it to 02:00 BST, and pre-gap-offset maps nominal 01:30 UTC+00:00 to 01:30Z (02:30 BST).",
   "schema_version": "1.0.0",
   "semantic_axes": [
     "cron.dst_fold",

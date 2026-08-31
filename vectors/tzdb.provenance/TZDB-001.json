@@ -9,7 +9,7 @@
     "tzdb_min": null,
     "tzdb_pin": "per-case"
   },
-  "corpus_version": "1.0.0-rc2",
+  "corpus_version": "1.0.0-rc3",
   "expectation": {
     "cases": [
       {

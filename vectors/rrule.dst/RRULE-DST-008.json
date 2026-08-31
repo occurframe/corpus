@@ -7,7 +7,7 @@
     "tzdb_min": null,
     "tzdb_pin": null
   },
-  "corpus_version": "1.0.0-rc2",
+  "corpus_version": "1.0.0-rc3",
   "expectation": {
     "mode": "single",
     "note": "Including 2026-03-08T02:30, which is not a valid local time in New York. Floating times are correct here precisely because they are not bound to a zone.",

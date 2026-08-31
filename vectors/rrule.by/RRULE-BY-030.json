@@ -7,7 +7,7 @@
     "tzdb_min": "2025c",
     "tzdb_pin": null
   },
-  "corpus_version": "1.0.0-rc2",
+  "corpus_version": "1.0.0-rc3",
   "expectation": {
     "mode": "single",
     "note": "BYDAY and BYMONTHDAY INTERSECT in RRULE. In cron the same two fields are UNIONed under the Vixie rule — the single clearest semantic incompatibility between the grammars.",

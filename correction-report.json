@@ -1,0 +1,64 @@
+{
+  "report_version": "1",
+  "from": {
+    "canonical_corpus_digest": "4804772d20fb36c7329b2c5f2f28e264d9bc00b11e407e76d9836fc38cd80470",
+    "corpus_version": "1.0.0-rc2",
+    "git_sha": "5790faa3b886ff9ec3805283e218ea11a8c6dd24"
+  },
+  "to": {
+    "canonical_corpus_digest": "c0a9cf0587c02ce5022cbb94d060e14d5b9d6f99c3210e512965f35062c4dfe0",
+    "corpus_version": "1.0.0-rc3"
+  },
+  "vector_counts": {
+    "after": 184,
+    "before": 184
+  },
+  "ids": {
+    "added": [],
+    "removed": [],
+    "retired": []
+  },
+  "semantic_changes": {
+    "cases_added": [
+      "CRON-DST-001:pre_gap_offset",
+      "CRON-DST-020:pre_gap_offset"
+    ],
+    "cases_removed": [],
+    "classification_changes": [],
+    "expectations_changed": [
+      "CRON-DST-001",
+      "CRON-DST-020"
+    ],
+    "family_changes": [],
+    "inputs_changed": [
+      "CRON-DST-020"
+    ]
+  },
+  "metadata_only_vector_changes": [
+    {
+      "changes": [
+        "rationale",
+        "normative_evidence",
+        "expectation case note",
+        "expectation summary note",
+        "control tag"
+      ],
+      "expectations_changed": false,
+      "vector_id": "CRON-DST-015"
+    }
+  ],
+  "registry_changes": {
+    "semantic_axis_values_added": [
+      "cron.dst_gap:pre_gap_offset"
+    ],
+    "sources_added": [
+      "tzdb-2026a"
+    ]
+  },
+  "identity_only_changes": {
+    "all_vector_corpus_versions": "1.0.0-rc2 -> 1.0.0-rc3",
+    "schema_version_changed": false,
+    "specification_version_changed": false
+  },
+  "historical_evidence_rewritten": false
+}

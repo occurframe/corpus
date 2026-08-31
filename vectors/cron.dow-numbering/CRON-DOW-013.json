@@ -7,7 +7,7 @@
     "tzdb_min": null,
     "tzdb_pin": null
   },
-  "corpus_version": "1.0.0-rc2",
+  "corpus_version": "1.0.0-rc3",
   "expectation": {
     "mode": "single",
     "note": "Must equal the result of '0 12 * * SUN' in the same engine. An engine whose numeric and named day-of-week fields use different bases fails this vector while passing every named-day vector.",

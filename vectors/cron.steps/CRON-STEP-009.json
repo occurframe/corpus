@@ -7,7 +7,7 @@
     "tzdb_min": null,
     "tzdb_pin": null
   },
-  "corpus_version": "1.0.0-rc2",
+  "corpus_version": "1.0.0-rc3",
   "expectation": {
     "mode": "single",
     "note": "Days 1, 11, 21, 31 of each month; the phase resets every month, so the gap from the 31st to the 1st is one day.",

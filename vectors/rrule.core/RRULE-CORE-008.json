@@ -7,7 +7,7 @@
     "tzdb_min": "2025c",
     "tzdb_pin": null
   },
-  "corpus_version": "1.0.0-rc2",
+  "corpus_version": "1.0.0-rc3",
   "expectation": {
     "mode": "single",
     "note": "17:00Z is 13:00 EDT, so only 09:00 and 12:00 local are in range — the behaviour the erratum exists to explain.",

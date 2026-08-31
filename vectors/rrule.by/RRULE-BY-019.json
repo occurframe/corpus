@@ -7,7 +7,7 @@
     "tzdb_min": "2025c",
     "tzdb_pin": null
   },
-  "corpus_version": "1.0.0-rc2",
+  "corpus_version": "1.0.0-rc3",
   "expectation": {
     "mode": "single",
     "note": "Identical to WKST=MO. Engines that default to the locale's first day of week (observed in calendar UIs) return the WKST=SU set instead.",

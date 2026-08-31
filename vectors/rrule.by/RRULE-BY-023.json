@@ -7,7 +7,7 @@
     "tzdb_min": "2025c",
     "tzdb_pin": null
   },
-  "corpus_version": "1.0.0-rc2",
+  "corpus_version": "1.0.0-rc3",
   "expectation": {
     "mode": "open",
     "note": "Recorded, not scored. The RFC defines week numbering relative to WKST but states the four-day rule in ISO terms; engines variously (a) recompute week 1 under the declared WKST, (b) use ISO weeks regardless of WKST, or (c) ignore BYWEEKNO when WKST is not MO. No source arbitrates, and two Verified errata edit the neighbouring sentence irreconcilably."

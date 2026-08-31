@@ -3,7 +3,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "additionalProperties": false,
   "properties": {
-    "corpus_version": { "const": "1.0.0-rc2" },
+    "corpus_version": { "const": "1.0.0-rc3" },
     "ids": {
       "items": {
         "additionalProperties": false,

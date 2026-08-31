@@ -33,7 +33,7 @@ dow_zero_seven :
                 CronTrigger.from_crontab; NAMED days remain Sunday-based, so
                 numeric and named forms disagree inside one engine)
 fields : 5 | 6 | 7  and seconds_leading : bool, year_field : bool
-dst_gap  : "skip" | "next_valid" | "shift_forward" | "fire_at_gap_start"
+dst_gap  : "skip" | "next_valid" | "shift_forward" | "fire_at_gap_start" | "pre_gap_offset"
 dst_fold : "first" | "second" | "both"
 """
 from __future__ import annotations
@@ -361,8 +361,10 @@ def to_instants(naive_list, tz, pol: Policy):
 
     Returns a list of aware datetimes. A gap-policy of "skip" drops the
     occurrence entirely; "next_valid" fires at the first valid wall time at or
-    after the nominal one; "fire_at_gap_start" fires at the instant the gap
-    begins. A fold-policy of "both" emits both instants.
+    after the nominal one; "fire_at_gap_start" clamps to the transition instant
+    at which valid post-gap time begins; "pre_gap_offset" interprets the nominal
+    fields using the offset immediately before the gap. A fold-policy of "both"
+    emits both instants.
     """
     out = []
     for nv in naive_list:
@@ -371,13 +373,18 @@ def to_instants(naive_list, tz, pol: Policy):
         if not exists:
             if pol.dst_gap == "skip":
                 continue
+            prior = nv
+            while True:
+                prior -= dt.timedelta(minutes=1)
+                p = prior.replace(tzinfo=tz)
+                if p.astimezone(dt.timezone.utc).astimezone(tz).replace(tzinfo=None) == prior:
+                    break
+            if pol.dst_gap == "pre_gap_offset":
+                instant = (nv - p.utcoffset()).replace(tzinfo=dt.timezone.utc)
+                out.append(instant.astimezone(tz))
+                continue
             if pol.dst_gap == "fire_at_gap_start":
-                probe = nv
-                while True:
-                    probe -= dt.timedelta(minutes=1)
-                    p = probe.replace(tzinfo=tz)
-                    if p.astimezone(dt.timezone.utc).astimezone(tz).replace(tzinfo=None) == probe:
-                        break
+                probe = prior
                 out.append((probe + dt.timedelta(minutes=1)).replace(tzinfo=tz)
                            .astimezone(dt.timezone.utc).astimezone(tz))
                 continue

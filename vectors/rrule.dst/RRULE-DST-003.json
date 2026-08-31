@@ -7,7 +7,7 @@
     "tzdb_min": "2025c",
     "tzdb_pin": null
   },
-  "corpus_version": "1.0.0-rc2",
+  "corpus_version": "1.0.0-rc3",
   "expectation": {
     "mode": "single",
     "note": "09:00 local on all three dates; the UTC instants are 14:00Z, 13:00Z, 13:00Z. An engine that expands in UTC and converts back produces 08:00 or 10:00 local after the transition.",

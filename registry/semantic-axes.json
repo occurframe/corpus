@@ -81,11 +81,12 @@
     {
       "axis_id": "cron.dst_gap",
       "axis_kind": "policy",
-      "description": "Research II semantic axis cron.dst_gap; values are preserved from RC1.",
+      "description": "Mapping policy for a nominal cron wall time in a forward clock gap: skip omits it; next_valid selects the first valid wall time at or after it; fire_at_gap_start clamps to the transition instant that begins valid post-gap time; pre_gap_offset interprets the nominal fields using the UTC offset immediately before the gap, following the RFC 5545 DATE-TIME rule as a named corpus policy rather than cron authority. declared is an authoring placeholder requiring an explicit implementation claim.",
       "values": [
         "declared",
         "fire_at_gap_start",
         "next_valid",
+        "pre_gap_offset",
         "skip"
       ]
     },

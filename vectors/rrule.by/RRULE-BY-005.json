@@ -7,7 +7,7 @@
     "tzdb_min": "2025c",
     "tzdb_pin": null
   },
-  "corpus_version": "1.0.0-rc2",
+  "corpus_version": "1.0.0-rc3",
   "expectation": {
     "mode": "single",
     "note": "Seven months a year, not twelve. Contrast Stripe's billing anchor, which bills the last day of the month instead, and relativedelta/Temporal 'constrain', which clamp to the 28th/30th.",

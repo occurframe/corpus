@@ -12,7 +12,7 @@
     "tzdb_min": "2025c",
     "tzdb_pin": null
   },
-  "corpus_version": "1.0.0-rc2",
+  "corpus_version": "1.0.0-rc3",
   "expectation": {
     "cases": [
       {
@@ -45,7 +45,7 @@
       },
       {
         "label": "fire_at_gap_start",
-        "note": "Fire at the instant the gap opens (i.e. the pre-gap offset applied to the wall time) — RFC 5545 §3.3.5 as routed by erratum 4271.",
+        "note": "Corpus policy: clamp the nonexistent nominal wall time to the transition instant at which valid post-gap time begins. This is not the RFC 5545 pre-gap-offset rule.",
         "occurrences": [
           "2026-03-07T02:30:00-05:00|2026-03-07T07:30:00Z",
           "2026-03-08T03:00:00-04:00|2026-03-08T07:00:00Z",
@@ -55,6 +55,20 @@
         "when": {
           "cron.dst_fold": "first",
           "cron.dst_gap": "fire_at_gap_start"
+        }
+      },
+      {
+        "label": "pre_gap_offset",
+        "note": "Interpret the nonexistent nominal wall time using the UTC offset immediately before the gap, following RFC 5545 §3.3.5 as clarified by erratum 4271. This named corpus policy borrows that calendar rule; it is not asserted as normative cron behavior.",
+        "occurrences": [
+          "2026-03-07T02:30:00-05:00|2026-03-07T07:30:00Z",
+          "2026-03-08T03:30:00-04:00|2026-03-08T07:30:00Z",
+          "2026-03-09T02:30:00-04:00|2026-03-09T06:30:00Z",
+          "2026-03-10T02:30:00-04:00|2026-03-10T06:30:00Z"
+        ],
+        "when": {
+          "cron.dst_fold": "first",
+          "cron.dst_gap": "pre_gap_offset"
         }
       },
       {
@@ -87,7 +101,7 @@
       }
     ],
     "mode": "per_policy",
-    "note": "Five policies, five different occurrence sets. No source arbitrates for a *library*; crontab(5) speaks only about a daemon."
+    "note": "Gap policy is declared explicitly: skip, next-valid/clamp, and pre-gap-offset produce distinct answers. Fold declarations are retained for a complete profile but do not change this spring-gap result. No source arbitrates for a cron library; crontab(5) speaks about a daemon, and RFC 5545 supports only the separately named calendar-derived policy."
   },
   "family": "cron.dst",
   "id": "CRON-DST-001",
@@ -104,19 +118,26 @@
   "lifecycle": "active",
   "normative_evidence": [
     {
+      "note": "Supports the skip case as daemon behavior; it does not define a recurrence-library mapping policy.",
       "quote": "Jobs ... which are scheduled during the 'missing times' will never be run. ... times which occur more than once ... will cause matching jobs to be run twice.",
       "source_id": "crontab5"
     },
     {
+      "note": "Supports the pre_gap_offset case only.",
       "quote": "If the local time described occurs more than once ... the DATE-TIME value refers to the first occurrence ... If the local time ... does not occur ... the DATE-TIME value is interpreted using the UTC offset before the gap.",
       "source_id": "rfc5545-3.3.5"
     },
     {
+      "note": "Clarifies the RFC recurrence text routed to the DATE-TIME nonexistent-time rule; supports pre_gap_offset only.",
       "source_id": "eid4271"
+    },
+    {
+      "note": "Compiled IANA tzdb 2026a places the New York transition at 2026-03-08T07:00:00Z, from UTC-05:00 to UTC-04:00.",
+      "source_id": "tzdb-2026a"
     }
   ],
   "operation": "cron.next",
-  "rationale": "The canonical DST vector. crontab(5) says the job never runs; every hosted scheduler and most libraries run it anyway, at four different instants. This is the vector that makes 'DST-safe' falsifiable.",
+  "rationale": "The canonical spring-gap vector separates omission, clamping to the 07:00Z gap boundary, and interpreting nominal 02:30 with the pre-gap UTC-05:00 offset (07:30Z, normalized to 03:30 UTC-04:00). Cron does not standardize one library policy; each answer is therefore attributed to a precise corpus policy rather than incumbent behavior.",
   "schema_version": "1.0.0",
   "semantic_axes": [
     "cron.dst_fold",
